@@ -52,3 +52,6 @@
 
 /* Center 'and' between the names and slightly reduce mobile name size. */
 @media(max-width:600px){.hero h1{font-size:48px;text-align:center}.hero h1 .and{display:block;width:100%;text-align:center;margin-inline:auto}}
+
+/* Restore the previous mobile name size while keeping 'and' centered. */
+@media(max-width:600px){.hero h1{font-size:56px}.hero h1 .and{width:100%;text-align:center;margin-inline:auto}}

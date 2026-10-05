@@ -40,3 +40,6 @@
 
 /* Use the reference's soft cream overlay instead of blur on mobile. */
 @media(max-width:600px){.hero{height:610px}.hero-copy{bottom:0}.hero-photo:after{inset:0;height:auto;background:linear-gradient(to bottom,rgba(250,247,241,0) 38%,rgba(250,247,241,.12) 50%,rgba(250,247,241,.42) 64%,rgba(247,239,226,.82) 79%,#f0dfc8 90%);backdrop-filter:none;-webkit-backdrop-filter:none;mask-image:none!important;-webkit-mask-image:none!important}}
+
+/* Stronger warm-white fade over the couple's lower body and all mobile hero text. */
+@media(max-width:600px){.hero-photo:after{inset:0;height:auto;background:linear-gradient(to bottom,rgba(250,247,241,0) 32%,rgba(250,247,241,.18) 43%,rgba(250,247,241,.55) 58%,rgba(247,239,226,.9) 73%,#f0dfc8 86%);backdrop-filter:none;-webkit-backdrop-filter:none;mask-image:none!important;-webkit-mask-image:none!important}}

@@ -43,3 +43,6 @@
 
 /* Stronger warm-white fade over the couple's lower body and all mobile hero text. */
 @media(max-width:600px){.hero-photo:after{inset:0;height:auto;background:linear-gradient(to bottom,rgba(250,247,241,0) 32%,rgba(250,247,241,.18) 43%,rgba(250,247,241,.55) 58%,rgba(247,239,226,.9) 73%,#f0dfc8 86%);backdrop-filter:none;-webkit-backdrop-filter:none;mask-image:none!important;-webkit-mask-image:none!important}}
+
+/* Slightly strengthen the white fade across the lower mobile photo and copy. */
+@media(max-width:600px){.hero-photo:after{background:linear-gradient(to bottom,rgba(250,247,241,0) 30%,rgba(250,247,241,.28) 42%,rgba(250,247,241,.68) 58%,rgba(247,239,226,.96) 73%,#f0dfc8 84%)}}

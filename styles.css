@@ -37,3 +37,6 @@
 
 /* Match the reference text placement more closely. */
 @media(max-width:600px){.hero{height:610px}.hero-copy{bottom:0}}
+
+/* Use the reference's soft cream overlay instead of blur on mobile. */
+@media(max-width:600px){.hero{height:610px}.hero-copy{bottom:0}.hero-photo:after{inset:0;height:auto;background:linear-gradient(to bottom,rgba(250,247,241,0) 38%,rgba(250,247,241,.12) 50%,rgba(250,247,241,.42) 64%,rgba(247,239,226,.82) 79%,#f0dfc8 90%);backdrop-filter:none;-webkit-backdrop-filter:none;mask-image:none!important;-webkit-mask-image:none!important}}

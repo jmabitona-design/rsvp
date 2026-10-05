@@ -10,3 +10,7 @@
 [hidden]{display:none!important}svg{display:block;flex-shrink:0}button{color:inherit}#photo-dialog{border:1px solid #c8b99f;background:#faf6ee;padding:36px 16px 16px;max-width:min(750px,90vw);width:90vw;max-height:90vh;border-radius:6px}#photo-dialog::backdrop{background:#0009}#large-photo{display:block;width:100%;max-height:75vh;object-fit:contain}#close-photo{position:absolute;right:12px;top:0;font-size:27px;background:none;border:0}.nav-heart svg{width:17px}#rsvp-pending{color:#f7f3ec}.pill svg{width:18px;height:18px}
 
 .wedding-logo{display:block;width:48px;height:48px;object-fit:contain}footer .monogram{display:inline-block}footer .wedding-logo{width:80px;height:80px}
+
+
+/* Show the full couple photo on phone screens. */
+@media(max-width:600px){.hero-photo{background-size:100% auto;background-position:center top;background-repeat:no-repeat}}

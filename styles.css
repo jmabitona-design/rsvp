@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+
 
 
 @font-face{font-family:WeddingSerif;src:url('assets/serif.otf')}@font-face{font-family:WeddingScript;src:url('assets/script.otf')}
@@ -9,10 +12,18 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
 
+
+
 [hidden]{display:none!important}svg{display:block;flex-shrink:0}button{color:inherit}#photo-dialog{border:1px solid #c8b99f;background:#faf6ee;padding:36px 16px 16px;max-width:min(750px,90vw);width:90vw;max-height:90vh;border-radius:6px}#photo-dialog::backdrop{background:#0009}#large-photo{display:block;width:100%;max-height:75vh;object-fit:contain}#close-photo{position:absolute;right:12px;top:0;font-size:27px;background:none;border:0}.nav-heart svg{width:17px}#rsvp-pending{color:#f7f3ec}.pill svg{width:18px;height:18px}
 
 
+
+
 .wedding-logo{display:block;width:48px;height:48px;object-fit:contain}footer .monogram{display:inline-block}footer .wedding-logo{width:80px;height:80px}
+
+
+
+
 
 
 
@@ -25,8 +36,16 @@
 
 
 
+
+
+
+
 /* Blend the full-width couple photo into the mobile invitation copy. */
 @media(max-width:600px){.hero{height:520px}.hero-photo{inset:0;background-size:100% auto;background-position:center top;background-repeat:no-repeat}.hero-photo:after{inset:0;background:linear-gradient(to bottom,rgba(240,223,200,0) 16%,rgba(240,223,200,.12) 36%,rgba(240,223,200,.74) 59%,#f0dfc8 76%);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}.hero-copy{bottom:12px}.hero .eyebrow{font-size:13px;letter-spacing:2.7px;margin-bottom:7px}.hero h1{font-size:44px;line-height:.94;letter-spacing:4px;margin:5px 0 10px}.and{font-size:35px;line-height:.9}.date{font-size:15px;letter-spacing:1.7px;margin-bottom:2px}.location{font-size:10px;letter-spacing:1.3px}}
+
+
+
+
 
 
 
@@ -36,17 +55,7 @@
 
 
 
-
-/* Keep the blur concentrated at the lower edge of the mobile photo. */
-@media(max-width:600px){.hero-photo:after{mask-image:linear-gradient(to bottom,transparent 32%,#000 67%);-webkit-mask-image:linear-gradient(to bottom,transparent 32%,#000 67%)}}
-/* Keep the mobile couple photo sharp and blend it into the invitation text. */
-@media(max-width:600px){.hero-photo:after{inset:0;height:auto;background:linear-gradient(to bottom,rgba(240,223,200,0) 34%,rgba(240,223,200,.12) 49%,rgba(240,223,200,.72) 67%,#f0dfc8 82%);backdrop-filter:none;-webkit-backdrop-filter:none;mask-image:none!important;-webkit-mask-image:none!important}}
-/* Blur only the bottom edge of the mobile banner before the text begins. */
-@media(max-width:600px){.hero-photo{height:65vw;max-height:260px}.hero-photo:after{inset:auto 0 0;height:88px;background:linear-gradient(to bottom,rgba(240,223,200,0),rgba(240,223,200,.8) 72%,#f0dfc8);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);mask-image:none!important;-webkit-mask-image:none!important}}
-/* Match the mobile invitation reference: full photo behind larger lower-centered copy. */
-@media(max-width:600px){.hero{height:520px}.hero-photo{inset:0;height:100%;max-height:none;background-size:150% auto;background-position:62% top;background-repeat:no-repeat}.hero-photo:after{inset:180px 0 0;height:auto;background:linear-gradient(to bottom,rgba(240,223,200,0),rgba(240,223,200,.16) 22%,rgba(240,223,200,.58) 56%,#f0dfc8 92%);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);mask-image:none!important;-webkit-mask-image:none!important}.hero-copy{top:auto;bottom:18px;left:0;width:100%;transform:none}.hero .eyebrow{font-size:14px;letter-spacing:3px;margin-bottom:8px}.hero h1{font-size:56px;line-height:.94;letter-spacing:4px;margin:4px 0 15px}.hero .and{font-size:43px;line-height:.95}.hero .date{font-size:17px;letter-spacing:2px;margin-bottom:3px}.hero .location{font-size:12px;letter-spacing:1.6px}}
-
-/* Give the names a flowing wedding-calligraphy style. */
-.hero h1{font-family:WeddingScript,cursive;font-size:110px;letter-spacing:0;text-transform:none;line-height:.78;margin:0 0 24px}
-.hero h1 .and{font-family:WeddingScript,cursive;font-size:60px;line-height:.82;letter-spacing:0;color:#272a20}
-@media(max-width:600px){.hero h1{font-size:78px;letter-spacing:0;line-height:.78;margin:4px 0 12px}.hero h1 .and{font-size:46px;line-height:.82}}
+/* Use a finer handwritten font for the couple names. */
+.hero h1{font-family:Sacramento,cursive!important;font-size:120px;letter-spacing:0;text-transform:none;line-height:.8;margin:0 0 24px}
+.hero h1 .and{font-family:Sacramento,cursive!important;font-size:58px;line-height:.85;letter-spacing:0;color:#272a20}
+@media(max-width:600px){.hero h1{font-size:84px;letter-spacing:0;line-height:.8;margin:4px 0 12px}.hero h1 .and{font-size:46px;line-height:.85}}

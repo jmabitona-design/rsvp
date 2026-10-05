@@ -28,3 +28,5 @@
 
 /* Keep the blur concentrated at the lower edge of the mobile photo. */
 @media(max-width:600px){.hero-photo:after{mask-image:linear-gradient(to bottom,transparent 32%,#000 67%);-webkit-mask-image:linear-gradient(to bottom,transparent 32%,#000 67%)}}
+/* Keep the mobile couple photo sharp and blend it into the invitation text. */
+@media(max-width:600px){.hero-photo:after{inset:0;height:auto;background:linear-gradient(to bottom,rgba(240,223,200,0) 34%,rgba(240,223,200,.12) 49%,rgba(240,223,200,.72) 67%,#f0dfc8 82%);backdrop-filter:none;-webkit-backdrop-filter:none;mask-image:none!important;-webkit-mask-image:none!important}}

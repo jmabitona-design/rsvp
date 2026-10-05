@@ -34,3 +34,6 @@
 @media(max-width:600px){.hero-photo{height:65vw;max-height:260px}.hero-photo:after{inset:auto 0 0;height:88px;background:linear-gradient(to bottom,rgba(240,223,200,0),rgba(240,223,200,.8) 72%,#f0dfc8);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);mask-image:none!important;-webkit-mask-image:none!important}}
 /* Match the mobile invitation reference: full photo behind larger lower-centered copy. */
 @media(max-width:600px){.hero{height:520px}.hero-photo{inset:0;height:100%;max-height:none;background-size:150% auto;background-position:62% top;background-repeat:no-repeat}.hero-photo:after{inset:180px 0 0;height:auto;background:linear-gradient(to bottom,rgba(240,223,200,0),rgba(240,223,200,.16) 22%,rgba(240,223,200,.58) 56%,#f0dfc8 92%);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);mask-image:none!important;-webkit-mask-image:none!important}.hero-copy{top:auto;bottom:18px;left:0;width:100%;transform:none}.hero .eyebrow{font-size:14px;letter-spacing:3px;margin-bottom:8px}.hero h1{font-size:56px;line-height:.94;letter-spacing:4px;margin:4px 0 15px}.hero .and{font-size:43px;line-height:.95}.hero .date{font-size:17px;letter-spacing:2px;margin-bottom:3px}.hero .location{font-size:12px;letter-spacing:1.6px}}
+
+/* Match the reference text placement more closely. */
+@media(max-width:600px){.hero{height:610px}.hero-copy{bottom:0}}

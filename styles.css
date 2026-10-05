@@ -24,3 +24,7 @@
 
 /* Clear the earlier mask so the photo-to-text fade stays continuous. */
 @media(max-width:600px){.hero-photo:after{inset:0;height:auto;background:linear-gradient(to bottom,rgba(240,223,200,0) 34%,rgba(240,223,200,.22) 48%,rgba(240,223,200,.72) 64%,#f0dfc8 80%);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);mask-image:none!important;-webkit-mask-image:none!important}}
+
+
+/* Keep the blur concentrated at the lower edge of the mobile photo. */
+@media(max-width:600px){.hero-photo:after{mask-image:linear-gradient(to bottom,transparent 32%,#000 67%);-webkit-mask-image:linear-gradient(to bottom,transparent 32%,#000 67%)}}

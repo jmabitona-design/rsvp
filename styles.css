@@ -20,3 +20,7 @@
 
 /* Blend the full-width couple photo into the mobile invitation copy. */
 @media(max-width:600px){.hero{height:520px}.hero-photo{inset:0;background-size:100% auto;background-position:center top;background-repeat:no-repeat}.hero-photo:after{inset:0;background:linear-gradient(to bottom,rgba(240,223,200,0) 16%,rgba(240,223,200,.12) 36%,rgba(240,223,200,.74) 59%,#f0dfc8 76%);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}.hero-copy{bottom:12px}.hero .eyebrow{font-size:13px;letter-spacing:2.7px;margin-bottom:7px}.hero h1{font-size:44px;line-height:.94;letter-spacing:4px;margin:5px 0 10px}.and{font-size:35px;line-height:.9}.date{font-size:15px;letter-spacing:1.7px;margin-bottom:2px}.location{font-size:10px;letter-spacing:1.3px}}
+
+
+/* Clear the earlier mask so the photo-to-text fade stays continuous. */
+@media(max-width:600px){.hero-photo:after{inset:0;height:auto;background:linear-gradient(to bottom,rgba(240,223,200,0) 34%,rgba(240,223,200,.22) 48%,rgba(240,223,200,.72) 64%,#f0dfc8 80%);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);mask-image:none!important;-webkit-mask-image:none!important}}

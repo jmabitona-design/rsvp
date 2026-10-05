@@ -55,3 +55,6 @@
 
 /* Restore the previous mobile name size while keeping 'and' centered. */
 @media(max-width:600px){.hero h1{font-size:56px}.hero h1 .and{width:100%;text-align:center;margin-inline:auto}}
+
+/* Fit the longer venue line on narrow phone screens. */
+@media(max-width:600px){.hero .location{font-size:10px;letter-spacing:.7px;padding:0 10px}}

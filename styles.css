@@ -46,3 +46,6 @@
 
 /* Slightly strengthen the white fade across the lower mobile photo and copy. */
 @media(max-width:600px){.hero-photo:after{background:linear-gradient(to bottom,rgba(250,247,241,0) 30%,rgba(250,247,241,.28) 42%,rgba(250,247,241,.68) 58%,rgba(247,239,226,.96) 73%,#f0dfc8 84%)}}
+
+/* Shift the mobile crop right so the groom fits in the frame. */
+@media(max-width:600px){.hero-photo{background-size:145% auto;background-position:right top}}

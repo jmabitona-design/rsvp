@@ -284,3 +284,31 @@ footer .wedding-logo{width:80px;height:80px}
 .story-signoff span{color:#a39170;font:normal 21px Georgia,serif}
 @media(max-width:900px){.story-gallery{padding:42px 34px}.story-hanging{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 16px}.story-card{max-width:170px}.story-card:nth-child(4){grid-column:1/2;margin-left:52%}.story-card:nth-child(5){grid-column:2/3;margin-left:48%}.story-flower{width:78px;height:135px;opacity:.32}.butterfly-a{left:5%;top:150px}.butterfly-b{right:5%;top:370px}}
 @media(max-width:600px){.story-gallery{padding:36px 15px 30px}.story-heading{padding:0 10px;margin-bottom:18px}.story-heading .script{font-size:46px}.story-heading>p:last-child{font-size:15px;line-height:1.5}.story-hanging{gap:24px 10px;padding:34px 0 8px}.story-hanging:before{top:18px;height:28px}.story-hanging:after{top:6px;background-size:27px 12px}.story-card{max-width:145px;padding:8px 8px 11px}.story-photo-frame{height:108px}.story-card figcaption{min-height:69px;padding-top:8px}.story-card figcaption strong{font-size:11px;letter-spacing:1.5px}.story-card figcaption span{font-size:10px}.story-clip{top:-15px;transform:translateX(-50%) rotate(2deg) scale(.9)}.story-flower{width:53px;height:94px;top:18px;opacity:.26}.flower-left{left:-5px}.flower-right{right:-5px}.story-butterfly{width:22px;height:18px}.butterfly-a{left:3%;top:153px}.butterfly-b{right:3%;top:358px}.story-signoff{text-align:center;padding:0;margin-top:5px;font-size:27px}}
+
+
+/* Our Story: five photos attached directly to a branching tree */
+.story-tree{position:relative;display:block;max-width:1220px;margin:0 auto;padding:58px 50px 48px;overflow:hidden;text-align:center}
+.story-tree .story-heading{position:relative;z-index:1;max-width:720px;margin:0 auto 22px}
+.story-tree .story-heading .script{margin:0 0 8px}
+.story-tree .story-heading>p:last-child{max-width:680px;margin:0 auto;color:#4c4c40}
+.story-tree-stage{position:relative;width:min(100%,920px);height:1300px;margin:20px auto 0}
+.story-tree-art{position:absolute;inset:0;width:100%;height:1300px;overflow:visible}
+.story-tree-art .mobile-branches{display:none}
+.story-tree-cards{position:absolute;inset:0}
+.story-tree-card{position:absolute;z-index:2;display:block;width:20.65%;max-width:190px;margin:0;padding:10px 10px 14px;background:#fefdf8;box-shadow:0 4px 12px #3c2e1e24}
+.story-tree-card.card-1{left:8%;top:120px}
+.story-tree-card.card-2{right:8%;top:310px}
+.story-tree-card.card-3{left:8%;top:500px}
+.story-tree-card.card-4{right:8%;top:690px}
+.story-tree-card.card-5{left:8%;top:880px}
+.story-tree .story-clip{left:50%;top:-16px;width:18px;height:32px;transform:translateX(-50%);rotate:0deg}
+.story-tree .story-photo-frame{position:relative;width:100%;height:auto;aspect-ratio:4/3;overflow:hidden;background:#e9e2d5}
+.story-tree .story-photo-frame img{width:100%;height:100%;object-fit:cover}
+.story-tree .story-photo-placeholder{display:none;width:100%;height:100%;place-items:center;color:#786b59;background:#eee7db;font-size:14px}
+.story-tree .story-tree-card figcaption{min-height:78px;padding:10px 3px 0;text-align:center;color:#645d4d}
+.story-tree .story-tree-card figcaption strong{display:block;margin-bottom:4px;color:#272a20;font-size:13px;font-weight:400;letter-spacing:2px;text-transform:uppercase}
+.story-tree .story-tree-card figcaption span{display:block;color:#786b59;font-size:12px;line-height:1.4}
+.story-tree .story-signoff{position:relative;z-index:1;margin:10px 0 0;text-align:right;padding-right:8%;color:#716a54;font:normal 32px WeddingScript,cursive}
+.story-tree .story-signoff span{color:#a39170;font:normal 21px Georgia,serif}
+@media(max-width:900px){.story-tree{padding:42px 34px}.story-tree-stage{width:100%}.story-tree-card{padding:8px 8px 11px}.story-tree .story-tree-card figcaption{min-height:69px;padding-top:8px}.story-tree .story-tree-card figcaption strong{font-size:11px;letter-spacing:1.5px}.story-tree .story-tree-card figcaption span{font-size:10px}}
+@media(max-width:600px){.story-tree{padding:36px 15px 30px}.story-tree .story-heading{padding:0 10px;margin-bottom:18px}.story-tree .story-heading .script{font-size:46px}.story-tree .story-heading>p:last-child{font-size:15px;line-height:1.5}.story-tree-stage{height:1300px;margin-top:12px}.story-tree-art{height:1300px}.story-tree-art .desktop-branches{display:none}.story-tree-art .mobile-branches{display:block}.story-tree-card{width:39.6%;max-width:none;padding:8px 8px 11px}.story-tree-card.card-1{left:3%;top:54px}.story-tree-card.card-2{right:3%;top:279px}.story-tree-card.card-3{left:3%;top:504px}.story-tree-card.card-4{right:3%;top:729px}.story-tree-card.card-5{left:3%;top:954px}.story-tree .story-clip{top:-15px;width:16px;height:30px}.story-tree .story-tree-card figcaption{min-height:69px;padding-top:8px}.story-tree .story-tree-card figcaption strong{font-size:11px;letter-spacing:1.2px}.story-tree .story-tree-card figcaption span{font-size:10px}.story-tree .story-signoff{text-align:center;padding:0;margin-top:5px;font-size:27px}}

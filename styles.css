@@ -286,263 +286,261 @@ footer .wedding-logo{width:80px;height:80px}
 @media(max-width:600px){.story-gallery{padding:36px 15px 30px}.story-heading{padding:0 10px;margin-bottom:18px}.story-heading .script{font-size:46px}.story-heading>p:last-child{font-size:15px;line-height:1.5}.story-hanging{gap:24px 10px;padding:34px 0 8px}.story-hanging:before{top:18px;height:28px}.story-hanging:after{top:6px;background-size:27px 12px}.story-card{max-width:145px;padding:8px 8px 11px}.story-photo-frame{height:108px}.story-card figcaption{min-height:69px;padding-top:8px}.story-card figcaption strong{font-size:11px;letter-spacing:1.5px}.story-card figcaption span{font-size:10px}.story-clip{top:-15px;transform:translateX(-50%) rotate(2deg) scale(.9)}.story-flower{width:53px;height:94px;top:18px;opacity:.26}.flower-left{left:-5px}.flower-right{right:-5px}.story-butterfly{width:22px;height:18px}.butterfly-a{left:3%;top:153px}.butterfly-b{right:3%;top:358px}.story-signoff{text-align:center;padding:0;margin-top:5px;font-size:27px}}
 
 
-/* Our Story: five-chapter scrapbook timeline
-   Integrated into the original stylesheet.
-   The existing story-tree HTML/classes are preserved. */
+
+/* =========================================================
+   OUR STORY — REFERENCE-MATCHED SCRAPBOOK TIMELINE
+   Replaces only the previous Our Story tree styling.
+   Existing HTML / images / all other website sections stay intact.
+   ========================================================= */
+
 .story-tree{
   position:relative;
-  display:block;
+  width:100%;
   max-width:1220px;
+  min-height:1290px;
   margin:0 auto;
-  padding:58px 50px 55px;
+  padding:48px 20px 65px;
   overflow:hidden;
   text-align:center;
-  background:
-    radial-gradient(circle at 10% 12%,#d8c8a52b 0 2px,transparent 3px),
-    radial-gradient(circle at 90% 82%,#d8c8a52b 0 2px,transparent 3px);
+  background:#f8f5ed;
 }
 
-.story-tree .story-heading{
-  position:relative;
-  z-index:4;
-  max-width:760px;
-  margin:0 auto 28px;
-}
-
-.story-tree .story-heading .script{
-  margin:0 0 10px;
-  color:#302d20;
-  font-size:clamp(58px,6vw,88px);
-  line-height:.95;
-  letter-spacing:.5px;
-  text-shadow:0 1px 0 #fffaf0;
-}
-
-.story-tree .story-heading>p:last-child{
-  max-width:680px;
-  margin:0 auto;
-  color:#78684d;
-  font-size:12px;
-  line-height:1.8;
-  letter-spacing:4px;
-  text-transform:uppercase;
-}
-
-/* Decorative botanical corners using the site's existing leaf asset. */
+/* Soft paper/leaf corners like the reference */
 .story-tree:before,
 .story-tree:after{
   content:"";
   position:absolute;
   z-index:0;
-  width:170px;
-  height:230px;
+  width:175px;
+  height:245px;
   background:url("assets/leaves.webp") center/contain no-repeat;
-  opacity:.24;
+  opacity:.18;
   pointer-events:none;
 }
-
 .story-tree:before{
-  left:-35px;
-  top:15px;
+  left:-30px;
+  top:10px;
   transform:rotate(-18deg);
 }
-
 .story-tree:after{
   right:-35px;
-  bottom:10px;
+  bottom:5px;
   transform:scaleX(-1) rotate(-18deg);
 }
 
-/* Hide the old tree/branch artwork. */
-.story-tree-art{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  overflow:visible;
-  pointer-events:none;
-  opacity:0;
-}
-
+/* Hide the old branching/tree artwork completely */
+.story-tree-art,
 .story-tree-art .desktop-branches,
 .story-tree-art .mobile-branches{
   display:none!important;
+  opacity:0!important;
 }
 
-/* Main timeline */
+/* ---------- Heading ---------- */
+.story-tree .story-heading{
+  position:relative;
+  z-index:4;
+  width:min(100%,760px);
+  margin:0 auto;
+  padding:0;
+}
+
+/* The reference uses OUR STORY as the small eyebrow */
+.story-tree .story-heading > .eyebrow,
+.story-tree .story-heading > p:first-child:not(:last-child){
+  display:none!important;
+}
+
+/* Replace the old "It was always you." visual with the reference title */
+.story-tree .story-heading .script{
+  margin:0;
+  color:#302d20;
+  font-family:WeddingScript,cursive;
+  font-size:clamp(68px,7vw,96px);
+  font-weight:400;
+  line-height:.92;
+  letter-spacing:0;
+  text-shadow:none;
+}
+
+.story-tree .story-heading .script{
+  font-size:0;
+}
+.story-tree .story-heading .script:before{
+  content:"Our Story";
+  font-size:clamp(68px,7vw,96px);
+}
+
+/* Replace the long existing intro paragraph with the reference subtitle */
+.story-tree .story-heading > p:last-child{
+  width:min(100%,650px);
+  margin:16px auto 0;
+  color:#7d684c;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:11px;
+  line-height:1.9;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  text-align:center;
+}
+.story-tree .story-heading > p:last-child{
+  font-size:0;
+}
+.story-tree .story-heading > p:last-child:before{
+  content:"FIVE CHAPTERS, A LIFETIME TO GO";
+  font-size:11px;
+  letter-spacing:4px;
+}
+
+/* ---------- Main timeline stage ---------- */
 .story-tree-stage{
   position:relative;
-  z-index:1;
-  width:min(100%,1040px);
-  height:1180px;
-  margin:18px auto 0;
+  z-index:2;
+  width:900px;
+  height:1100px;
+  max-width:100%;
+  margin:34px auto 0;
 }
 
-/* Dotted center spine */
+/* Center dashed spine */
 .story-tree-stage:before{
   content:"";
   position:absolute;
   z-index:0;
   left:50%;
-  top:24px;
-  bottom:28px;
-  width:2px;
+  top:28px;
+  bottom:35px;
+  width:1px;
   transform:translateX(-50%);
   background:repeating-linear-gradient(
     to bottom,
-    #b79a6c 0 6px,
-    transparent 6px 13px
+    #c8aa79 0 6px,
+    transparent 6px 12px
   );
-  opacity:.78;
+  opacity:.85;
 }
 
-/* Top timeline flower/dot */
+/* Top flower/star marker */
 .story-tree-stage:after{
   content:"✦";
   position:absolute;
-  z-index:2;
+  z-index:6;
   left:50%;
-  top:7px;
-  width:28px;
-  height:28px;
+  top:0;
+  width:31px;
+  height:31px;
   display:grid;
   place-items:center;
   transform:translateX(-50%);
-  border:1px solid #c6a875;
+  border:1px solid #c8a976;
   border-radius:50%;
   background:#faf7ef;
-  color:#8a7450;
-  font-size:14px;
-  box-shadow:0 0 0 5px #faf7ef;
+  color:#9a7b4d;
+  font:13px Georgia,serif;
+  box-shadow:0 0 0 5px #f8f5ed;
 }
 
+/* ---------- Chapter composition ---------- */
 .story-tree-cards{
   position:absolute;
   inset:0;
 }
 
-/* Each chapter is a photo + text composition rather than a single card. */
-.story-tree-card{
+/* Each item is text + polaroid, not a tree card */
+.story-tree-card,
+.story-tree-card:nth-child(even){
   position:absolute;
   z-index:2;
   display:grid;
-  grid-template-columns:190px 210px;
   align-items:center;
-  gap:24px;
-  width:424px;
-  min-height:190px;
+  width:390px;
+  min-height:175px;
   margin:0;
   padding:0;
-  background:transparent;
-  border:0;
-  box-shadow:none;
-  transform:rotate(var(--story-tilt));
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  border-radius:0!important;
+  transform:rotate(var(--story-card-tilt));
   transition:
-    transform .32s cubic-bezier(.2,.75,.25,1),
-    filter .32s ease;
+    transform .35s cubic-bezier(.2,.75,.25,1),
+    filter .35s ease;
 }
 
-/* Left-side chapters: text → photo → timeline */
+/* Alternating left/right exactly like the reference */
 .story-tree-card:nth-child(odd){
-  left:1%;
+  left:0;
+  grid-template-columns:160px 190px;
+  column-gap:20px;
 }
-
-/* Right-side chapters: timeline → photo → text */
 .story-tree-card:nth-child(even){
-  right:1%;
-  grid-template-columns:190px 210px;
+  right:0;
+  grid-template-columns:190px 160px;
+  column-gap:20px;
 }
 
-/* Five alternating positions */
+/* Five chapter vertical positions */
 .story-tree-card.card-1{
-  top:48px;
-  --story-tilt:-1.6deg;
+  top:45px;
+  --story-card-tilt:-1.2deg;
 }
-
 .story-tree-card.card-2{
-  top:270px;
-  --story-tilt:1.7deg;
+  top:255px;
+  --story-card-tilt:1.4deg;
 }
-
 .story-tree-card.card-3{
-  top:492px;
-  --story-tilt:1.1deg;
+  top:465px;
+  --story-card-tilt:1deg;
 }
-
 .story-tree-card.card-4{
-  top:714px;
-  --story-tilt:-1.8deg;
+  top:675px;
+  --story-card-tilt:-1.5deg;
 }
-
 .story-tree-card.card-5{
-  top:936px;
-  --story-tilt:1.5deg;
+  top:885px;
+  --story-card-tilt:1.2deg;
 }
 
-/* Hover: keep the scrapbook tilt, but exaggerate it when pointed at. */
-.story-tree-card:hover{
-  z-index:8;
-  filter:drop-shadow(0 14px 16px #3c2e1e1c);
-}
-
-.story-tree-card:nth-child(1):hover{
-  transform:rotate(-4.5deg) translateY(-7px) scale(1.025);
-}
-
-.story-tree-card:nth-child(2):hover{
-  transform:rotate(4.5deg) translateY(-7px) scale(1.025);
-}
-
-.story-tree-card:nth-child(3):hover{
-  transform:rotate(-3.8deg) translateY(-7px) scale(1.025);
-}
-
-.story-tree-card:nth-child(4):hover{
-  transform:rotate(4deg) translateY(-7px) scale(1.025);
-}
-
-.story-tree-card:nth-child(5):hover{
-  transform:rotate(-4.2deg) translateY(-7px) scale(1.025);
-}
-
-/* Text block */
-.story-tree .story-tree-card figcaption{
+/* ---------- Chapter text ---------- */
+.story-tree .story-tree-card figcaption,
+.story-tree-card:nth-child(even) figcaption{
   min-height:0;
+  width:auto;
+  margin:0;
   padding:0;
   text-align:left;
-  color:#5e5748;
+  color:#4d473b;
   order:1;
+  background:transparent;
 }
 
 .story-tree-card:nth-child(even) figcaption{
   order:2;
-  text-align:left;
 }
 
 .story-tree .story-tree-card figcaption strong{
   display:block;
   margin:0 0 5px;
-  color:#27261e;
+  color:#2e2a21;
   font-family:Georgia,"Times New Roman",serif;
-  font-size:14px;
+  font-size:13px;
   font-weight:700;
   letter-spacing:2px;
-  line-height:1.3;
+  line-height:1.35;
   text-transform:uppercase;
 }
 
+/* Number above each title */
 .story-tree .story-tree-card figcaption strong:before{
-  content:"0";
+  display:block;
+  margin:0 0 5px;
   color:#a6875b;
   font-family:Georgia,"Times New Roman",serif;
-  font-size:31px;
+  font-size:30px;
   font-weight:400;
   letter-spacing:0;
-  display:block;
-  margin-bottom:4px;
   line-height:1;
 }
-
 .story-tree-card.card-1 figcaption strong:before{content:"01"}
 .story-tree-card.card-2 figcaption strong:before{content:"02"}
 .story-tree-card.card-3 figcaption strong:before{content:"03"}
@@ -551,54 +549,51 @@ footer .wedding-logo{width:80px;height:80px}
 
 .story-tree .story-tree-card figcaption span{
   display:block;
-  color:#4f4a3f;
+  color:#514b40;
   font-family:Georgia,"Times New Roman",serif;
-  font-size:12px;
-  line-height:1.55;
-  letter-spacing:.1px;
+  font-size:11px;
+  line-height:1.5;
+  letter-spacing:0;
 }
 
-/* Photo */
-.story-tree .story-photo-frame{
+/* Small playful botanical/heart detail */
+.story-tree .story-tree-card figcaption:after{
+  content:"♡";
+  display:block;
+  margin-top:14px;
+  color:#9a9a73;
+  font:20px Georgia,serif;
+  line-height:1;
+}
+
+/* ---------- Polaroid photo ---------- */
+.story-tree .story-photo-frame,
+.story-tree-card:nth-child(even) .story-photo-frame{
   position:relative;
-  z-index:2;
-  width:190px;
-  height:190px;
+  z-index:3;
+  width:170px;
+  height:170px;
   padding:7px;
   overflow:visible;
   background:#fffdf8;
-  border:1px solid #e3d9c8;
+  border:1px solid #e1d7c5;
   box-shadow:
-    0 7px 15px #3c2e1e22,
-    0 1px 2px #3c2e1e12;
+    0 8px 16px rgba(60,46,30,.13),
+    0 1px 2px rgba(60,46,30,.08);
   order:2;
-  transform:rotate(-1.4deg);
-  transition:transform .32s cubic-bezier(.2,.75,.25,1),box-shadow .32s ease;
+  transform:rotate(-1.7deg);
+  transition:
+    transform .35s cubic-bezier(.2,.75,.25,1),
+    box-shadow .35s ease;
 }
 
 .story-tree-card:nth-child(even) .story-photo-frame{
-  transform:rotate(1.6deg);
   order:1;
+  transform:rotate(1.8deg);
 }
-
-.story-tree-card:nth-child(3) .story-photo-frame{
-  transform:rotate(1.2deg);
-}
-
-.story-tree-card:nth-child(4) .story-photo-frame{
-  transform:rotate(-1.7deg);
-}
-
-.story-tree-card:nth-child(5) .story-photo-frame{
-  transform:rotate(1.5deg);
-}
-
-.story-tree-card:hover .story-photo-frame{
-  transform:rotate(0deg) scale(1.02);
-  box-shadow:
-    0 14px 24px #3c2e1e2c,
-    0 2px 4px #3c2e1e16;
-}
+.story-tree-card.card-3 .story-photo-frame{transform:rotate(1.2deg)}
+.story-tree-card.card-4 .story-photo-frame{transform:rotate(-1.8deg)}
+.story-tree-card.card-5 .story-photo-frame{transform:rotate(1.5deg)}
 
 .story-tree .story-photo-frame img{
   display:block;
@@ -608,37 +603,55 @@ footer .wedding-logo{width:80px;height:80px}
   transition:transform .45s ease;
 }
 
+.story-tree-card:hover{
+  z-index:10;
+  filter:drop-shadow(0 12px 14px rgba(60,46,30,.14));
+}
+
+.story-tree-card:nth-child(1):hover{
+  transform:rotate(-4deg) translateY(-6px) scale(1.025);
+}
+.story-tree-card:nth-child(2):hover{
+  transform:rotate(4deg) translateY(-6px) scale(1.025);
+}
+.story-tree-card:nth-child(3):hover{
+  transform:rotate(-3.5deg) translateY(-6px) scale(1.025);
+}
+.story-tree-card:nth-child(4):hover{
+  transform:rotate(3.8deg) translateY(-6px) scale(1.025);
+}
+.story-tree-card:nth-child(5):hover{
+  transform:rotate(-4deg) translateY(-6px) scale(1.025);
+}
+
+.story-tree-card:hover .story-photo-frame{
+  box-shadow:
+    0 14px 24px rgba(60,46,30,.18),
+    0 2px 4px rgba(60,46,30,.08);
+}
+
 .story-tree-card:hover .story-photo-frame img{
   transform:scale(1.035);
 }
 
-.story-tree .story-photo-placeholder{
-  display:none;
-  width:100%;
-  height:100%;
-  place-items:center;
-  color:#786b59;
-  background:#eee7db;
-  font-size:14px;
-}
-
-/* Tape on every photograph */
+/* ---------- Tape ---------- */
 .story-tree .story-clip{
+  position:absolute;
   left:50%;
-  top:-16px;
-  z-index:5;
+  top:-17px;
+  z-index:6;
   width:58px;
-  height:24px;
+  height:23px;
   transform:translateX(-50%) rotate(-2deg);
   background:linear-gradient(
     180deg,
-    #eee0c3e8,
-    #d8c19ae8
+    rgba(238,224,195,.95),
+    rgba(216,193,154,.9)
   );
   border:0;
   border-radius:2px;
-  box-shadow:0 2px 4px #3a2a191f;
-  opacity:.92;
+  box-shadow:0 2px 5px rgba(58,42,25,.13);
+  opacity:.94;
 }
 
 .story-tree .story-clip:before,
@@ -646,219 +659,218 @@ footer .wedding-logo{width:80px;height:80px}
   display:none;
 }
 
-/* Decorative connector from photo toward center timeline */
+/* ---------- Connectors to the spine ---------- */
 .story-tree-card:after{
   content:"";
   position:absolute;
   z-index:-1;
   top:50%;
-  width:110px;
+  width:92px;
   height:1px;
   background:#c8ae7e;
   opacity:.72;
 }
 
 .story-tree-card:nth-child(odd):after{
-  right:-80px;
+  right:-68px;
 }
-
 .story-tree-card:nth-child(even):after{
-  left:-80px;
+  left:-68px;
 }
 
-/* Heart marker sitting between each chapter and the spine */
+/* Heart markers on the center line */
 .story-tree-card:before{
   content:"♥";
   position:absolute;
-  z-index:5;
+  z-index:7;
   top:50%;
-  width:31px;
-  height:31px;
+  width:33px;
+  height:33px;
   display:grid;
   place-items:center;
   transform:translateY(-50%);
-  border:1px solid #c8ad7b;
+  border:1px solid #c9aa75;
   border-radius:50%;
   background:#fbf8f0;
-  color:#9a7c53;
-  font-family:Georgia,serif;
-  font-size:13px;
-  box-shadow:0 2px 6px #3c2e1e18;
+  color:#9a7a4f;
+  font:12px Georgia,serif;
+  box-shadow:0 2px 7px rgba(60,46,30,.10);
 }
 
 .story-tree-card:nth-child(odd):before{
-  right:-105px;
+  right:-84px;
 }
-
 .story-tree-card:nth-child(even):before{
-  left:-105px;
+  left:-84px;
 }
 
-/* Tiny botanical accent beside each chapter */
-.story-tree-card figcaption:after{
-  content:"❧";
-  display:block;
-  margin-top:8px;
-  color:#89916f;
-  font-size:24px;
-  line-height:1;
-  transform:rotate(-12deg);
-}
-
-/* Signoff */
+/* Remove old signoff from this reference layout */
 .story-tree .story-signoff{
-  position:relative;
-  z-index:3;
-  margin:14px 0 0;
-  text-align:center;
-  padding:0;
-  color:#716a54;
-  font:normal 32px WeddingScript,cursive;
+  display:none!important;
 }
 
-.story-tree .story-signoff span{
-  color:#a39170;
-  font:normal 21px Georgia,serif;
-}
-
-.story-tree .story-signoff:before{
-  content:"♥  ✦  ♥";
-  display:block;
-  margin-bottom:3px;
-  color:#b09a7a;
-  font:normal 13px Georgia,serif;
-  letter-spacing:7px;
-}
-
-/* Tablet */
+/* ---------- Tablet ---------- */
 @media(max-width:900px){
   .story-tree{
-    padding:48px 25px 45px;
-  }
-
-  .story-tree .story-heading .script{
-    font-size:68px;
+    min-height:1160px;
+    padding:44px 14px 55px;
   }
 
   .story-tree-stage{
-    width:100%;
-    height:1120px;
-  }
-
-  .story-tree-card{
-    grid-template-columns:155px 175px;
-    width:350px;
-    min-height:165px;
-    gap:18px;
-  }
-
-  .story-tree .story-photo-frame{
-    width:155px;
-    height:155px;
-  }
-
-  .story-tree-card.card-1{left:0;top:45px}
-  .story-tree-card.card-2{right:0;top:260px}
-  .story-tree-card.card-3{left:0;top:475px}
-  .story-tree-card.card-4{right:0;top:690px}
-  .story-tree-card.card-5{left:0;top:905px}
-
-  .story-tree .story-tree-card figcaption strong{
-    font-size:12px;
-  }
-
-  .story-tree .story-tree-card figcaption strong:before{
-    font-size:27px;
-  }
-
-  .story-tree .story-tree-card figcaption span{
-    font-size:11px;
-  }
-
-  .story-tree-card:nth-child(odd):before{right:-72px}
-  .story-tree-card:nth-child(even):before{left:-72px}
-  .story-tree-card:nth-child(odd):after{right:-55px}
-  .story-tree-card:nth-child(even):after{left:-55px}
-}
-
-/* Mobile — same alternating scrapbook concept, scaled down. */
-@media(max-width:600px){
-  .story-tree{
-    padding:36px 12px 35px;
-  }
-
-  .story-tree:before,
-  .story-tree:after{
-    width:100px;
-    height:150px;
-    opacity:.18;
-  }
-
-  .story-tree .story-heading{
-    padding:0 10px;
-    margin-bottom:20px;
-  }
-
-  .story-tree .story-heading .script{
-    font-size:48px;
-  }
-
-  .story-tree .story-heading>p:last-child{
-    font-size:9px;
-    line-height:1.8;
-    letter-spacing:2.5px;
-  }
-
-  .story-tree-stage{
-    width:100%;
-    height:1110px;
-    margin-top:12px;
-  }
-
-  .story-tree-stage:before{
-    top:20px;
-    bottom:22px;
-  }
-
-  .story-tree-stage:after{
-    top:4px;
-    width:23px;
-    height:23px;
-    font-size:11px;
+    width:720px;
+    height:980px;
+    margin-top:28px;
   }
 
   .story-tree-card,
   .story-tree-card:nth-child(even){
-    width:48%;
+    width:315px;
     min-height:145px;
-    grid-template-columns:1fr;
-    gap:7px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
   }
 
   .story-tree-card:nth-child(odd){
-    left:0;
+    grid-template-columns:125px 145px;
+    column-gap:15px;
   }
 
   .story-tree-card:nth-child(even){
-    right:0;
+    grid-template-columns:145px 125px;
+    column-gap:15px;
   }
-
-  .story-tree-card.card-1{top:38px}
-  .story-tree-card.card-2{top:258px}
-  .story-tree-card.card-3{top:478px}
-  .story-tree-card.card-4{top:698px}
-  .story-tree-card.card-5{top:918px}
 
   .story-tree .story-photo-frame,
   .story-tree-card:nth-child(even) .story-photo-frame{
-    order:1;
-    width:112px;
-    height:112px;
+    width:145px;
+    height:145px;
+  }
+
+  .story-tree-card.card-1{top:35px}
+  .story-tree-card.card-2{top:220px}
+  .story-tree-card.card-3{top:405px}
+  .story-tree-card.card-4{top:590px}
+  .story-tree-card.card-5{top:775px}
+
+  .story-tree-card:nth-child(odd):after{right:-55px}
+  .story-tree-card:nth-child(even):after{left:-55px}
+  .story-tree-card:nth-child(odd):before{right:-70px}
+  .story-tree-card:nth-child(even):before{left:-70px}
+}
+
+/* ---------- Mobile — same composition as the reference ---------- */
+@media(max-width:600px){
+  .story-tree{
+    min-height:1180px;
+    padding:34px 8px 45px;
+  }
+
+  .story-tree:before,
+  .story-tree:after{
+    width:90px;
+    height:145px;
+    opacity:.14;
+  }
+
+  .story-tree:before{left:-28px;top:12px}
+  .story-tree:after{right:-30px;bottom:5px}
+
+  .story-tree .story-heading{
+    width:100%;
+    padding:0 5px;
+  }
+
+  .story-tree .story-heading .script:before{
+    font-size:49px;
+  }
+
+  .story-tree .story-heading>p:last-child{
+    margin-top:12px;
+  }
+
+  .story-tree .story-heading>p:last-child:before{
+    font-size:8px;
+    letter-spacing:2.2px;
+  }
+
+  .story-tree-stage{
+    width:100%;
+    height:1015px;
+    margin-top:24px;
+  }
+
+  /* Spine moves left like the mobile reference */
+  .story-tree-stage:before{
+    left:30px;
+    top:22px;
+    bottom:20px;
+  }
+
+  .story-tree-stage:after{
+    left:30px;
+    top:0;
+    width:27px;
+    height:27px;
+    font-size:11px;
+    box-shadow:0 0 0 4px #f8f5ed;
+  }
+
+  .story-tree-card,
+  .story-tree-card:nth-child(even){
+    width:calc(100% - 45px);
+    min-height:150px;
+    display:grid;
+    column-gap:9px;
+  }
+
+  .story-tree-card:nth-child(odd){
+    left:38px;
+    right:auto;
+    grid-template-columns:minmax(0,1fr) 108px;
+  }
+
+  .story-tree-card:nth-child(even){
+    left:38px;
+    right:auto;
+    grid-template-columns:108px minmax(0,1fr);
+  }
+
+  .story-tree-card.card-1{top:35px}
+  .story-tree-card.card-2{top:230px}
+  .story-tree-card.card-3{top:425px}
+  .story-tree-card.card-4{top:620px}
+  .story-tree-card.card-5{top:815px}
+
+  .story-tree .story-photo-frame,
+  .story-tree-card:nth-child(even) .story-photo-frame{
+    width:108px;
+    height:108px;
     padding:5px;
-    flex:none;
+  }
+
+  .story-tree .story-tree-card figcaption,
+  .story-tree-card:nth-child(even) figcaption{
+    min-width:0;
+    padding:0;
+  }
+
+  .story-tree .story-tree-card figcaption strong{
+    font-size:9px;
+    letter-spacing:1.1px;
+    margin-bottom:3px;
+  }
+
+  .story-tree .story-tree-card figcaption strong:before{
+    font-size:23px;
+    margin-bottom:3px;
+  }
+
+  .story-tree .story-tree-card figcaption span{
+    font-size:8.5px;
+    line-height:1.35;
+  }
+
+  .story-tree .story-tree-card figcaption:after{
+    margin-top:7px;
+    font-size:15px;
   }
 
   .story-tree .story-clip{
@@ -867,70 +879,31 @@ footer .wedding-logo{width:80px;height:80px}
     height:18px;
   }
 
-  .story-tree .story-tree-card figcaption,
-  .story-tree-card:nth-child(even) figcaption{
-    order:2;
-    width:100%;
-    text-align:center;
-    padding:0 3px;
-  }
-
-  .story-tree .story-tree-card figcaption strong{
-    font-size:9px;
-    letter-spacing:1.2px;
-    margin-bottom:2px;
-  }
-
-  .story-tree .story-tree-card figcaption strong:before{
-    font-size:20px;
-    margin-bottom:2px;
-  }
-
-  .story-tree .story-tree-card figcaption span{
-    font-size:8.5px;
-    line-height:1.3;
-  }
-
-  .story-tree-card figcaption:after{
-    display:none;
-  }
-
   .story-tree-card:after{
-    width:45px;
-    top:46px;
+    width:43px;
+    top:50%;
   }
 
   .story-tree-card:nth-child(odd):after{
-    right:-25px;
+    right:-34px;
   }
 
   .story-tree-card:nth-child(even):after{
-    left:-25px;
+    left:-34px;
   }
 
-  .story-tree-card:before,
-  .story-tree-card:nth-child(even):before{
-    top:46px;
+  .story-tree-card:before{
     width:24px;
     height:24px;
-    font-size:10px;
+    font-size:9px;
+    top:50%;
   }
 
   .story-tree-card:nth-child(odd):before{
-    right:-38px;
+    right:-47px;
   }
 
   .story-tree-card:nth-child(even):before{
-    left:-38px;
-  }
-
-  .story-tree .story-signoff{
-    margin-top:8px;
-    font-size:27px;
-  }
-
-  .story-tree .story-signoff span{
-    font-size:18px;
+    left:-47px;
   }
 }
-

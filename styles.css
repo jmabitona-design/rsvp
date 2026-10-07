@@ -552,6 +552,14 @@ footer .wedding-logo{width:80px;height:80px}
 .story-tree-card.card-4 .story-photo-frame{transform:rotate(-1.8deg)}
 .story-tree-card.card-5 .story-photo-frame{transform:rotate(1.5deg)}
 
+/* Move the LEFT-side photos toward the center spine so the HTML vines
+   reach the dashed timeline cleanly. The captions stay in place. */
+@media(min-width:901px){
+  .story-tree-card.card-1 .story-photo-frame{transform:translateX(35px) rotate(-1.7deg)}
+  .story-tree-card.card-3 .story-photo-frame{transform:translateX(35px) rotate(1.2deg)}
+  .story-tree-card.card-5 .story-photo-frame{transform:translateX(35px) rotate(1.5deg)}
+}
+
 /* The actual story photo only — decorative PNGs are excluded */
 .story-tree .story-photo-frame > img:not(.story-tape):not(.story-leaf):not(.story-vine):not(.story-heart):not(.story-botanical){
   position:relative;
@@ -757,6 +765,11 @@ footer .wedding-logo{width:80px;height:80px}
   .story-tree-card.card-3{top:405px}
   .story-tree-card.card-4{top:590px}
   .story-tree-card.card-5{top:775px}
+
+  /* Keep the left-side photos closer to the center on tablet widths too. */
+  .story-tree-card.card-1 .story-photo-frame{transform:translateX(28px) rotate(-1.7deg)}
+  .story-tree-card.card-3 .story-photo-frame{transform:translateX(28px) rotate(1.2deg)}
+  .story-tree-card.card-5 .story-photo-frame{transform:translateX(28px) rotate(1.5deg)}
 
   .story-tree .story-leaf{width:65px}
   .story-tree .story-botanical{width:60px}

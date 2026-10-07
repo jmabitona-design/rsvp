@@ -1021,3 +1021,101 @@ footer .wedding-logo{width:80px;height:80px}
 @media(prefers-reduced-motion:reduce){
   .story-tree *{transition:none!important}
 }
+
+/* =========================================================
+   COUNTDOWN FLORALS — OVERLAP THE TOP OF OUR STORY ONLY
+   The floral borders stay below the countdown content and
+   extend slightly into the Our Story section.
+   ========================================================= */
+.countdown.leaves{
+  position:relative;
+  z-index:2;
+  overflow:visible;
+  padding-bottom:42px;
+}
+
+.countdown.leaves:before,
+.countdown.leaves:after{
+  top:auto;
+  bottom:-112px;
+  width:235px;
+  height:235px;
+  z-index:1;
+}
+
+.countdown.leaves > .eyebrow,
+.countdown.leaves > .timer{
+  position:relative;
+  z-index:5;
+}
+
+/* Keep the Our Story paper underneath the overlapping florals,
+   while keeping its heading/cards above them. */
+.story-tree{
+  position:relative;
+  z-index:1;
+}
+
+@media(max-width:900px){
+  .countdown.leaves{
+    padding-bottom:38px;
+  }
+
+  .countdown.leaves:before,
+  .countdown.leaves:after{
+    width:190px;
+    height:190px;
+    bottom:-105px;
+  }
+}
+
+@media(max-width:600px){
+  .countdown.leaves{
+    padding:38px 18px 34px;
+  }
+
+  /* Smaller and farther outward so all countdown text stays
+     comfortably inside the open center of the floral design. */
+  .countdown.leaves:before,
+  .countdown.leaves:after{
+    width:135px;
+    height:135px;
+    bottom:-82px;
+    opacity:.84;
+  }
+
+  .countdown.leaves:before{
+    left:-8px;
+  }
+
+  .countdown.leaves:after{
+    right:-8px;
+  }
+
+  .countdown.leaves > .eyebrow{
+    position:relative;
+    z-index:6;
+    margin:0 auto 20px;
+    padding:0 72px;
+    font-size:12px;
+    line-height:1.35;
+    letter-spacing:2.5px;
+    white-space:nowrap;
+  }
+
+  .countdown.leaves .timer{
+    position:relative;
+    z-index:6;
+    width:100%;
+    max-width:330px;
+  }
+
+  .countdown.leaves .timer strong{
+    font-size:34px;
+  }
+
+  .countdown.leaves .timer span{
+    font-size:9px;
+    letter-spacing:1.5px;
+  }
+}

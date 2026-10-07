@@ -1119,3 +1119,73 @@ footer .wedding-logo{width:80px;height:80px}
     letter-spacing:1.5px;
   }
 }
+
+/* =========================================================
+   FINAL COUNTDOWN FLORAL POSITIONING
+   Desktop: flowers touch the upper-section partition and
+   continue down into Our Story.
+   Mobile: flowers sit above the countdown text, with the
+   countdown centered cleanly between them.
+   ========================================================= */
+@media(min-width:901px){
+  .countdown.leaves:before,
+  .countdown.leaves:after{
+    width:300px;
+    height:300px;
+    bottom:-62px;
+  }
+}
+
+@media(max-width:900px) and (min-width:601px){
+  .countdown.leaves:before,
+  .countdown.leaves:after{
+    width:210px;
+    height:210px;
+    bottom:-68px;
+  }
+}
+
+@media(max-width:600px){
+  .countdown.leaves{
+    padding:82px 18px 30px;
+  }
+
+  .countdown.leaves:before,
+  .countdown.leaves:after{
+    width:125px;
+    height:125px;
+    top:-8px;
+    bottom:auto;
+    opacity:.9;
+    z-index:1;
+  }
+
+  .countdown.leaves:before{
+    left:-3px;
+  }
+
+  .countdown.leaves:after{
+    right:-3px;
+  }
+
+  /* Keep every countdown element centered in the open space
+     between the two floral arrangements. */
+  .countdown.leaves > .eyebrow{
+    position:relative;
+    z-index:6;
+    width:100%;
+    max-width:300px;
+    margin:0 auto 20px;
+    padding:0;
+    text-align:center;
+    white-space:normal;
+  }
+
+  .countdown.leaves .timer{
+    position:relative;
+    z-index:6;
+    width:100%;
+    max-width:330px;
+    margin:0 auto;
+  }
+}

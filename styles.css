@@ -656,7 +656,7 @@ footer .wedding-logo{width:80px;height:80px}
     right:auto;
     top:43px;
     width:64px;
-    transform:scaleX(-1);
+    transform:none;
   }
   .story-tree .story-heart-small{width:18px}
   .story-tree-card:nth-child(odd) .story-heart-small{right:-9px;top:-3px}

@@ -1,0 +1,15 @@
+story-paper.webp
+floral-top-left.svg
+floral-bottom-right.svg
+leaf-sprig.svg
+leaves-left.svg
+leaves-right.svg
+branch.svg
+heart.svg
+heart-outline.svg
+sparkle.svg
+vine-left.svg
+vine-right.svg
+tape.svg
+polaroid-shadow.webp
+story-reference.css

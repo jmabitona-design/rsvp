@@ -815,86 +815,122 @@ footer .wedding-logo{width:80px;height:80px}
 }
 
 
+
 /* =========================================================
-   OUR STORY — FINAL VINE / PHOTO / LEAF LAYERING
-   Keep vines behind photos, connect them toward the center
-   hearts, and keep the decorative leaves behind the photos.
+   OUR STORY — FINAL POLISHED CONNECTORS
+   Vine -> center heart, never across the center line.
+   Leaves sit behind the polaroid and peek from underneath.
    ========================================================= */
 
-/* The timeline and cards stay above the background decoration. */
-.story-tree .story-tree-stage {
+/* Keep the timeline/card area stable. */
+.story-tree-stage,
+.story-tree-cards,
+.story-tree-card {
   position: relative;
-  z-index: 5;
 }
 
-/* Photo frame is the foreground layer. */
-.story-tree .story-photo-frame,
-.story-tree-card:nth-child(even) .story-photo-frame {
+/* Photo is the foreground layer. */
+.story-tree .story-photo-frame {
   position: relative;
-  z-index: 4;
+  z-index: 5 !important;
+  overflow: visible !important;
 }
 
-/* Actual photo stays above vines and leaves. */
+/* Actual photo stays above all decorative artwork. */
 .story-tree .story-photo-frame > img:not(.story-tape):not(.story-leaf):not(.story-vine):not(.story-heart) {
   position: relative;
-  z-index: 3;
+  z-index: 6 !important;
 }
 
-/* Leaves sit BEHIND the photo, while their outer portion can peek out. */
+/* Tape and small outline heart stay above the photo. */
+.story-tree .story-tape,
+.story-tree .story-heart-small {
+  z-index: 9 !important;
+}
+
+/* Leaves are BEHIND the polaroid.
+   They remain visible because they extend outside the frame. */
 .story-tree .story-leaf {
-  position: absolute;
-  z-index: 1 !important;
+  z-index: 2 !important;
   pointer-events: none;
 }
 
-/* Vines sit behind the photo and extend outward toward the center line. */
+/* Left-side leaves: mostly underneath, with a small portion peeking out. */
+.story-tree .story-leaf-left {
+  left: -25px !important;
+  bottom: -18px !important;
+  width: 78px !important;
+  transform: rotate(-8deg);
+}
+
+/* Right-side leaves: same treatment on the opposite side. */
+.story-tree .story-leaf-right {
+  right: -25px !important;
+  bottom: -18px !important;
+  width: 78px !important;
+  transform: scaleX(-1) rotate(-8deg);
+}
+
+/* Vines are behind the polaroid. */
 .story-tree .story-vine {
-  position: absolute;
-  z-index: 0 !important;
+  z-index: 1 !important;
   width: 105px !important;
-  height: auto;
-  pointer-events: none;
+  height: auto !important;
   top: 50% !important;
   transform: translateY(-50%);
+  pointer-events: none;
 }
 
-/* Left-side cards: vine exits the right side of the photo toward center. */
+/*
+   LEFT CARD:
+   vine starts underneath the right edge of the photo and travels
+   toward the center heart. Its endpoint stops BEFORE the center line.
+*/
 .story-tree-card:nth-child(odd) .story-vine-right {
-  right: -94px !important;
+  right: -86px !important;
 }
 
-/* Right-side cards: vine exits the left side of the photo toward center. */
+/*
+   RIGHT CARD:
+   vine starts underneath the left edge of the photo and travels
+   toward the center heart. Its endpoint stops BEFORE the center line.
+*/
 .story-tree-card:nth-child(even) .story-vine-left {
-  left: -94px !important;
+  left: -86px !important;
 }
 
-/* Keep the small decorative heart on the photo above everything. */
-.story-tree .story-heart-small {
-  z-index: 7 !important;
-}
-
-/* Center heart remains the foreground marker. */
+/* Center hearts stay on top of everything. */
 .story-tree .story-line-heart {
-  z-index: 9 !important;
+  z-index: 12 !important;
   display: block !important;
+  position: absolute;
 }
 
-/* Remove the old straight connector that caused duplicate lines. */
+/* Remove old straight connector lines completely. */
 .story-tree-card::before,
 .story-tree-card::after {
   content: none !important;
   display: none !important;
 }
 
-/* The branch decoration beside each photo also stays behind the photo. */
-.story-tree-card .story-photo-frame::after {
-  z-index: 1 !important;
+/* ---------------------------------------------------------
+   DESKTOP/TABLET — make the vine visually meet the heart
+   without crossing the center timeline.
+   --------------------------------------------------------- */
+@media (min-width: 901px) {
+  .story-tree-card:nth-child(odd) .story-vine-right {
+    right: -91px !important;
+    width: 112px !important;
+  }
+
+  .story-tree-card:nth-child(even) .story-vine-left {
+    left: -91px !important;
+    width: 112px !important;
+  }
 }
 
 /* ---------------------------------------------------------
-   MOBILE
-   Keep the same layering and make the vine shorter so it
-   connects cleanly without crossing the center line.
+   TABLET
    --------------------------------------------------------- */
 @media (max-width: 900px) {
   .story-tree .story-vine {
@@ -902,14 +938,30 @@ footer .wedding-logo{width:80px;height:80px}
   }
 
   .story-tree-card:nth-child(odd) .story-vine-right {
-    right: -70px !important;
+    right: -67px !important;
   }
 
   .story-tree-card:nth-child(even) .story-vine-left {
-    left: -70px !important;
+    left: -67px !important;
+  }
+
+  .story-tree .story-leaf-left {
+    left: -21px !important;
+    bottom: -12px !important;
+    width: 58px !important;
+  }
+
+  .story-tree .story-leaf-right {
+    right: -21px !important;
+    bottom: -12px !important;
+    width: 58px !important;
   }
 }
 
+/* ---------------------------------------------------------
+   MOBILE
+   Shorter vine, smaller leaves, same layering.
+   --------------------------------------------------------- */
 @media (max-width: 600px) {
   .story-tree .story-vine {
     width: 62px !important;
@@ -923,11 +975,15 @@ footer .wedding-logo{width:80px;height:80px}
     left: -50px !important;
   }
 
-  .story-tree .story-leaf {
-    z-index: 1 !important;
+  .story-tree .story-leaf-left {
+    left: -17px !important;
+    bottom: -9px !important;
+    width: 43px !important;
   }
 
-  .story-tree .story-photo-frame > img:not(.story-tape):not(.story-leaf):not(.story-vine):not(.story-heart) {
-    z-index: 3;
+  .story-tree .story-leaf-right {
+    right: -17px !important;
+    bottom: -9px !important;
+    width: 43px !important;
   }
 }

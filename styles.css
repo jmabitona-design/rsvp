@@ -264,13 +264,13 @@ footer .wedding-logo{width:80px;height:80px}
 .story-tree{
   position:relative;
   width:100%;
-  max-width:none;
+  max-width:1220px;
   min-height:1290px;
   margin:0 auto;
   padding:48px 20px 65px;
   overflow:hidden;
   text-align:center;
-  background:#f7e7e9;
+  background:url("assets/story/background/story-paper.webp") center/cover repeat;
   color:#302d20;
 }
 
@@ -1023,39 +1023,219 @@ footer .wedding-logo{width:80px;height:80px}
   }
 }
 
-
 /* =========================================================
-   DEFINITIVE BACKGROUND FIX — COUNTDOWN + OUR STORY
-   Exact pastel pink: #f7e7e9
-   Applied directly to the actual #story section.
+   OUR STORY — BORDER PHOTO FRAMES
+   Replaces the old Polaroid/tape/leaf/vine/outline-heart
+   decorations around the five story photos.
+   Left photos use Border-Left.png.
+   Right photos use Border-Right.png.
    ========================================================= */
 
-.countdown,
-#story.story-tree,
-section.story-tree{
-  background:#f7e7e9 !important;
+.story-tree .story-photo-frame.story-border-frame{
+  position:relative;
+  width:210px !important;
+  height:210px !important;
+  padding:0 !important;
+  margin:0 !important;
+  overflow:visible !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  transform:none !important;
+  z-index:3;
 }
 
-#story.story-tree{
+/* The border artwork is the complete frame artwork. */
+.story-tree .story-border{
+  position:absolute;
+  inset:0;
+  z-index:3;
+  display:block;
   width:100% !important;
-  max-width:none !important;
-  margin-left:0 !important;
-  margin-right:0 !important;
-  background-image:none !important;
-  background-color:#f7e7e9 !important;
+  height:100% !important;
+  object-fit:fill;
+  pointer-events:none;
+  user-select:none;
 }
 
-/* Prevent the page's paper background from showing through around
-   the full-width Our Story section. */
-body{
-  background-color:#f7e7e9;
+/* Photo sits precisely inside the white opening of the border.
+   The border remains visible around all four sides. */
+.story-tree .story-photo-image{
+  position:absolute;
+  z-index:2;
+  display:block;
+  width:166px !important;
+  height:166px !important;
+  object-fit:cover;
+  left:22px;
+  top:25px;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  box-shadow:none !important;
+  transform:none !important;
+}
+
+/* Left/right border artwork already contains the floral artwork,
+   tape and small outlined heart. Nothing else should sit on the
+   photo frame. */
+.story-tree .story-photo-frame .story-tape,
+.story-tree .story-photo-frame .story-leaf,
+.story-tree .story-photo-frame .story-botanical,
+.story-tree .story-photo-frame .story-heart-small{
+  display:none !important;
+}
+
+/* Keep the original vine connectors. They sit behind the new border/photo
+   and extend from each photo toward the center timeline. */
+.story-tree .story-photo-frame .story-vine{
+  display:block !important;
+}
+
+/* Remove the old CSS-generated branch that used to decorate each
+   Polaroid frame. */
+.story-tree .story-photo-frame.story-border-frame::after{
+  content:none !important;
+  display:none !important;
+}
+
+/* Keep the center timeline heart outside the photo frame. */
+.story-tree .story-line-heart{
+  display:block !important;
+}
+
+/* Desktop card columns need enough room for the new frame. */
+@media(min-width:901px){
+  .story-tree-card:nth-child(odd){
+    grid-template-columns:180px 190px;
+    column-gap:20px;
+  }
+  .story-tree-card:nth-child(even){
+    grid-template-columns:190px 180px;
+    column-gap:20px;
+  }
+
+  .story-tree-card:nth-child(odd) .story-photo-frame{
+    margin-left:10px !important;
+  }
+
+  .story-tree-card:nth-child(even) .story-photo-frame{
+    margin-right:10px !important;
+  }
+}
+
+/* Tablet */
+@media(max-width:900px){
+  .story-tree .story-photo-frame.story-border-frame{
+    width:175px !important;
+    height:175px !important;
+  }
+
+  .story-tree .story-photo-image{
+    width:138px !important;
+    height:138px !important;
+    left:18px;
+    top:21px;
+  }
+
+  .story-tree-card:nth-child(odd){
+    grid-template-columns:150px 145px;
+    column-gap:15px;
+  }
+
+  .story-tree-card:nth-child(even){
+    grid-template-columns:145px 150px;
+    column-gap:15px;
+  }
+}
+
+/* Mobile */
+@media(max-width:600px){
+  .story-tree .story-photo-frame.story-border-frame{
+    width:132px !important;
+    height:132px !important;
+  }
+
+  .story-tree .story-photo-image{
+    width:103px !important;
+    height:103px !important;
+    left:14px;
+    top:16px;
+  }
+
+  .story-tree-card:nth-child(odd){
+    grid-template-columns:minmax(0,1fr) 132px !important;
+    column-gap:9px;
+  }
+
+  .story-tree-card:nth-child(even){
+    grid-template-columns:132px minmax(0,1fr) !important;
+    column-gap:9px;
+  }
+
+  /* Preserve the earlier mobile move toward the center. */
+  .story-tree-card:nth-child(odd) .story-photo-frame{
+    margin-left:12px !important;
+  }
+
+  .story-tree-card:nth-child(even) .story-photo-frame{
+    margin-right:0 !important;
+  }
+}
+
+/* =========================================================
+   STORY VINE CONNECTORS — RETAINED WITH NEW FLORAL BORDERS
+   ========================================================= */
+.story-tree .story-photo-frame.story-border-frame .story-vine{
+  position:absolute !important;
+  top:48px !important;
+  width:105px !important;
+  height:auto !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  box-shadow:none !important;
+  background:transparent !important;
+  object-fit:contain !important;
+  z-index:1 !important;
+  display:block !important;
+  pointer-events:none !important;
+  user-select:none !important;
+}
+
+.story-tree .story-photo-frame.story-border-frame .story-vine-right{
+  right:-82px !important;
+  left:auto !important;
+}
+
+.story-tree .story-photo-frame.story-border-frame .story-vine-left{
+  left:-82px !important;
+  right:auto !important;
+}
+
+@media(max-width:900px){
+  .story-tree .story-photo-frame.story-border-frame .story-vine{
+    top:40px !important;
+    width:90px !important;
+  }
+  .story-tree .story-photo-frame.story-border-frame .story-vine-right{
+    right:-70px !important;
+  }
+  .story-tree .story-photo-frame.story-border-frame .story-vine-left{
+    left:-70px !important;
+  }
 }
 
 @media(max-width:600px){
-  .countdown,
-  #story.story-tree,
-  section.story-tree{
-    background:#f7e7e9 !important;
-    background-image:none !important;
+  .story-tree .story-photo-frame.story-border-frame .story-vine{
+    top:30px !important;
+    width:58px !important;
+  }
+  .story-tree .story-photo-frame.story-border-frame .story-vine-right{
+    right:-45px !important;
+  }
+  .story-tree .story-photo-frame.story-border-frame .story-vine-left{
+    left:-45px !important;
   }
 }
+

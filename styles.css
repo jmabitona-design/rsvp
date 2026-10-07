@@ -813,3 +813,34 @@ footer .wedding-logo{width:80px;height:80px}
       transform: translateY(14px);
    }
 }
+
+
+/* FINAL Our Story heading adjustment
+   This selector intentionally has higher specificity than the original
+   .story-tree .story-heading .script rule. */
+.story-tree .story-heading .story-title{
+  font-size:75px;
+  line-height:.9;
+  margin-bottom:0;
+}
+
+/* Keep the subtitle clearly below the signature. */
+.story-tree .story-heading .story-subtitle{
+  margin-top:28px;
+  transform:none;
+}
+
+/* Mobile */
+@media (max-width:600px){
+  .story-tree .story-heading .story-title{
+    font-size:46px;
+    line-height:.92;
+  }
+
+  .story-tree .story-heading .story-subtitle{
+    margin-top:18px;
+    transform:none;
+    font-size:8px;
+    letter-spacing:2.4px;
+  }
+}

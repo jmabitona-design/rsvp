@@ -264,13 +264,13 @@ footer .wedding-logo{width:80px;height:80px}
 .story-tree{
   position:relative;
   width:100%;
-  max-width:1220px;
+  max-width:none;
   min-height:1290px;
   margin:0 auto;
   padding:48px 20px 65px;
   overflow:hidden;
   text-align:center;
-  background:url("assets/story/background/story-paper.webp") center/cover repeat;
+  background:#f7e7e9;
   color:#302d20;
 }
 
@@ -1020,5 +1020,42 @@ footer .wedding-logo{width:80px;height:80px}
   .countdown,
   .story-tree{
     background:#f7e7e9 !important;
+  }
+}
+
+
+/* =========================================================
+   DEFINITIVE BACKGROUND FIX — COUNTDOWN + OUR STORY
+   Exact pastel pink: #f7e7e9
+   Applied directly to the actual #story section.
+   ========================================================= */
+
+.countdown,
+#story.story-tree,
+section.story-tree{
+  background:#f7e7e9 !important;
+}
+
+#story.story-tree{
+  width:100% !important;
+  max-width:none !important;
+  margin-left:0 !important;
+  margin-right:0 !important;
+  background-image:none !important;
+  background-color:#f7e7e9 !important;
+}
+
+/* Prevent the page's paper background from showing through around
+   the full-width Our Story section. */
+body{
+  background-color:#f7e7e9;
+}
+
+@media(max-width:600px){
+  .countdown,
+  #story.story-tree,
+  section.story-tree{
+    background:#f7e7e9 !important;
+    background-image:none !important;
   }
 }

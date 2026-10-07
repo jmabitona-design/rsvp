@@ -782,3 +782,29 @@ footer .wedding-logo{width:80px;height:80px}
     margin-left:12px;
   }
 }
+
+
+/* Brittany Signature — smaller and separated from subtitle */
+.story-title {
+   font-family: 'BrittanySignature', cursive;
+   font-size: clamp(58px, 7vw, 108px);
+   line-height: 0.9;
+   margin-bottom: 18px;
+   position: relative;
+   z-index: 2;
+}
+
+.story-subtitle {
+   position: relative;
+   z-index: 3;
+   margin-top: 0;
+}
+
+/* Mobile: keep the signature heading compact and prevent overlap */
+@media (max-width: 600px) {
+   .story-title {
+      font-size: clamp(48px, 14vw, 72px);
+      line-height: 0.9;
+      margin-bottom: 14px;
+   }
+}

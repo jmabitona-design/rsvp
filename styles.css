@@ -756,3 +756,41 @@ footer .wedding-logo{width:80px;height:80px}
     width:76px !important;
   }
 }
+
+
+/* FINAL VINE CONNECTION
+   Keep the ONE existing vine and move its outer end farther toward
+   the center timeline. No second vine or connector is created. */
+.story-tree .story-vine{
+  width:140px !important;
+}
+.story-tree .story-vine-right{
+  right:-104px !important;
+}
+.story-tree .story-vine-left{
+  left:-104px !important;
+}
+
+@media(max-width:900px){
+  .story-tree .story-vine{
+    width:105px !important;
+  }
+  .story-tree .story-vine-right{
+    right:-78px !important;
+  }
+  .story-tree .story-vine-left{
+    left:-78px !important;
+  }
+}
+
+@media(max-width:600px){
+  .story-tree .story-vine{
+    width:76px !important;
+  }
+  .story-tree .story-vine-right{
+    right:-56px !important;
+  }
+  .story-tree .story-vine-left{
+    left:-56px !important;
+  }
+}

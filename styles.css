@@ -26,9 +26,9 @@ nav a:hover{color:#938064}
 .and{display:block;font-family:WeddingScript,cursive;font-size:52px;line-height:.9;letter-spacing:0;text-transform:none;color:#716a54}
 .date{text-transform:uppercase;letter-spacing:4px;font-size:21px;margin-bottom:4px}
 .location{text-transform:uppercase;font-size:13px;letter-spacing:2px}
-.countdown{text-align:center;padding:30px 20px;position:relative}
+.countdown{text-align:center;padding:30px 20px;position:relative;z-index:5}
 .leaves{position:relative;overflow:visible}
-.leaves:before,.leaves:after{content:'';position:absolute;top:-32px;width:235px;height:235px;background-repeat:no-repeat;background-size:contain;pointer-events:none;opacity:.84;z-index:1}
+.leaves:before,.leaves:after{content:'';position:absolute;top:0;width:300px;height:300px;background-repeat:no-repeat;background-size:contain;pointer-events:none;opacity:.84;z-index:10}
 .leaves > *{position:relative;z-index:2}
 .leaves:before{left:0;background-image:url('assets/story/flowers/flower-border-L.png');background-position:left top}
 .leaves:after{right:0;background-image:url('assets/story/flowers/flower-border-R.png');background-position:right top}
@@ -1038,8 +1038,8 @@ footer .wedding-logo{width:80px;height:80px}
 .countdown.leaves:after{
   top:auto;
   bottom:-112px;
-  width:235px;
-  height:235px;
+  width:280px;
+  height:280px;
   z-index:1;
 }
 

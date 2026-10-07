@@ -698,11 +698,17 @@ footer .wedding-logo{width:80px;height:80px}
 @media(max-width:600px){.story-bottom-flowers{width:210px;max-width:55%;left:-5px;bottom:0;}}
 
 /* =========================================================
-   OUR STORY — SINGLE VINE CONNECTOR
-   The vine images already exist inside each photo frame.
-   Do not generate a second vine with pseudo-elements.
+   OUR STORY — CENTER-TO-PHOTO VINE CONNECTORS
+   Remove the old straight connector lines/hearts and use
+   decorative vines to visually connect each photo to the spine.
    ========================================================= */
 
+/* Remove the old horizontal connector lines and floating hearts. */
+.story-tree-card::after{
+  display:none !important;
+}
+
+/* Keep the decorative heart on the center timeline. */
 .story-tree .story-line-heart{
   display:block !important;
   position:absolute;
@@ -710,439 +716,81 @@ footer .wedding-logo{width:80px;height:80px}
   pointer-events:none;
 }
 
-/* Disable only the old straight connector pseudo-element. */
-.story-tree-card::before,
-.story-tree-card::after{
-  content:none !important;
-  display:none !important;
+/* Vine connector anchored to each polaroid. */
+.story-tree .story-photo-frame::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  top:50%;
+  width:105px;
+  height:62px;
+  transform:translateY(-50%);
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:contain;
+  opacity:.78;
+  pointer-events:none;
 }
 
-/* Keep the single vine that is already in the HTML. */
-.story-tree .story-vine{
-  display:block !important;
-  z-index:2;
+/* Left-side photos connect toward the center spine. */
+.story-tree-card:nth-child(odd) .story-photo-frame::before{
+  right:-103px;
+  background-image:url("assets/story/ornaments/vine-right.png");
+  transform:translateY(-50%);
 }
 
-/* FINAL: the HTML contains one vine image per story card.
-   Keep it; do not create another connector with CSS. */
-.story-tree-card::before,
-.story-tree-card::after{
-  content:none !important;
-  display:none !important;
-}
-.story-tree .story-vine{
-  display:block !important;
-}
-.story-tree .story-line-heart{
-  display:block !important;
+/* Right-side photos connect back toward the center spine. */
+.story-tree-card:nth-child(even) .story-photo-frame::before{
+  left:-65px;
+  background-image:url("assets/story/ornaments/vine-left.png");
+  transform:translateY(-50%);
 }
 
-
-/* FINAL VINE ALIGNMENT
-   Extend the existing single vine so its outer end touches the center timeline.
-   This does not add another vine or alter the center heart. */
-.story-tree .story-vine{
-  width:140px !important;
+/* Keep the center spine visually above the vine ends. */
+.story-tree-stage::before{
+  z-index:4;
+}
+.story-tree-stage::after{
+  z-index:7;
 }
 
 @media(max-width:900px){
-  .story-tree .story-vine{
-    width:105px !important;
+  .story-tree .story-photo-frame::before{
+    width:82px;
+    height:52px;
+  }
+  .story-tree-card:nth-child(odd) .story-photo-frame::before{
+    right:-80px;
+  }
+  .story-tree-card:nth-child(even) .story-photo-frame::before{
+    left:-52px;
   }
 }
 
 @media(max-width:600px){
-  .story-tree .story-vine{
-    width:76px !important;
+  .story-tree .story-photo-frame::before{
+    width:55px;
+    height:38px;
+    opacity:.72;
+  }
+  .story-tree-card:nth-child(odd) .story-photo-frame::before{
+    right:-52px;
+  }
+  .story-tree-card:nth-child(even) .story-photo-frame::before{
+    left:-42px;
   }
 }
 
 
-/* FINAL VINE CONNECTION
-   Keep the ONE existing vine and move its outer end farther toward
-   the center timeline. No second vine or connector is created. */
-.story-tree .story-vine{
-  width:140px !important;
-}
-.story-tree .story-vine-right{
-  right:-104px !important;
-}
-.story-tree .story-vine-left{
-  left:-104px !important;
-}
-
-@media(max-width:900px){
-  .story-tree .story-vine{
-    width:105px !important;
-  }
-  .story-tree .story-vine-right{
-    right:-78px !important;
-  }
-  .story-tree .story-vine-left{
-    left:-78px !important;
-  }
-}
-
-@media(max-width:600px){
-  .story-tree .story-vine{
-    width:76px !important;
-  }
-  .story-tree .story-vine-right{
-    right:-56px !important;
-  }
-  .story-tree .story-vine-left{
-    left:-56px !important;
-  }
-}
-
-
-/* RIGHT-SIDE CARDS: shorten the vine so it ends exactly at the
-   center timeline instead of crossing past it. Left-side vines stay as-is. */
-.story-tree .story-vine-left{
-  left:-55px !important;
-}
-
-@media(max-width:900px){
-  .story-tree .story-vine-left{
-    left:-42px !important;
-  }
-}
-
-@media(max-width:600px){
-  .story-tree .story-vine-left{
-    left:-30px !important;
-  }
-}
-
-
-
-/* =========================================================
-   OUR STORY — FINAL POLISHED CONNECTORS
-   Vine -> center heart, never across the center line.
-   Leaves sit behind the polaroid and peek from underneath.
-   ========================================================= */
-
-/* Keep the timeline/card area stable. */
-.story-tree-stage,
-.story-tree-cards,
-.story-tree-card {
-  position: relative;
-}
-
-/* Photo is the foreground layer. */
-.story-tree .story-photo-frame {
-  position: relative;
-  z-index: 5 !important;
-  overflow: visible !important;
-}
-
-/* Actual photo stays above all decorative artwork. */
-.story-tree .story-photo-frame > img:not(.story-tape):not(.story-leaf):not(.story-vine):not(.story-heart) {
-  position: relative;
-  z-index: 6 !important;
-}
-
-/* Tape and small outline heart stay above the photo. */
-.story-tree .story-tape,
-.story-tree .story-heart-small {
-  z-index: 9 !important;
-}
-
-/* Leaves are BEHIND the polaroid.
-   They remain visible because they extend outside the frame. */
-.story-tree .story-leaf {
-  z-index: 2 !important;
-  pointer-events: none;
-}
-
-/* Left-side leaves: mostly underneath, with a small portion peeking out. */
-.story-tree .story-leaf-left {
-  left: -25px !important;
-  bottom: -18px !important;
-  width: 78px !important;
-  transform: rotate(-8deg);
-}
-
-/* Right-side leaves: same treatment on the opposite side. */
-.story-tree .story-leaf-right {
-  right: -25px !important;
-  bottom: -18px !important;
-  width: 78px !important;
-  transform: scaleX(-1) rotate(-8deg);
-}
-
-/* Vines are behind the polaroid. */
-.story-tree .story-vine {
-  z-index: 1 !important;
-  width: 105px !important;
-  height: auto !important;
-  top: 50% !important;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
-/*
-   LEFT CARD:
-   vine starts underneath the right edge of the photo and travels
-   toward the center heart. Its endpoint stops BEFORE the center line.
-*/
-.story-tree-card:nth-child(odd) .story-vine-right {
-  right: -86px !important;
-}
-
-/*
-   RIGHT CARD:
-   vine starts underneath the left edge of the photo and travels
-   toward the center heart. Its endpoint stops BEFORE the center line.
-*/
-.story-tree-card:nth-child(even) .story-vine-left {
-  left: -86px !important;
-}
-
-/* Center hearts stay on top of everything. */
-.story-tree .story-line-heart {
-  z-index: 12 !important;
-  display: block !important;
-  position: absolute;
-}
-
-/* Remove old straight connector lines completely. */
+/* FINAL: keep only ONE vine connector between each photo and the center line.
+   The center hearts remain untouched. */
 .story-tree-card::before,
 .story-tree-card::after {
   content: none !important;
   display: none !important;
 }
 
-/* ---------------------------------------------------------
-   DESKTOP/TABLET — make the vine visually meet the heart
-   without crossing the center timeline.
-   --------------------------------------------------------- */
-@media (min-width: 901px) {
-  .story-tree-card:nth-child(odd) .story-vine-right {
-    right: -91px !important;
-    width: 112px !important;
-  }
-
-  .story-tree-card:nth-child(even) .story-vine-left {
-    left: -91px !important;
-    width: 112px !important;
-  }
-}
-
-/* ---------------------------------------------------------
-   TABLET
-   --------------------------------------------------------- */
-@media (max-width: 900px) {
-  .story-tree .story-vine {
-    width: 82px !important;
-  }
-
-  .story-tree-card:nth-child(odd) .story-vine-right {
-    right: -67px !important;
-  }
-
-  .story-tree-card:nth-child(even) .story-vine-left {
-    left: -67px !important;
-  }
-
-  .story-tree .story-leaf-left {
-    left: -21px !important;
-    bottom: -12px !important;
-    width: 58px !important;
-  }
-
-  .story-tree .story-leaf-right {
-    right: -21px !important;
-    bottom: -12px !important;
-    width: 58px !important;
-  }
-}
-
-/* ---------------------------------------------------------
-   MOBILE
-   Shorter vine, smaller leaves, same layering.
-   --------------------------------------------------------- */
-@media (max-width: 600px) {
-  .story-tree .story-vine {
-    width: 62px !important;
-  }
-
-  .story-tree-card:nth-child(odd) .story-vine-right {
-    right: -50px !important;
-  }
-
-  .story-tree-card:nth-child(even) .story-vine-left {
-    left: -50px !important;
-  }
-
-  .story-tree .story-leaf-left {
-    left: -17px !important;
-    bottom: -9px !important;
-    width: 43px !important;
-  }
-
-  .story-tree .story-leaf-right {
-    right: -17px !important;
-    bottom: -9px !important;
-    width: 43px !important;
-  }
-}
-
-/* =========================================================
-   FINAL OUR STORY FIX — web/desktop layout
-   ========================================================= */
-.story-tree{
-  min-height:1400px !important;
-  overflow:hidden !important;
-}
-
-.story-tree-stage{
-  width:900px !important;
-  height:1230px !important;
-  overflow:visible !important;
-}
-
-.story-tree-cards{
-  overflow:visible !important;
-}
-
-/* Keep all five chapters inside the story section. */
-.story-tree-card.card-1{top:45px !important}
-.story-tree-card.card-2{top:265px !important}
-.story-tree-card.card-3{top:485px !important}
-.story-tree-card.card-4{top:705px !important}
-.story-tree-card.card-5{top:925px !important}
-
-/* Polaroids are the foreground. */
-.story-tree .story-photo-frame{
-  z-index:8 !important;
-  overflow:visible !important;
-}
-
-/* The decorative leaves are OUTSIDE the polaroid and therefore
-   can sit behind it while still peeking out from the edges. */
-.story-tree > .story-tree-stage .story-leaf{
-  position:absolute !important;
-  z-index:3 !important;
-  pointer-events:none !important;
-  width:82px !important;
-  height:auto !important;
-}
-.story-tree-card:nth-child(odd) > .story-leaf-left{
-  left:145px !important;
-  bottom:calc(50% - 83px) !important;
-  transform:rotate(-8deg) !important;
-}
-.story-tree-card:nth-child(even) > .story-leaf-right{
-  right:145px !important;
-  bottom:calc(50% - 83px) !important;
-  transform:scaleX(-1) rotate(-8deg) !important;
-}
-
-/* Remove the old straight connector generated by the card pseudo-element. */
-.story-tree-card:after{
-  content:none !important;
-  display:none !important;
-}
-
-/* Put every chapter heart exactly on the center timeline. */
-.story-tree-card:nth-child(odd) .story-line-heart{
-  right:-93px !important;
-  left:auto !important;
-  top:50% !important;
-  transform:translateY(-50%) !important;
-  z-index:12 !important;
-}
-.story-tree-card:nth-child(even) .story-line-heart{
-  left:-76px !important;
-  right:auto !important;
-  top:50% !important;
-  transform:translateY(-50%) !important;
-  z-index:12 !important;
-}
-
-/* Vines remain behind the polaroid and terminate at the heart.
-   They never cross the center line. */
-.story-tree-card:nth-child(odd) .story-vine-right{
-  right:-77px !important;
-  top:50% !important;
-  width:105px !important;
-  transform:translateY(-50%) !important;
-  z-index:4 !important;
-}
-.story-tree-card:nth-child(even) .story-vine-left{
-  left:-77px !important;
-  top:50% !important;
-  width:105px !important;
-  transform:translateY(-50%) !important;
-  z-index:4 !important;
-}
-
-/* Photo + tape stay above the vine. */
-.story-tree .story-photo-frame > img:not(.story-vine):not(.story-heart):not(.story-tape){
-  z-index:9 !important;
-}
-.story-tree .story-tape{z-index:11 !important}
-.story-tree .story-heart-small{z-index:12 !important}
-
-/* Bottom floral artwork stays behind every card. */
-.story-bottom-flowers{
-  z-index:1 !important;
-  pointer-events:none !important;
-}
-.story-tree-stage{z-index:5 !important}
-
-/* =========================================================
-   RESPONSIVE — preserve the same relationship on smaller screens
-   ========================================================= */
-@media(max-width:900px){
-  .story-tree{min-height:1300px !important}
-  .story-tree-stage{height:1160px !important}
-  .story-tree-card.card-1{top:35px !important}
-  .story-tree-card.card-2{top:245px !important}
-  .story-tree-card.card-3{top:455px !important}
-  .story-tree-card.card-4{top:665px !important}
-  .story-tree-card.card-5{top:875px !important}
-
-  .story-tree-card:nth-child(odd) .story-line-heart{right:-70px !important}
-  .story-tree-card:nth-child(even) .story-line-heart{left:-70px !important}
-  .story-tree-card:nth-child(odd) .story-vine-right{right:-58px !important;width:82px !important}
-  .story-tree-card:nth-child(even) .story-vine-left{left:-58px !important;width:82px !important}
-
-  .story-tree-card:nth-child(odd) > .story-leaf-left{
-    left:108px !important;
-    bottom:calc(50% - 72px) !important;
-    width:62px !important;
-  }
-  .story-tree-card:nth-child(even) > .story-leaf-right{
-    right:108px !important;
-    bottom:calc(50% - 72px) !important;
-    width:62px !important;
-  }
-}
-
-@media(max-width:600px){
-  .story-tree{min-height:1220px !important}
-  .story-tree-stage{height:1080px !important}
-  .story-tree-card.card-1{top:35px !important}
-  .story-tree-card.card-2{top:225px !important}
-  .story-tree-card.card-3{top:415px !important}
-  .story-tree-card.card-4{top:605px !important}
-  .story-tree-card.card-5{top:795px !important}
-
-  .story-tree-card:nth-child(odd) .story-line-heart{right:-48px !important}
-  .story-tree-card:nth-child(even) .story-line-heart{left:-48px !important}
-  .story-tree-card:nth-child(odd) .story-vine-right{right:-40px !important;width:58px !important}
-  .story-tree-card:nth-child(even) .story-vine-left{left:-40px !important;width:58px !important}
-
-  .story-tree-card:nth-child(odd) > .story-leaf-left{
-    left:72px !important;
-    bottom:calc(50% - 54px) !important;
-    width:45px !important;
-  }
-  .story-tree-card:nth-child(even) > .story-leaf-right{
-    right:72px !important;
-    bottom:calc(50% - 54px) !important;
-    width:45px !important;
-  }
+/* Restore the single vine connector using the existing vine asset. */
+.story-tree-card .story-vine {
+  display: block !important;
 }

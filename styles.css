@@ -1189,3 +1189,19 @@ footer .wedding-logo{width:80px;height:80px}
     margin:0 auto;
   }
 }
+
+
+/* =========================================================
+   SOFT PASTEL PINK — COUNTDOWN + OUR STORY
+   Both sections share the same clean pastel-pink background.
+   The original Our Story paper background is removed.
+   ========================================================= */
+.countdown.leaves,
+.story-tree{
+  background:#f7e7e9 !important;
+}
+
+/* Remove the old paper texture specifically from Our Story. */
+.story-tree{
+  background-image:none !important;
+}

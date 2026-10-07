@@ -650,8 +650,14 @@ footer .wedding-logo{width:80px;height:80px}
   .story-tree .story-leaf-left{left:-21px;bottom:-8px}
   .story-tree .story-leaf-right{right:-21px;bottom:-8px}
   .story-tree .story-vine{width:58px;top:45px}
-  .story-tree .story-vine-right{right:auto;left:-42px}
   .story-tree .story-vine-left{left:-42px}
+  .story-tree .story-vine-right{
+    left:-44px;
+    right:auto;
+    top:43px;
+    width:64px;
+    transform:scaleX(-1);
+  }
   .story-tree .story-heart-small{width:18px}
   .story-tree-card:nth-child(odd) .story-heart-small{right:-9px;top:-3px}
   .story-tree-card:nth-child(even) .story-heart-small{left:-9px;top:-3px}

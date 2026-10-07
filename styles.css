@@ -563,11 +563,23 @@ footer .wedding-logo{width:80px;height:80px}
 /* The actual story photo only — decorative PNGs are excluded */
 .story-tree .story-photo-frame > img:not(.story-tape):not(.story-leaf):not(.story-vine):not(.story-heart):not(.story-botanical){
   position:relative;
-  z-index:1;
+  z-index:2;
   display:block;
   width:100%;
   height:100%;
   object-fit:cover;
+}
+
+/* The white Polaroid surface sits above the botanical artwork
+   and below the actual photo, so flowers/leaves/vines stay
+   visually behind the entire white frame — not just the photo. */
+.story-tree .story-photo-frame::before{
+  content:"";
+  position:absolute;
+  z-index:1;
+  inset:-1px;
+  background:#fffdf8;
+  pointer-events:none;
 }
 
 /* ---------------------------------------------------------
@@ -592,7 +604,7 @@ footer .wedding-logo{width:80px;height:80px}
 .story-tree .story-leaf,
 .story-tree .story-botanical{
   position:absolute;
-  z-index:-1;
+  z-index:0;
   width:auto;
   height:auto;
   pointer-events:none;
@@ -639,7 +651,7 @@ footer .wedding-logo{width:80px;height:80px}
    --------------------------------------------------------- */
 .story-tree .story-vine{
   position:absolute;
-  z-index:-1;
+  z-index:0;
   display:block;
   width:105px;
   height:auto;
@@ -880,6 +892,11 @@ footer .wedding-logo{width:80px;height:80px}
   .story-tree-card.card-3{top:425px}
   .story-tree-card.card-4{top:620px}
   .story-tree-card.card-5{top:815px}
+
+  /* Keep the right-side photos (01, 03 and 05) comfortably inside the phone viewport. */
+  .story-tree-card.card-1 .story-photo-frame{transform:translateX(5px) rotate(-1.7deg)}
+  .story-tree-card.card-3 .story-photo-frame{transform:translateX(5px) rotate(1.2deg)}
+  .story-tree-card.card-5 .story-photo-frame{transform:translateX(5px) rotate(1.5deg)}
 
   .story-tree .story-tree-card figcaption,
   .story-tree-card:nth-child(even) figcaption{

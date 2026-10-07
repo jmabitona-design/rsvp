@@ -1205,3 +1205,43 @@ footer .wedding-logo{width:80px;height:80px}
 .story-tree{
   background-image:none !important;
 }
+
+/* =========================================================
+   PASTEL PINK BACKGROUND — COUNTDOWN + OUR STORY
+   Remove the old paper texture completely so both sections
+   use the same clean pastel pink background.
+   ========================================================= */
+:root{
+  --wedding-pastel-pink:#f7e7e9;
+}
+
+.countdown,
+.leaves{
+  background:var(--wedding-pastel-pink) !important;
+}
+
+.story-tree{
+  background:var(--wedding-pastel-pink) !important;
+  background-image:none !important;
+}
+
+/* Keep the Our Story interior transparent so no white panel
+   can appear over the new pink section background. */
+.story-tree-stage,
+.story-tree-cards{
+  background:transparent !important;
+}
+
+/* Keep the surrounding page pink where these sections meet. */
+body{
+  background-color:var(--wedding-pastel-pink);
+}
+
+@media(max-width:600px){
+  .countdown,
+  .leaves,
+  .story-tree{
+    background:var(--wedding-pastel-pink) !important;
+    background-image:none !important;
+  }
+}

@@ -785,31 +785,31 @@ footer .wedding-logo{width:80px;height:80px}
 
 
 /* Brittany Signature — smaller and separated from subtitle */
- .story-title {
+  .story-title {
    font-family: 'BrittanySignature', cursive;
-   font-size: 85px;
-   line-height: 0.9;
-   margin-bottom: 32px;
+   font-size: 92px;
+   line-height: 0.82;
+   margin-bottom: 30px;
    position: relative;
    z-index: 2;
 }
 
- .story-subtitle {
+  .story-subtitle {
    position: relative;
    z-index: 3;
    margin-top: 0;
-   transform: translateY(6px);
+   transform: translateY(8px);
 }
 
 /* Mobile: keep the signature heading compact and prevent overlap */
 @media (max-width: 600px) {
    .story-title {
-      font-size: 60px;
-      line-height: 0.9;
+      font-size: 62px;
+      line-height: 0.82;
       margin-bottom: 24px;
    }
 
    .story-subtitle {
-      transform: translateY(4px);
+      transform: translateY(5px);
    }
 }

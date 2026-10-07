@@ -698,17 +698,11 @@ footer .wedding-logo{width:80px;height:80px}
 @media(max-width:600px){.story-bottom-flowers{width:210px;max-width:55%;left:-5px;bottom:0;}}
 
 /* =========================================================
-   OUR STORY — CENTER-TO-PHOTO VINE CONNECTORS
-   Remove the old straight connector lines/hearts and use
-   decorative vines to visually connect each photo to the spine.
+   OUR STORY — SINGLE VINE CONNECTOR
+   The vine images already exist inside each photo frame.
+   Do not generate a second vine with pseudo-elements.
    ========================================================= */
 
-/* Remove the old horizontal connector lines and floating hearts. */
-.story-tree-card::after{
-  display:none !important;
-}
-
-/* Keep the decorative heart on the center timeline. */
 .story-tree .story-line-heart{
   display:block !important;
   position:absolute;
@@ -716,81 +710,29 @@ footer .wedding-logo{width:80px;height:80px}
   pointer-events:none;
 }
 
-/* Vine connector anchored to each polaroid. */
-.story-tree .story-photo-frame::before{
-  content:"";
-  position:absolute;
-  z-index:0;
-  top:50%;
-  width:105px;
-  height:62px;
-  transform:translateY(-50%);
-  background-position:center;
-  background-repeat:no-repeat;
-  background-size:contain;
-  opacity:.78;
-  pointer-events:none;
-}
-
-/* Left-side photos connect toward the center spine. */
-.story-tree-card:nth-child(odd) .story-photo-frame::before{
-  right:-103px;
-  background-image:url("assets/story/ornaments/vine-right.png");
-  transform:translateY(-50%);
-}
-
-/* Right-side photos connect back toward the center spine. */
-.story-tree-card:nth-child(even) .story-photo-frame::before{
-  left:-65px;
-  background-image:url("assets/story/ornaments/vine-left.png");
-  transform:translateY(-50%);
-}
-
-/* Keep the center spine visually above the vine ends. */
-.story-tree-stage::before{
-  z-index:4;
-}
-.story-tree-stage::after{
-  z-index:7;
-}
-
-@media(max-width:900px){
-  .story-tree .story-photo-frame::before{
-    width:82px;
-    height:52px;
-  }
-  .story-tree-card:nth-child(odd) .story-photo-frame::before{
-    right:-80px;
-  }
-  .story-tree-card:nth-child(even) .story-photo-frame::before{
-    left:-52px;
-  }
-}
-
-@media(max-width:600px){
-  .story-tree .story-photo-frame::before{
-    width:55px;
-    height:38px;
-    opacity:.72;
-  }
-  .story-tree-card:nth-child(odd) .story-photo-frame::before{
-    right:-52px;
-  }
-  .story-tree-card:nth-child(even) .story-photo-frame::before{
-    left:-42px;
-  }
-}
-
-
-/* FINAL: keep only ONE vine connector between each photo and the center line.
-   The center hearts remain untouched. */
+/* Disable only the old straight connector pseudo-element. */
 .story-tree-card::before,
-.story-tree-card::after {
-  content: none !important;
-  display: none !important;
+.story-tree-card::after{
+  content:none !important;
+  display:none !important;
 }
 
-/* Restore the single vine connector using the existing vine asset. */
-.story-tree-card .story-vine {
-  display: block !important;
+/* Keep the single vine that is already in the HTML. */
+.story-tree .story-vine{
+  display:block !important;
+  z-index:2;
+}
+
+/* FINAL: the HTML contains one vine image per story card.
+   Keep it; do not create another connector with CSS. */
+.story-tree-card::before,
+.story-tree-card::after{
+  content:none !important;
+  display:none !important;
+}
+.story-tree .story-vine{
+  display:block !important;
+}
+.story-tree .story-line-heart{
+  display:block !important;
 }

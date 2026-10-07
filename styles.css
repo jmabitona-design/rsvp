@@ -1,5 +1,6 @@
 @font-face{font-family:WeddingSerif;src:url('assets/serif.otf')}
 @font-face{font-family:WeddingScript;src:url('assets/script.otf')}
+@font-face{font-family:BrittanySignature;src:url('assets/story/Font/BrittanySignature.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
  :root{--background:#f7f3ec;--foreground:#272a20;--popover:#faf7f1;--popover-foreground:#272a20;--border:#d6c8b4;--input:#d6c8b4;--ring:#62684b;--primary:#555c40;--primary-foreground:#fff;--muted:#ece5da;--muted-foreground:#786b59;--radius:.4rem;--color-background:var(--background);--color-foreground:var(--foreground);--color-popover:var(--popover);--color-popover-foreground:var(--popover-foreground);--color-border:var(--border);--color-input:var(--input)}
  *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:74px}
@@ -309,7 +310,7 @@ footer .wedding-logo{width:80px;height:80px}
 .story-tree .story-heading .script{
   margin:0;
   color:#28271d;
-  font-family:WeddingScript,cursive;
+  font-family:BrittanySignature,WeddingScript,cursive;
   font-size:clamp(76px,8vw,110px);
   font-weight:400;
   line-height:.9;

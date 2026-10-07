@@ -794,3 +794,22 @@ footer .wedding-logo{width:80px;height:80px}
     left:-56px !important;
   }
 }
+
+
+/* RIGHT-SIDE CARDS: shorten the vine so it ends exactly at the
+   center timeline instead of crossing past it. Left-side vines stay as-is. */
+.story-tree .story-vine-left{
+  left:-55px !important;
+}
+
+@media(max-width:900px){
+  .story-tree .story-vine-left{
+    left:-42px !important;
+  }
+}
+
+@media(max-width:600px){
+  .story-tree .story-vine-left{
+    left:-30px !important;
+  }
+}

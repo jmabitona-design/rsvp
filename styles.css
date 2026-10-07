@@ -736,3 +736,23 @@ footer .wedding-logo{width:80px;height:80px}
 .story-tree .story-line-heart{
   display:block !important;
 }
+
+
+/* FINAL VINE ALIGNMENT
+   Extend the existing single vine so its outer end touches the center timeline.
+   This does not add another vine or alter the center heart. */
+.story-tree .story-vine{
+  width:140px !important;
+}
+
+@media(max-width:900px){
+  .story-tree .story-vine{
+    width:105px !important;
+  }
+}
+
+@media(max-width:600px){
+  .story-tree .story-vine{
+    width:76px !important;
+  }
+}

@@ -848,3 +848,36 @@ footer .wedding-logo{width:80px;height:80px}
     bottom:0;
   }
 }
+
+/* =========================================================
+   FINAL FIX — REMOVE ONLY THE LOWER PORTION OF EACH HTML VINE
+   ---------------------------------------------------------
+   The vine artwork itself remains in the HTML.
+   This clips only the lower part of the existing PNG so the
+   upper/curved vine connection remains visible.
+
+   No HTML vine is removed or replaced.
+   No new vine is generated with ::before/::after.
+   ========================================================= */
+
+.story-tree .story-photo-frame .story-vine{
+  display:block !important;
+  clip-path:inset(0 0 42% 0);
+  -webkit-clip-path:inset(0 0 42% 0);
+}
+
+/* Keep the same treatment at tablet size. */
+@media(max-width:900px){
+  .story-tree .story-photo-frame .story-vine{
+    clip-path:inset(0 0 42% 0);
+    -webkit-clip-path:inset(0 0 42% 0);
+  }
+}
+
+/* Keep the same treatment on mobile. */
+@media(max-width:600px){
+  .story-tree .story-photo-frame .story-vine{
+    clip-path:inset(0 0 42% 0);
+    -webkit-clip-path:inset(0 0 42% 0);
+  }
+}

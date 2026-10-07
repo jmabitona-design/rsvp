@@ -26,9 +26,10 @@ nav a:hover{color:#938064}
 .and{display:block;font-family:WeddingScript,cursive;font-size:52px;line-height:.9;letter-spacing:0;text-transform:none;color:#716a54}
 .date{text-transform:uppercase;letter-spacing:4px;font-size:21px;margin-bottom:4px}
 .location{text-transform:uppercase;font-size:13px;letter-spacing:2px}
-.countdown{text-align:center;padding:30px 20px}
-.leaves{position:relative}
-.leaves:before,.leaves:after{content:'';position:absolute;top:-8px;width:190px;height:190px;background-repeat:no-repeat;background-size:contain;pointer-events:none;opacity:.82}
+.countdown{text-align:center;padding:30px 20px;position:relative}
+.leaves{position:relative;overflow:visible}
+.leaves:before,.leaves:after{content:'';position:absolute;top:-32px;width:235px;height:235px;background-repeat:no-repeat;background-size:contain;pointer-events:none;opacity:.84;z-index:1}
+.leaves > *{position:relative;z-index:2}
 .leaves:before{left:0;background-image:url('assets/story/flowers/flower-border-L.png');background-position:left top}
 .leaves:after{right:0;background-image:url('assets/story/flowers/flower-border-R.png');background-position:right top}
 .timer{display:flex;justify-content:center;margin:auto;max-width:650px}
@@ -145,7 +146,9 @@ nav a{font-size:10px;letter-spacing:.8px}
 .eyebrow{font-size:14px;letter-spacing:3px}
 .timer strong{font-size:36px}
 .timer span{font-size:10px}
-.leaves:before,.leaves:after{width:105px;height:105px;top:-4px;opacity:.72}
+.countdown{padding:38px 18px 25px}
+.leaves:before,.leaves:after{width:145px;height:145px;top:-20px;opacity:.78}
+.leaves > *{position:relative;z-index:2}
 .section-wrap{grid-template-columns:1fr;padding:35px 28px;gap:22px}
 .story-photo{width:85%;justify-self:center}
 .script{font-size:49px}

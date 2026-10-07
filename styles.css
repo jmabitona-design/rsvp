@@ -844,3 +844,151 @@ footer .wedding-logo{width:80px;height:80px}
     letter-spacing:2.4px;
   }
 }
+
+
+/* ===== FINAL OUR STORY / BOTANICAL BACKGROUND =====
+   Desktop heading: 80px.
+   Subtitle is pushed down enough to clear the script descenders.
+   The story cards are also moved down to preserve breathing room. */
+.story-tree{
+  min-height:1340px;
+}
+
+.story-tree .story-heading .story-title{
+  font-size:80px;
+  line-height:.9;
+  margin-bottom:0;
+}
+
+.story-tree .story-heading .story-subtitle{
+  margin-top:58px;
+  transform:none;
+}
+
+.story-tree .story-tree-stage{
+  margin-top:48px;
+}
+
+/* Botanical artwork sits behind the white polaroid frame,
+   but remains visible outside its edges. */
+.story-tree .story-tree-card{
+  isolation:isolate;
+}
+
+.story-tree .story-leaf,
+.story-tree .story-vine,
+.story-tree .story-botanical{
+  z-index:1;
+}
+
+.story-tree .story-photo-frame{
+  z-index:3;
+}
+
+.story-tree .story-botanical{
+  position:absolute;
+  width:82px;
+  height:auto;
+  pointer-events:none;
+  user-select:none;
+  z-index:1;
+}
+
+.story-tree .story-botanical-flower1{
+  left:-62px;
+  bottom:-38px;
+  transform:rotate(-7deg);
+}
+
+.story-tree .story-botanical-flower2{
+  right:-62px;
+  bottom:-38px;
+  transform:scaleX(-1) rotate(-7deg);
+}
+
+/* Keep the leaves tucked behind the frame while peeking around it. */
+.story-tree .story-leaf-left{
+  z-index:1;
+  left:-34px;
+  bottom:-24px;
+}
+
+.story-tree .story-leaf-right{
+  z-index:1;
+  right:-34px;
+  bottom:-24px;
+}
+
+/* Vines remain behind the photo frame. */
+.story-tree .story-vine{
+  z-index:1;
+}
+
+/* Medium screens */
+@media (max-width:900px){
+  .story-tree{
+    min-height:1240px;
+  }
+
+  .story-tree .story-heading .story-title{
+    font-size:72px;
+  }
+
+  .story-tree .story-heading .story-subtitle{
+    margin-top:42px;
+  }
+
+  .story-tree .story-tree-stage{
+    margin-top:40px;
+  }
+
+  .story-tree .story-botanical{
+    width:62px;
+  }
+
+  .story-tree .story-botanical-flower1{
+    left:-48px;
+    bottom:-28px;
+  }
+
+  .story-tree .story-botanical-flower2{
+    right:-48px;
+    bottom:-28px;
+  }
+}
+
+/* Mobile: preserve the compact mobile design. */
+@media (max-width:600px){
+  .story-tree{
+    min-height:1240px;
+  }
+
+  .story-tree .story-heading .story-title{
+    font-size:46px;
+    line-height:.92;
+  }
+
+  .story-tree .story-heading .story-subtitle{
+    margin-top:24px;
+    font-size:8px;
+    letter-spacing:2.4px;
+  }
+
+  .story-tree .story-tree-stage{
+    margin-top:30px;
+  }
+
+  .story-tree .story-botanical{
+    width:45px;
+  }
+
+  .story-tree .story-botanical-flower1{
+    left:-34px;
+    bottom:-18px;
+  }
+
+  .story-tree .story-botanical-flower2{
+    right:-34px;
+    bottom:-18px;
+  }
+}

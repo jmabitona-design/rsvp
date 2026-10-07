@@ -531,11 +531,11 @@ footer .wedding-logo{width:80px;height:80px}
   pointer-events:none;
 }
 .story-tree .story-vine-right{
-  right:-69px;
+  right:-100px;
   top:76px;
 }
 .story-tree .story-vine-left{
-  left:-69px;
+  left:-165px;
   top:76px;
 }
 
@@ -559,18 +559,6 @@ footer .wedding-logo{width:80px;height:80px}
 }
 
 /* Center heart markers */
-.story-tree-card:after{
-  content:"";
-  position:absolute;
-  z-index:4;
-  top:50%;
-  width:92px;
-  height:1px;
-  background:#c8ae7e;
-  opacity:.72;
-}
-.story-tree-card:nth-child(odd):after{right:-68px}
-.story-tree-card:nth-child(even):after{left:-68px}
 .story-tree .story-line-heart{
   position:absolute;
   z-index:8;
@@ -627,8 +615,6 @@ footer .wedding-logo{width:80px;height:80px}
   .story-tree-card.card-3{top:405px}
   .story-tree-card.card-4{top:590px}
   .story-tree-card.card-5{top:775px}
-  .story-tree-card:nth-child(odd):after{right:-55px}
-  .story-tree-card:nth-child(even):after{left:-55px}
   .story-tree-card:nth-child(odd) .story-line-heart{right:-70px}
   .story-tree-card:nth-child(even) .story-line-heart{left:-70px}
 }
@@ -664,14 +650,11 @@ footer .wedding-logo{width:80px;height:80px}
   .story-tree .story-leaf-left{left:-21px;bottom:-8px}
   .story-tree .story-leaf-right{right:-21px;bottom:-8px}
   .story-tree .story-vine{width:58px;top:45px}
-  .story-tree .story-vine-right{right:-42px}
+  .story-tree .story-vine-right{right:auto;left:-42px}
   .story-tree .story-vine-left{left:-42px}
   .story-tree .story-heart-small{width:18px}
   .story-tree-card:nth-child(odd) .story-heart-small{right:-9px;top:-3px}
   .story-tree-card:nth-child(even) .story-heart-small{left:-9px;top:-3px}
-  .story-tree-card:after{width:43px}
-  .story-tree-card:nth-child(odd):after{right:-34px}
-  .story-tree-card:nth-child(even):after{left:-34px}
   .story-tree .story-line-heart{width:24px}
   .story-tree-card:nth-child(odd) .story-line-heart{right:-47px}
   .story-tree-card:nth-child(even) .story-line-heart{left:-47px}

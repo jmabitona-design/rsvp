@@ -26,11 +26,12 @@ nav a:hover{color:#938064}
 .and{display:block;font-family:WeddingScript,cursive;font-size:52px;line-height:.9;letter-spacing:0;text-transform:none;color:#716a54}
 .date{text-transform:uppercase;letter-spacing:4px;font-size:21px;margin-bottom:4px}
 .location{text-transform:uppercase;font-size:13px;letter-spacing:2px}
-.countdown{text-align:center;padding:30px 20px}
+.countdown{text-align:center;padding:30px 20px;position:relative;z-index:1}
 .leaves{position:relative}
-.leaves:before,.leaves:after{content:'';position:absolute;top:0;width:140px;height:150px;background:url('assets/leaves.webp') left top/contain no-repeat;pointer-events:none;opacity:.7}
-.leaves:before{left:0}
-.leaves:after{right:0;transform:scaleX(-1)}
+.leaves:before,.leaves:after{content:'';position:absolute;top:0;width:250px;height:280px;background-repeat:no-repeat;background-size:contain;pointer-events:none;z-index:0}
+.leaves:before{left:0;background-image:url('assets/story/flowers/flower-border-L.png');background-position:left top}
+.leaves:after{right:0;background-image:url('assets/story/flowers/flower-border-R.png');background-position:right top}
+.countdown > *{position:relative;z-index:2}
 .timer{display:flex;justify-content:center;margin:auto;max-width:650px}
 .timer div{width:25%;border-right:1px solid #c7b69e}
 .timer div:last-child{border:0}
@@ -126,7 +127,20 @@ nav a{font-size:11px;letter-spacing:1px}
 .dress aside p{margin-bottom:0}
 .dress .script{font-size:48px}
 }
- @media(max-width:600px){body{font-size:17px}
+ @media(max-width:900px){
+  .leaves:before,.leaves:after{width:205px;height:230px}
+}
+
+@media(max-width:600px){
+  .countdown{padding:28px 12px 30px;min-height:170px}
+  .leaves:before,.leaves:after{width:115px;height:145px;top:0;opacity:1}
+  .leaves:before{left:-2px}
+  .leaves:after{right:-2px}
+  .countdown > .eyebrow{padding:0 82px}
+  .countdown > .timer{position:relative;z-index:3;width:calc(100% - 105px);max-width:430px;margin-left:auto;margin-right:auto}
+}
+
+@media(max-width:600px){body{font-size:17px}
 header{height:auto;min-height:70px;flex-wrap:wrap;padding:9px 16px;gap:6px}
 .monogram{font-size:23px}
 .nav-heart{position:absolute;right:18px;top:17px}
@@ -145,7 +159,6 @@ nav a{font-size:10px;letter-spacing:.8px}
 .eyebrow{font-size:14px;letter-spacing:3px}
 .timer strong{font-size:36px}
 .timer span{font-size:10px}
-.leaves:before,.leaves:after{width:70px;opacity:.4}
 .section-wrap{grid-template-columns:1fr;padding:35px 28px;gap:22px}
 .story-photo{width:85%;justify-self:center}
 .script{font-size:49px}
@@ -876,9 +889,12 @@ footer .wedding-logo{width:80px;height:80px}
 }
 
 .story-tree .story-leaf,
-.story-tree .story-vine,
 .story-tree .story-botanical{
   z-index:1;
+}
+
+.story-tree .story-vine{
+  z-index:-1;
 }
 
 .story-tree .story-photo-frame{
@@ -919,9 +935,9 @@ footer .wedding-logo{width:80px;height:80px}
   bottom:-24px;
 }
 
-/* Vines remain behind the photo frame. */
+/* Keep the existing vine design/layering unchanged. */
 .story-tree .story-vine{
-  z-index:1;
+  z-index:-1;
 }
 
 /* Medium screens */
@@ -1022,3 +1038,13 @@ footer .wedding-logo{width:80px;height:80px}
     background:#f7e7e9 !important;
   }
 }
+
+/* FINAL STORY LAYERING: only the floral leaves/flowers sit behind the white Polaroid.
+   All other existing ornaments keep their original layering and positioning. */
+.story-tree .story-tree-card{isolation:isolate}
+.story-tree .story-photo-frame{z-index:3}
+.story-tree .story-leaf,
+.story-tree .story-botanical{z-index:1}
+.story-tree .story-tape{z-index:8}
+.story-tree .story-vine{z-index:-1}
+.story-tree .story-heart-small{z-index:7}

@@ -907,6 +907,16 @@ footer .wedding-logo{width:80px;height:80px}
     margin-top:5px;
   }
 
+  /* On mobile, the right-side captions (chapters 02 and 04)
+     need a little extra separation from the floral decoration
+     that extends from the left-side Polaroids. */
+  .story-tree-card.card-2 figcaption,
+  .story-tree-card.card-4 figcaption{
+    position:relative;
+    left:20px;
+    width:calc(100% - 20px);
+  }
+
   .story-tree .story-photo-frame,
   .story-tree-card:nth-child(even) .story-photo-frame{
     width:108px;

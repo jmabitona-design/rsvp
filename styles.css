@@ -763,3 +763,21 @@ footer .wedding-logo{width:80px;height:80px}
     bottom:0;
   }
 }
+
+/* FINAL POSITION FIX — move LEFT-side photos toward the center spine so the
+   existing HTML vine reaches/touches the center line. Text stays in place. */
+.story-tree-card:nth-child(odd) .story-photo-frame{
+  margin-left:32px;
+}
+
+@media(max-width:900px){
+  .story-tree-card:nth-child(odd) .story-photo-frame{
+    margin-left:24px;
+  }
+}
+
+@media(max-width:600px){
+  .story-tree-card:nth-child(odd) .story-photo-frame{
+    margin-left:12px;
+  }
+}

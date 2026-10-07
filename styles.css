@@ -28,9 +28,9 @@ nav a:hover{color:#938064}
 .location{text-transform:uppercase;font-size:13px;letter-spacing:2px}
 .countdown{text-align:center;padding:30px 20px}
 .leaves{position:relative}
-.leaves:before,.leaves:after{content:'';position:absolute;top:0;width:140px;height:150px;background:url('assets/leaves.webp') left top/contain no-repeat;pointer-events:none;opacity:.7}
-.leaves:before{left:0}
-.leaves:after{right:0;transform:scaleX(-1)}
+.leaves:before,.leaves:after{content:'';position:absolute;top:-8px;width:190px;height:190px;background-repeat:no-repeat;background-size:contain;pointer-events:none;opacity:.82}
+.leaves:before{left:0;background-image:url('assets/story/flowers/flower-border-L.png');background-position:left top}
+.leaves:after{right:0;background-image:url('assets/story/flowers/flower-border-R.png');background-position:right top}
 .timer{display:flex;justify-content:center;margin:auto;max-width:650px}
 .timer div{width:25%;border-right:1px solid #c7b69e}
 .timer div:last-child{border:0}
@@ -145,7 +145,7 @@ nav a{font-size:10px;letter-spacing:.8px}
 .eyebrow{font-size:14px;letter-spacing:3px}
 .timer strong{font-size:36px}
 .timer span{font-size:10px}
-.leaves:before,.leaves:after{width:70px;opacity:.4}
+.leaves:before,.leaves:after{width:105px;height:105px;top:-4px;opacity:.72}
 .section-wrap{grid-template-columns:1fr;padding:35px 28px;gap:22px}
 .story-photo{width:85%;justify-self:center}
 .script{font-size:49px}

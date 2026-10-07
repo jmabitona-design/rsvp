@@ -780,3 +780,17 @@ footer .wedding-logo{width:80px;height:80px}
     left:-42px;
   }
 }
+
+
+/* FINAL: keep only ONE vine connector between each photo and the center line.
+   The center hearts remain untouched. */
+.story-tree-card::before,
+.story-tree-card::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Restore the single vine connector using the existing vine asset. */
+.story-tree-card .story-vine {
+  display: block !important;
+}

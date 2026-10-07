@@ -507,26 +507,26 @@ footer .wedding-logo{width:80px;height:80px}
 /* Leaves */
 .story-tree .story-leaf{
   position:absolute;
-  z-index:4;
+  z-index:-1;
   width:78px;
   height:auto;
   pointer-events:none;
 }
 .story-tree .story-leaf-left{
-  left:-28px;
-  bottom:-17px;
+  left:-34px;
+  bottom:-24px;
   transform:rotate(-8deg);
 }
 .story-tree .story-leaf-right{
-  right:-28px;
-  bottom:-17px;
+  right:-34px;
+  bottom:-24px;
   transform:scaleX(-1) rotate(-8deg);
 }
 
 /* Curved vines */
 .story-tree .story-vine{
   position:absolute;
-  z-index:2;
+  z-index:-1;
   width:105px;
   height:auto;
   pointer-events:none;

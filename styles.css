@@ -1,438 +1,327 @@
-/* =========================================================
-   OUR STORY
-   ========================================================= */
-
-@font-face {
-    font-family: "BrittanySignature";
-    src: url("assets/story/Font/BrittanySignature.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+@font-face{font-family:WeddingSerif;src:url('assets/serif.otf')}
+@font-face{font-family:WeddingScript;src:url('assets/script.otf')}
+ :root{--background:#f7f3ec;--foreground:#272a20;--popover:#faf7f1;--popover-foreground:#272a20;--border:#d6c8b4;--input:#d6c8b4;--ring:#62684b;--primary:#555c40;--primary-foreground:#fff;--muted:#ece5da;--muted-foreground:#786b59;--radius:.4rem;--color-background:var(--background);--color-foreground:var(--foreground);--color-popover:var(--popover);--color-popover-foreground:var(--popover-foreground);--color-border:var(--border);--color-input:var(--input)}
+ *{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:74px}
+body{margin:0;color:var(--foreground);background:#f7f3ec url('assets/paper.webp') repeat;font-family:WeddingSerif,Georgia,serif;font-size:18px;line-height:1.5}
+button,a,input,textarea{touch-action:manipulation}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+button:disabled{opacity:.6;cursor:wait}
+p{margin:0 0 18px}
+header{height:66px;background:#faf7f1f5;display:flex;align-items:center;justify-content:space-between;padding:0 8%;position:sticky;top:0;z-index:20;border-bottom:1px solid #dad0c344}
+nav{display:flex;gap:30px}
+nav a{font-size:12px;text-transform:uppercase;letter-spacing:2px}
+nav a:hover{color:#938064}
+.monogram{font-size:25px;white-space:nowrap}
+.monogram span{font-size:24px;margin:0 4px;color:#948570}
+.nav-heart{color:#9c8668}
+.hero{height:550px;position:relative;overflow:hidden;background:linear-gradient(125deg,#d9c9b4,#f7e5cf 75%,#ddd1bb)}
+.hero-photo{position:absolute;inset:0 39% 0 0;background:url('assets/banner.jpg') center top/cover}
+.hero-photo:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 75%,#f0dfc8)}
+.hero-copy{position:absolute;top:50%;left:55%;width:40%;transform:translateY(-50%);text-align:center}
+.eyebrow{text-transform:uppercase;letter-spacing:5px;font-size:16px;margin-bottom:18px;font-weight:400}
+.hero h1{font-size:78px;letter-spacing:9px;text-transform:uppercase;line-height:1.05;margin:0 0 28px;font-weight:400;color:#161810}
+.and{display:block;font-family:WeddingScript,cursive;font-size:52px;line-height:.9;letter-spacing:0;text-transform:none;color:#716a54}
+.date{text-transform:uppercase;letter-spacing:4px;font-size:21px;margin-bottom:4px}
+.location{text-transform:uppercase;font-size:13px;letter-spacing:2px}
+.countdown{text-align:center;padding:30px 20px}
+.leaves{position:relative}
+.leaves:before,.leaves:after{content:'';position:absolute;top:0;width:140px;height:150px;background:url('assets/leaves.webp') left top/contain no-repeat;pointer-events:none;opacity:.7}
+.leaves:before{left:0}
+.leaves:after{right:0;transform:scaleX(-1)}
+.timer{display:flex;justify-content:center;margin:auto;max-width:650px}
+.timer div{width:25%;border-right:1px solid #c7b69e}
+.timer div:last-child{border:0}
+.timer strong{display:block;font-size:45px;font-weight:400;line-height:1.1;color:#485034}
+.timer span{text-transform:uppercase;letter-spacing:2px;font-size:12px}
+.section-wrap{max-width:1100px;margin:auto;padding:55px 60px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:70px}
+.muted{color:#987f60}
+.script{font-family:WeddingScript,cursive;font-weight:400;font-size:59px;line-height:1.15;margin:0 0 15px}
+.polaroid{padding:10px;background:#fefdf8;box-shadow:0 4px 12px #3c2e1e24;transform:rotate(1deg)}
+.polaroid img{width:100%;display:block;object-fit:cover}
+.story-photo{position:relative;max-width:390px;transform:rotate(-1deg)}
+.story-photo:before{content:'';position:absolute;inset:0;background:#efeadf;transform:rotate(8deg);z-index:-1;box-shadow:0 3px 8px #3c2e1e22}
+.story-photo img{aspect-ratio:1.25;object-fit:cover}
+.ornament{font-size:38px;color:#b09a7a}
+.dark-photo{background:linear-gradient(#15180bb3,#15180bb3),url('assets/evening.webp') center/cover;color:#fffdf4;text-align:center}
+.wedding{padding:34px 20px 45px;min-height:360px;background:linear-gradient(#15180bb3,#15180bb3),url('assets/reception.jpg') center/cover}
+.wedding-grid{max-width:790px;margin:auto;display:grid;grid-template-columns:1fr 1fr}
+.wedding-grid>div{padding:15px 30px}
+.wedding-grid>div+div{border-left:1px solid #bdac8b99}
+.wedding-grid svg{margin:0 auto 8px;width:36px;height:36px;stroke-width:1;color:#d7c2a0}
+.wedding .script{color:#ccb08c;font-size:54px;margin-bottom:4px}
+.event-time{font-size:21px;letter-spacing:2px}
+.caps{text-transform:uppercase;letter-spacing:2px;font-size:16px}
+.venue .script{white-space:nowrap}
+.pill{border:1px solid #aaa18a;border-radius:30px;background:#555c40;color:#fffef5;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 25px;font-size:14px;letter-spacing:2px;text-transform:uppercase;transition:background .2s}
+.pill:hover{background:#41472f}
+.big-day{text-align:center;padding:0 60px 25px;max-width:1150px;margin:auto}
+.big-day>p:nth-child(2){font-size:16px}
+.timeline{display:flex;justify-content:space-between;position:relative;padding-top:12px}
+.timeline:before{content:'';position:absolute;top:62px;left:0;right:0;height:1px;background:#bba78c}
+.timeline>div{width:16.66%;position:relative}
+.timeline svg{margin:0 auto 8px;width:34px;height:34px;stroke-width:1;color:#766c4d}
+.dot{display:block;background:#475136;border:4px solid #f6f1e9;width:16px;height:16px;border-radius:50%;margin:0 auto 10px}
+.timeline p{font-size:15px;letter-spacing:1px}
+.small-note{font-size:14px;color:#786b59}
+.dress{padding:25px 8%;display:grid;grid-template-columns:200px 1fr 235px;gap:35px;align-items:center;max-width:1280px;margin:auto}
+.attire{width:180px;mix-blend-mode:multiply}
+.dress .script{font-size:55px}
+.dress p{font-size:15px}
+.swatches{display:flex;gap:12px;margin:10px 0 18px}
+.swatches span{width:42px;height:42px;border-radius:50%}
+.dress aside{background:#e8dfd266;padding:25px;border-radius:5px}
+.dress aside .eyebrow{font-size:14px;letter-spacing:3px}
+.gallery{text-align:center;padding:38px 4% 28px;max-width:1300px;margin:auto}
+.gallery>p:nth-child(2){font-size:16px}
+.gallery-row{display:flex;gap:12px;align-items:center}
+.gallery-photos{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;flex:1;min-width:0}
+.gallery-photos button{padding:0;border:0;background:none;overflow:hidden}
+.gallery-photos img{width:100%;aspect-ratio:1.35;object-fit:cover;display:block;transition:transform .4s}
+.gallery-photos button:hover img{transform:scale(1.04)}
+.gallery-arrow{border:0;background:none;color:#9c8765;padding:4px}
+.gallery-dots{display:flex;gap:8px;justify-content:center;margin-top:17px}
+.gallery-dots button{width:10px;height:10px;border:0;border-radius:50%;background:#bdaa90;padding:0}
+.gallery-dots button.active{background:#485034}
+.rsvp{padding:35px 20px 40px;background:linear-gradient(#15180bb3,#15180bb3),url('assets/rsvp.jpg') center/cover}
+.rsvp p{font-size:17px}
+.rsvp .pill{background:#5f654bb3;border-color:#ddd0b5}
+.rsvp .pill:hover{background:#5f654b}
+footer{text-align:center;padding:25px 20px}
+footer p{font-size:12px;letter-spacing:2px;text-transform:uppercase;margin:15px 0 0}
+footer p span{margin:0 10px}
+.rsvp-dialog{background:#faf6ee!important;color:#272a20!important;max-height:90vh;overflow:auto;border-color:#c8b99f!important}
+.rsvp-dialog .script{font-size:49px}
+.rsvp-dialog form{display:grid;gap:14px}
+.rsvp-dialog label{display:grid;gap:6px;font-size:16px}
+.rsvp-dialog input,.rsvp-dialog textarea{width:100%;border:1px solid #c9baa4;padding:10px;background:#fffdf9;border-radius:3px;font:inherit}
+.rsvp-dialog small{font-size:13px;color:#776b59;line-height:1.5;letter-spacing:0}
+.attendance-select{width:100%!important;font-size:16px!important;height:44px!important}
+.form-error{color:#943c2d;font-size:16px}
+.saved{text-align:center;padding:20px}
+.saved svg{margin:0 auto 20px}
+.photo-dialog{background:#f7f3ec!important;padding:30px!important}
+.photo-dialog img{width:100%;display:block}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+:focus-visible{outline:2px solid #8b7756;outline-offset:5px}
+ @media(min-width:1500px){.hero{height:640px}
+.hero h1{font-size:98px}
+}
+ @media(max-width:900px){header{padding:0 5%}
+nav{gap:16px}
+nav a{font-size:11px;letter-spacing:1px}
+.hero{height:480px}
+.hero h1{font-size:58px;letter-spacing:5px}
+.hero-copy{left:52%;width:45%}
+.hero .eyebrow{font-size:14px;letter-spacing:3px}
+.date{font-size:17px;letter-spacing:2px}
+.section-wrap{padding:40px;gap:35px}
+.script{font-size:48px}
+.venue .script{white-space:normal}
+.dress{grid-template-columns:140px 1fr;gap:20px}
+.attire{width:140px}
+.dress aside{grid-column:1/-1}
+.dress aside p{margin-bottom:0}
+.dress .script{font-size:48px}
+}
+ @media(max-width:600px){body{font-size:17px}
+header{height:auto;min-height:70px;flex-wrap:wrap;padding:9px 16px;gap:6px}
+.monogram{font-size:23px}
+.nav-heart{position:absolute;right:18px;top:17px}
+nav{order:3;width:100%;justify-content:space-between;gap:5px}
+nav a{font-size:10px;letter-spacing:.8px}
+.hero{height:610px}
+.hero-photo{inset:0 0 180px;background-position:center top}
+.hero-photo:after{background:linear-gradient(0deg,#f0dfc8,transparent 50%)}
+.hero-copy{top:auto;bottom:21px;left:0;width:100%;transform:none}
+.hero h1{font-size:48px;line-height:.95;letter-spacing:5px;margin:8px 0 18px}
+.and{font-size:38px;line-height:1}
+.hero .eyebrow{margin-bottom:15px}
+.date{font-size:16px}
+.location{font-size:11px}
+.countdown{padding:25px 12px}
+.eyebrow{font-size:14px;letter-spacing:3px}
+.timer strong{font-size:36px}
+.timer span{font-size:10px}
+.leaves:before,.leaves:after{width:70px;opacity:.4}
+.section-wrap{grid-template-columns:1fr;padding:35px 28px;gap:22px}
+.story-photo{width:85%;justify-self:center}
+.script{font-size:49px}
+.wedding-grid>div{padding:12px 10px}
+.wedding .script{font-size:41px}
+.event-time{font-size:16px;letter-spacing:1px}
+.caps{font-size:13px}
+.venue .polaroid{order:2}
+.big-day{padding:15px 25px 25px}
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 10px}
+.timeline:before{display:none}
+.timeline>div{width:100%}
+.timeline p{font-size:13px}
+.dress{padding:20px 25px;grid-template-columns:105px 1fr;gap:16px}
+.attire{width:105px}
+.dress .script{font-size:38px}
+.swatches{gap:7px}
+.swatches span{width:27px;height:27px}
+.dress p{font-size:14px}
+.dress aside{padding:18px}
+.gallery{padding:30px 12px}
+.gallery-photos{grid-template-columns:repeat(2,1fr)}
+.gallery-row{gap:2px}
+.gallery-arrow{padding:0}
+.gallery-arrow svg{width:20px}
+.rsvp{padding:30px 20px}
+footer p{font-size:10px;line-height:2}
+.rsvp-dialog{max-width:calc(100% - 24px)!important}
+}
+ @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+*{transition:none!important}
+}
+ [hidden]{display:none!important}
+svg{display:block;flex-shrink:0}
+button{color:inherit}
+#photo-dialog{border:1px solid #c8b99f;background:#faf6ee;padding:36px 16px 16px;max-width:min(750px,90vw);width:90vw;max-height:90vh;border-radius:6px}
+#photo-dialog::backdrop{background:#0009}
+#large-photo{display:block;width:100%;max-height:75vh;object-fit:contain}
+#close-photo{position:absolute;right:12px;top:0;font-size:27px;background:none;border:0}
+.nav-heart svg{width:17px}
+#rsvp-pending{color:#f7f3ec}
+.pill svg{width:18px;height:18px}
+ .wedding-logo{display:block;width:48px;height:48px;object-fit:contain}
+footer .monogram{display:inline-block}
+footer .wedding-logo{width:80px;height:80px}
+ /* Show the full couple photo on phone screens. */ @media(max-width:600px){.hero-photo{background-size:100% auto;background-position:center top;background-repeat:no-repeat}
+}
+ /* Keep the mobile photo fade and make the invitation copy more compact. */ @media(max-width:600px){.hero{height:520px}
+.hero-photo{inset:0 0 155px;background-size:100% auto;background-position:center top;background-repeat:no-repeat}
+.hero-photo:after{inset:auto 0 0;height:82px;background:linear-gradient(to bottom,transparent 0%,rgba(240,223,200,.72) 58%,#f0dfc8 100%);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);mask-image:linear-gradient(to bottom,transparent 0%,#000 38%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 38%)}
+.hero-copy{bottom:10px}
+.hero .eyebrow{font-size:12px;letter-spacing:2.5px;margin-bottom:5px}
+.hero h1{font-size:38px;line-height:.92;letter-spacing:4px;margin:3px 0 7px}
+.and{font-size:31px;line-height:.9}
+.date{font-size:14px;letter-spacing:1.5px;margin-bottom:1px}
+.location{font-size:9px;letter-spacing:1.2px}
+}
+ /* Blend the full-width couple photo into the mobile invitation copy. */ @media(max-width:600px){.hero{height:520px}
+.hero-photo{inset:0;background-size:100% auto;background-position:center top;background-repeat:no-repeat}
+.hero-photo:after{inset:0;background:linear-gradient(to bottom,rgba(240,223,200,0) 16%,rgba(240,223,200,.12) 36%,rgba(240,223,200,.74) 59%,#f0dfc8 76%);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.hero-copy{bottom:12px}
+.hero .eyebrow{font-size:13px;letter-spacing:2.7px;margin-bottom:7px}
+.hero h1{font-size:44px;line-height:.94;letter-spacing:4px;margin:5px 0 10px}
+.and{font-size:35px;line-height:.9}
+.date{font-size:15px;letter-spacing:1.7px;margin-bottom:2px}
+.location{font-size:10px;letter-spacing:1.3px}
+}
+ /* Clear the earlier mask so the photo-to-text fade stays continuous. */ @media(max-width:600px){.hero-photo:after{inset:0;height:auto;background:linear-gradient(to bottom,rgba(240,223,200,0) 34%,rgba(240,223,200,.22) 48%,rgba(240,223,200,.72) 64%,#f0dfc8 80%);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);mask-image:none!important;-webkit-mask-image:none!important}
+}
+ /* Keep the blur concentrated at the lower edge of the mobile photo. */ @media(max-width:600px){.hero-photo:after{mask-image:linear-gradient(to bottom,transparent 32%,#000 67%);-webkit-mask-image:linear-gradient(to bottom,transparent 32%,#000 67%)}
+}
+ /* Keep the mobile couple photo sharp and blend it into the invitation text. */ @media(max-width:600px){.hero-photo:after{inset:0;height:auto;background:linear-gradient(to bottom,rgba(240,223,200,0) 34%,rgba(240,223,200,.12) 49%,rgba(240,223,200,.72) 67%,#f0dfc8 82%);backdrop-filter:none;-webkit-backdrop-filter:none;mask-image:none!important;-webkit-mask-image:none!important}
+}
+ /* Blur only the bottom edge of the mobile banner before the text begins. */ @media(max-width:600px){.hero-photo{height:65vw;max-height:260px}
+.hero-photo:after{inset:auto 0 0;height:88px;background:linear-gradient(to bottom,rgba(240,223,200,0),rgba(240,223,200,.8) 72%,#f0dfc8);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);mask-image:none!important;-webkit-mask-image:none!important}
+}
+ /* Match the mobile invitation reference: full photo behind larger lower-centered copy. */ @media(max-width:600px){.hero{height:520px}
+.hero-photo{inset:0;height:100%;max-height:none;background-size:150% auto;background-position:62% top;background-repeat:no-repeat}
+.hero-photo:after{inset:180px 0 0;height:auto;background:linear-gradient(to bottom,rgba(240,223,200,0),rgba(240,223,200,.16) 22%,rgba(240,223,200,.58) 56%,#f0dfc8 92%);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);mask-image:none!important;-webkit-mask-image:none!important}
+.hero-copy{top:auto;bottom:18px;left:0;width:100%;transform:none}
+.hero .eyebrow{font-size:14px;letter-spacing:3px;margin-bottom:8px}
+.hero h1{font-size:56px;line-height:.94;letter-spacing:4px;margin:4px 0 15px}
+.hero .and{font-size:43px;line-height:.95}
+.hero .date{font-size:17px;letter-spacing:2px;margin-bottom:3px}
+.hero .location{font-size:12px;letter-spacing:1.6px}
+}
+ /* Match the reference text placement more closely. */ @media(max-width:600px){.hero{height:610px}
+.hero-copy{bottom:0}
+}
+ /* Use the reference's soft cream overlay instead of blur on mobile. */ @media(max-width:600px){.hero{height:610px}
+.hero-copy{bottom:0}
+.hero-photo:after{inset:0;height:auto;background:linear-gradient(to bottom,rgba(250,247,241,0) 38%,rgba(250,247,241,.12) 50%,rgba(250,247,241,.42) 64%,rgba(247,239,226,.82) 79%,#f0dfc8 90%);backdrop-filter:none;-webkit-backdrop-filter:none;mask-image:none!important;-webkit-mask-image:none!important}
+}
+ /* Stronger warm-white fade over the couple's lower body and all mobile hero text. */ @media(max-width:600px){.hero-photo:after{inset:0;height:auto;background:linear-gradient(to bottom,rgba(250,247,241,0) 32%,rgba(250,247,241,.18) 43%,rgba(250,247,241,.55) 58%,rgba(247,239,226,.9) 73%,#f0dfc8 86%);backdrop-filter:none;-webkit-backdrop-filter:none;mask-image:none!important;-webkit-mask-image:none!important}
+}
+ /* Slightly strengthen the white fade across the lower mobile photo and copy. */ @media(max-width:600px){.hero-photo:after{background:linear-gradient(to bottom,rgba(250,247,241,0) 30%,rgba(250,247,241,.28) 42%,rgba(250,247,241,.68) 58%,rgba(247,239,226,.96) 73%,#f0dfc8 84%)}
+}
+ /* Shift the mobile crop right so the groom fits in the frame. */ @media(max-width:600px){.hero-photo{background-size:145% auto;background-position:right top}
+}
+ /* Center 'and' between the names and slightly reduce mobile name size. */ @media(max-width:600px){.hero h1{font-size:48px;text-align:center}
+.hero h1 .and{display:block;width:100%;text-align:center;margin-inline:auto}
+}
+ /* Restore the previous mobile name size while keeping 'and' centered. */ @media(max-width:600px){.hero h1{font-size:56px}
+.hero h1 .and{width:100%;text-align:center;margin-inline:auto}
+}
+ /* Fit the longer venue line on narrow phone screens. */ @media(max-width:600px){.hero .location{font-size:10px;letter-spacing:.7px;padding:0 10px}
 }
 
-.our-story {
-    position: relative;
-    width: 100%;
-    min-height: 2500px;
-    overflow: hidden;
-    background: #f8f6ed;
-    color: #3f3b32;
-    padding: 80px 0 150px;
-}
 
-.story-header {
-    position: relative;
-    z-index: 20;
-    text-align: center;
-    margin-bottom: 130px;
-}
 
-.story-header h2 {
-    margin: 0;
-    font-family: "BrittanySignature", cursive;
-    font-size: 80px;
-    font-weight: 400;
-    line-height: .95;
-    color: #292820;
-}
-
-.story-header p {
-    margin: 48px 0 0;
-    position: relative;
-    z-index: 5;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 13px;
-    letter-spacing: 5px;
-    color: #806a4b;
-}
-
-.story-header-leaf {
-    width: 48px;
-    height: auto;
-    margin-top: 28px;
-    opacity: .9;
-}
-
-.story-line {
-    position: absolute;
-    z-index: 2;
-    top: 350px;
-    bottom: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1px;
-    background: repeating-linear-gradient(
-        to bottom,
-        #d9c9a7 0,
-        #d9c9a7 7px,
-        transparent 7px,
-        transparent 13px
-    );
-}
-
-.story-timeline {
-    position: relative;
-    width: min(1180px, 94%);
-    margin: 0 auto;
-}
-
-.story-item {
-    position: relative;
-    width: 100%;
-    min-height: 430px;
-    display: flex;
-    align-items: center;
-    z-index: 5;
-}
-
-.story-left { justify-content: flex-start; }
-.story-right { justify-content: flex-end; }
-
-.story-text {
-    position: absolute;
-    width: 250px;
-    z-index: 15;
-}
-
-.story-left .story-text { left: 0; }
-.story-right .story-text { right: 0; }
-
-.story-number {
-    display: block;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 25px;
-    line-height: 1;
-    color: #a68652;
-    margin-bottom: 8px;
-}
-
-.story-text h3 {
-    margin: 0 0 10px;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 16px;
-    line-height: 1.2;
-    letter-spacing: 2px;
-    color: #37342e;
-}
-
-.story-date {
-    display: block;
-    margin-bottom: 12px;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 12px;
-    color: #806e58;
-}
-
-.story-text p {
-    margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 13px;
-    line-height: 1.55;
-    color: #625b50;
-}
-
-.story-photo-wrap {
-    position: absolute;
-    width: 300px;
-    height: 280px;
-    z-index: 10;
-}
-
-.story-left .story-photo-wrap { left: 280px; }
-.story-right .story-photo-wrap { right: 280px; }
-
-/* Florals are BEHIND the Polaroid */
-.story-florals {
-    position: absolute;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.left-florals {
-    left: -38px;
-    bottom: -12px;
-    width: 145px;
-    height: 170px;
-}
-
-.flower-one {
-    position: absolute;
-    width: 105px;
-    height: auto;
-    left: 0;
-    bottom: 0;
-    transform: rotate(-5deg);
-}
-
-.leaf-sprig {
-    position: absolute;
-    width: 115px;
-    height: auto;
-    left: 28px;
-    bottom: 5px;
-    transform: rotate(-14deg);
-}
-
-.right-florals {
-    right: -45px;
-    bottom: -15px;
-    width: 150px;
-    height: 180px;
-}
-
-.flower-two {
-    position: absolute;
-    width: 100px;
-    height: auto;
-    right: 5px;
-    bottom: 0;
-    transform: rotate(4deg);
-}
-
-.leaves-right {
-    position: absolute;
-    width: 125px;
-    height: auto;
-    right: 15px;
-    bottom: 2px;
-    transform: rotate(7deg);
-}
-
-/* Polaroid stays above all floral/vine decoration */
-.story-polaroid {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 220px;
-    height: 180px;
-    transform: translate(-50%, -50%) rotate(-2deg);
-    padding: 10px 10px 18px;
-    background: #fffdf8;
-    box-shadow: 0 8px 20px rgba(70, 60, 45, .16);
-    z-index: 10;
-}
-
-.story-right .story-polaroid {
-    transform: translate(-50%, -50%) rotate(2deg);
-}
-
-.story-polaroid img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: relative;
-    z-index: 11;
-}
-
-.story-polaroid::before {
-    content: "";
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    width: 70px;
-    height: 25px;
-    transform: translateX(-50%) rotate(-2deg);
-    background: rgba(245, 238, 216, .82);
-    z-index: 20;
-}
-
-/* Vine stays BELOW the Polaroid */
-.story-connector {
-    position: absolute;
-    top: 50%;
-    width: 150px;
-    height: 80px;
-    z-index: 3;
-    pointer-events: none;
-}
-
-.connector-left {
-    left: calc(50% - 180px);
-}
-
-.connector-right {
-    right: calc(50% - 180px);
-}
-
-.story-connector::before {
-    content: "";
-    position: absolute;
-    top: 20px;
-    width: 110px;
-    height: 55px;
-    border-top: 1.5px dashed #d99170;
-    border-radius: 50%;
-    opacity: .9;
-}
-
-.connector-left::before {
-    right: 0;
-    transform: rotate(-18deg) scaleX(-1);
-}
-
-.connector-right::before {
-    left: 0;
-    transform: rotate(18deg);
-}
-
-.story-connector span {
-    position: absolute;
-    top: 4px;
-    width: 23px;
-    height: 23px;
-    z-index: 25;
-}
-
-.story-connector span::before {
-    content: "♥";
-    position: absolute;
-    font-size: 27px;
-    line-height: 1;
-    color: #bf7651;
-}
-
-.connector-left span { right: -2px; }
-.connector-right span { left: -2px; }
-
+@font-face{font-family:BrittanySignature;src:url("assets/story/Font/BrittanySignature.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
 
 /* =========================================================
-   MOBILE
+   OUR STORY — SCRAPBOOK TIMELINE
    ========================================================= */
-
-@media (max-width: 768px) {
-
-    .our-story {
-        min-height: auto;
-        padding: 55px 0 100px;
-    }
-
-    .story-header {
-        margin-bottom: 90px;
-    }
-
-    .story-header h2 {
-        font-size: 55px;
-        line-height: 1;
-    }
-
-    .story-header p {
-        margin-top: 35px;
-        font-size: 9px;
-        letter-spacing: 3px;
-        padding: 0 20px;
-    }
-
-    .story-header-leaf {
-        width: 38px;
-        margin-top: 20px;
-    }
-
-    .story-line {
-        top: 250px;
-        bottom: 50px;
-        left: 50%;
-    }
-
-    .story-timeline {
-        width: 100%;
-    }
-
-    .story-item {
-        min-height: 390px;
-        display: block;
-        margin-bottom: 15px;
-    }
-
-    .story-text {
-        width: 145px;
-    }
-
-    .story-left .story-text { left: 15px; }
-    .story-right .story-text { right: 15px; }
-
-    .story-number { font-size: 21px; }
-
-    .story-text h3 {
-        font-size: 12px;
-        letter-spacing: 1.2px;
-    }
-
-    .story-date { font-size: 9px; }
-
-    .story-text p {
-        font-size: 10px;
-        line-height: 1.45;
-    }
-
-    .story-photo-wrap {
-        width: 190px;
-        height: 200px;
-    }
-
-    .story-left .story-photo-wrap {
-        left: calc(50% - 175px);
-    }
-
-    .story-right .story-photo-wrap {
-        right: calc(50% - 175px);
-    }
-
-    .story-polaroid {
-        width: 145px;
-        height: 125px;
-        padding: 7px 7px 13px;
-    }
-
-    .story-polaroid::before {
-        width: 48px;
-        height: 18px;
-        top: -9px;
-    }
-
-    .left-florals {
-        left: -10px;
-        bottom: -5px;
-        width: 100px;
-        height: 120px;
-    }
-
-    .right-florals {
-        right: -12px;
-        bottom: -5px;
-        width: 105px;
-        height: 125px;
-    }
-
-    .flower-one,
-    .flower-two {
-        width: 75px;
-    }
-
-    .leaf-sprig,
-    .leaves-right {
-        width: 80px;
-    }
-
-    .story-connector {
-        width: 90px;
-        height: 60px;
-    }
-
-    .connector-left {
-        left: calc(50% - 100px);
-    }
-
-    .connector-right {
-        right: calc(50% - 100px);
-    }
-
-    .story-connector::before {
-        width: 70px;
-        height: 40px;
-    }
-
-    .story-connector span::before {
-        font-size: 21px;
-    }
+.story-tree{
+  position:relative;width:100%;max-width:1220px;min-height:1290px;margin:0 auto;
+  padding:48px 20px 65px;overflow:hidden;text-align:center;
+  background:url("assets/story/background/story-paper.webp") center/cover repeat;
+  color:#302d20;isolation:isolate;
 }
+.story-flower{position:absolute;z-index:1;width:auto;height:auto;display:block;pointer-events:none;user-select:none}
+.story-flower-top{left:-4px;top:0;width:245px}.story-flower-bottom{right:-4px;bottom:-4px;width:255px}
+.story-tree .story-heading{position:relative;z-index:6;width:min(100%,760px);margin:0 auto;padding:0;text-align:center}
+.story-tree .story-heading>.eyebrow{display:none}
+.story-tree .story-heading .script{font-family:BrittanySignature,WeddingScript,cursive;font-size:80px;font-weight:400;line-height:.9;letter-spacing:0;margin:0;color:#28271d}
+.story-tree .story-heading>p:not(.eyebrow){margin:34px auto 0;color:#806c4e;font-family:Georgia,"Times New Roman",serif;font-size:11px;line-height:1.5;letter-spacing:5px;text-transform:uppercase;white-space:nowrap}
+.story-title-branch{display:block;width:58px;height:auto;margin:18px auto 0;opacity:.9}
+.story-bottom-flowers{position:absolute;z-index:1;left:0;bottom:0;width:360px;max-width:42%;height:auto;display:block;pointer-events:none;user-select:none}
+.story-bottom-flowers img{display:block;width:100%;height:auto}
+.story-tree-stage{position:relative;z-index:2;width:900px;height:1100px;max-width:100%;margin:34px auto 0}
+.story-tree-stage:before{content:"";position:absolute;z-index:0;left:50%;top:28px;bottom:35px;width:1px;transform:translateX(-50%);background:repeating-linear-gradient(to bottom,#c8aa79 0 6px,transparent 6px 12px);opacity:.85}
+.story-tree-stage:after{content:"✦";position:absolute;z-index:7;left:50%;top:0;width:31px;height:31px;display:grid;place-items:center;transform:translateX(-50%);border:1px solid #c8a976;border-radius:50%;background:#faf7ef;color:#9a7b4d;font:13px Georgia,serif;box-shadow:0 0 0 5px #f8f5ed}
+.story-tree-cards{position:absolute;inset:0}
+.story-tree-card,.story-tree-card:nth-child(even){position:absolute;z-index:3;display:grid;align-items:center;width:390px;min-height:175px;margin:0;padding:0;background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important;transform:rotate(var(--story-card-tilt))}
+.story-tree-card:nth-child(odd){left:0;grid-template-columns:160px 190px;column-gap:20px}.story-tree-card:nth-child(even){right:0;grid-template-columns:190px 160px;column-gap:20px}
+.story-tree-card.card-1{top:45px;--story-card-tilt:-1.2deg}.story-tree-card.card-2{top:255px;--story-card-tilt:1.4deg}.story-tree-card.card-3{top:465px;--story-card-tilt:1deg}.story-tree-card.card-4{top:675px;--story-card-tilt:-1.5deg}.story-tree-card.card-5{top:885px;--story-card-tilt:1.2deg}
+.story-tree .story-tree-card figcaption,.story-tree-card:nth-child(even) figcaption{min-height:0;min-width:0;width:auto;margin:0;padding:0;text-align:left;color:#4d473b;background:transparent}.story-tree-card:nth-child(even) figcaption{order:2}
+.story-tree .story-tree-card figcaption strong{display:block;margin:0 0 5px;color:#2e2a21;font-family:Georgia,"Times New Roman",serif;font-size:13px;font-weight:700;letter-spacing:2px;line-height:1.35;text-transform:uppercase}
+.story-tree .story-tree-card figcaption strong:before{display:block;margin:0 0 5px;color:#a6875b;font-family:Georgia,"Times New Roman",serif;font-size:30px;font-weight:400;letter-spacing:0;line-height:1}
+.story-tree-card.card-1 figcaption strong:before{content:"01"}.story-tree-card.card-2 figcaption strong:before{content:"02"}.story-tree-card.card-3 figcaption strong:before{content:"03"}.story-tree-card.card-4 figcaption strong:before{content:"04"}.story-tree-card.card-5 figcaption strong:before{content:"05"}
+.story-tree .story-tree-card figcaption span{display:block;color:#514b40;font-family:Georgia,"Times New Roman",serif;font-size:11px;line-height:1.5}.story-tree .story-tree-card figcaption span:nth-of-type(2){margin-top:8px}
+.story-tree .story-photo-frame,.story-tree-card:nth-child(even) .story-photo-frame{position:relative;z-index:6;isolation:isolate;width:170px;height:170px;padding:7px;overflow:visible;background:#fffdf8;border:1px solid #e1d7c5;box-shadow:0 8px 16px rgba(60,46,30,.13),0 1px 2px rgba(60,46,30,.08);order:2;transform:rotate(-1.7deg)}
+.story-tree-card:nth-child(even) .story-photo-frame{order:1;transform:rotate(1.8deg)}.story-tree-card.card-3 .story-photo-frame{transform:rotate(1.2deg)}.story-tree-card.card-4 .story-photo-frame{transform:rotate(-1.8deg)}.story-tree-card.card-5 .story-photo-frame{transform:rotate(1.5deg)}
+.story-tree .story-photo-frame>img:not(.story-tape):not(.story-leaf):not(.story-vine):not(.story-heart){position:relative;z-index:7;display:block;width:100%;height:100%;object-fit:cover}
+.story-tree .story-tape{position:absolute;z-index:10;left:50%;top:-17px;width:74px;height:auto;transform:translateX(-50%) rotate(-2deg);pointer-events:none}
+.story-tree .story-heart-small{position:absolute;z-index:11;width:25px;height:auto;pointer-events:none}.story-tree-card:nth-child(odd) .story-heart-small{right:-16px;top:-4px;transform:rotate(-8deg)}.story-tree-card:nth-child(even) .story-heart-small{left:-16px;top:-4px;transform:rotate(8deg)}
+.story-tree .story-leaf{position:absolute;z-index:2;width:82px;height:auto;pointer-events:none}.story-tree .story-leaf-left{left:-30px;bottom:-18px;transform:rotate(-8deg)}.story-tree .story-leaf-right{right:-30px;bottom:-18px;transform:scaleX(-1) rotate(-8deg)}
+.story-tree .story-vine{position:absolute;z-index:1;top:72px;width:105px;height:auto;pointer-events:none}.story-tree .story-vine-right{right:-104px}.story-tree .story-vine-left{left:-104px}
+.story-tree .story-line-heart{position:absolute;z-index:12;top:50%;width:33px;height:auto;pointer-events:none}.story-tree-card:nth-child(odd) .story-line-heart{right:-84px;transform:translateY(-50%)}.story-tree-card:nth-child(even) .story-line-heart{left:-84px;transform:translateY(-50%)}
+.story-tree-card::before,.story-tree-card::after{content:none!important;display:none!important}
+/* flower 1 / leaf-sprig behind every left photo */
+.story-tree .story-photo-frame:before{content:"";position:absolute;z-index:1;width:92px;height:125px;background-repeat:no-repeat;background-position:center;background-size:contain;pointer-events:none;opacity:.88}
+.story-tree-card:nth-child(odd) .story-photo-frame:before{left:-48px;bottom:-52px;background-image:url("assets/story/leaves/flower%201.png");transform:rotate(-5deg)}
+/* flower 2 / leaves-right behind every right photo */
+.story-tree-card:nth-child(even) .story-photo-frame:before{right:-48px;bottom:-52px;background-image:url("assets/story/leaves/flower%202.png");transform:scaleX(-1) rotate(-5deg)}
+
+@media(max-width:900px){
+ .story-tree{min-height:1160px;padding:44px 14px 55px}.story-flower-top{width:180px}.story-flower-bottom{width:190px}.story-bottom-flowers{width:280px;max-width:48%}
+ .story-tree .story-heading .script{font-size:72px}.story-tree .story-heading>p:not(.eyebrow){margin-top:30px;font-size:10px;letter-spacing:4px}
+ .story-tree-stage{width:720px;height:980px;margin-top:28px}.story-tree-card,.story-tree-card:nth-child(even){width:315px;min-height:145px}.story-tree-card:nth-child(odd){grid-template-columns:125px 145px;column-gap:15px}.story-tree-card:nth-child(even){grid-template-columns:145px 125px;column-gap:15px}
+ .story-tree .story-photo-frame,.story-tree-card:nth-child(even) .story-photo-frame{width:145px;height:145px}.story-tree-card.card-1{top:35px}.story-tree-card.card-2{top:220px}.story-tree-card.card-3{top:405px}.story-tree-card.card-4{top:590px}.story-tree-card.card-5{top:775px}
+ .story-tree .story-vine{width:88px;top:62px}.story-tree .story-vine-right{right:-87px}.story-tree .story-vine-left{left:-87px}.story-tree .story-line-heart{width:29px}.story-tree-card:nth-child(odd) .story-line-heart{right:-73px}.story-tree-card:nth-child(even) .story-line-heart{left:-73px}
+ .story-tree .story-photo-frame:before{width:78px;height:108px}.story-tree-card:nth-child(odd) .story-photo-frame:before{left:-40px;bottom:-45px}.story-tree-card:nth-child(even) .story-photo-frame:before{right:-40px;bottom:-45px}.story-tree .story-leaf-left{left:-25px;bottom:-15px;width:72px}.story-tree .story-leaf-right{right:-25px;bottom:-15px;width:72px}
+}
+@media(max-width:600px){
+ .story-tree{min-height:1180px;padding:34px 8px 45px}.story-flower-top{width:105px;left:-18px;top:4px;opacity:.82}.story-flower-bottom{width:110px;right:-18px;bottom:0;opacity:.82}.story-bottom-flowers{width:210px;max-width:55%;left:-5px;bottom:0}
+ .story-tree .story-heading{width:100%;padding:0 5px}.story-tree .story-heading .script{font-size:65px}.story-tree .story-heading>p:not(.eyebrow){margin-top:24px;font-size:8px;letter-spacing:2.3px;white-space:normal}.story-title-branch{width:38px;margin-top:13px}
+ .story-tree-stage{width:100%;height:1015px;margin-top:24px}.story-tree-stage:before{left:30px;top:22px;bottom:20px}.story-tree-stage:after{left:30px;top:0;width:27px;height:27px;font-size:11px;box-shadow:0 0 0 4px #f8f5ed}
+ .story-tree-card,.story-tree-card:nth-child(even){width:calc(100% - 45px);min-height:150px;display:grid;column-gap:9px}.story-tree-card:nth-child(odd){left:38px;right:auto;grid-template-columns:minmax(0,1fr) 108px}.story-tree-card:nth-child(even){left:38px;right:auto;grid-template-columns:108px minmax(0,1fr)}
+ .story-tree-card.card-1{top:35px}.story-tree-card.card-2{top:230px}.story-tree-card.card-3{top:425px}.story-tree-card.card-4{top:620px}.story-tree-card.card-5{top:815px}
+ .story-tree .story-tree-card figcaption,.story-tree-card:nth-child(even) figcaption{min-width:0;padding:0}.story-tree .story-tree-card figcaption strong{font-size:9px;letter-spacing:1.1px;margin-bottom:3px}.story-tree .story-tree-card figcaption strong:before{font-size:23px;margin-bottom:3px}.story-tree .story-tree-card figcaption span{font-size:8.5px;line-height:1.35}.story-tree .story-tree-card figcaption span:nth-of-type(2){margin-top:5px}
+ .story-tree .story-photo-frame,.story-tree-card:nth-child(even) .story-photo-frame{width:108px;height:108px;padding:5px}.story-tree .story-tape{top:-11px;width:47px}
+ .story-tree .story-photo-frame:before{width:60px;height:82px}.story-tree-card:nth-child(odd) .story-photo-frame:before{left:-30px;bottom:-34px}.story-tree-card:nth-child(even) .story-photo-frame:before{right:-30px;bottom:-34px}
+ .story-tree .story-leaf{width:48px}.story-tree .story-leaf-left{left:-21px;bottom:-8px}.story-tree .story-leaf-right{right:-21px;bottom:-8px}
+ .story-tree .story-vine{width:58px;top:45px}.story-tree .story-vine-right{right:-57px}.story-tree .story-vine-left{left:-57px}
+ .story-tree .story-heart-small{width:18px}.story-tree-card:nth-child(odd) .story-heart-small{right:-9px;top:-3px}.story-tree-card:nth-child(even) .story-heart-small{left:-9px;top:-3px}
+ .story-tree .story-line-heart{width:24px;z-index:12}.story-tree-card:nth-child(odd) .story-line-heart{right:-47px}.story-tree-card:nth-child(even) .story-line-heart{left:-47px}
+}
+@media(prefers-reduced-motion:reduce){.story-tree *{transition:none!important}}

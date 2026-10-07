@@ -688,16 +688,6 @@ footer .wedding-logo{width:80px;height:80px}
 
 
 /* =========================================================
-   OUR STORY — BOTTOM-LEFT FLOWER DECORATION
-   Decorative only. Does not move or resize the timeline/cards.
-   ========================================================= */
-.story-tree{position:relative;overflow:hidden;}
-.story-bottom-flowers{position:absolute;z-index:1;left:0;bottom:0;width:360px;max-width:42%;height:auto;display:block;pointer-events:none;user-select:none;}
-.story-tree .story-heading,.story-tree .story-tree-stage{position:relative;z-index:5;}
-@media(max-width:900px){.story-bottom-flowers{width:280px;max-width:48%;}}
-@media(max-width:600px){.story-bottom-flowers{width:210px;max-width:55%;left:-5px;bottom:0;}}
-
-/* =========================================================
    OUR STORY — CENTER-TO-PHOTO VINE CONNECTORS
    Remove the old straight connector lines/hearts and use
    decorative vines to visually connect each photo to the spine.
@@ -793,4 +783,68 @@ footer .wedding-logo{width:80px;height:80px}
 /* Restore the single vine connector using the existing vine asset. */
 .story-tree-card .story-vine {
   display: block !important;
+}
+
+
+/* =========================================================
+   FINAL FIX — OUR STORY BOTTOM-LEFT FLOWERS
+   Constrains flowers-story-bot.png to its wrapper so the
+   transparent/large image cannot spill across the page.
+   Keeps it anchored to the lower-left corner and behind
+   the timeline/photos.
+   ========================================================= */
+
+.story-tree{
+  position:relative;
+  overflow:hidden;
+}
+
+/* Bottom-left floral image */
+.story-bottom-flowers{
+  position:absolute;
+  z-index:1;
+  left:0;
+  bottom:0;
+  width:360px;
+  max-width:42%;
+  height:auto;
+  margin:0;
+  padding:0;
+  pointer-events:none;
+  user-select:none;
+}
+
+/* IMPORTANT: constrain the actual PNG to the wrapper */
+.story-bottom-flowers img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:100%;
+  margin:0;
+  padding:0;
+}
+
+/* Keep all story content above the flowers */
+.story-tree .story-heading,
+.story-tree .story-tree-stage{
+  position:relative;
+  z-index:5;
+}
+
+@media(max-width:900px){
+  .story-bottom-flowers{
+    width:280px;
+    max-width:48%;
+    left:0;
+    bottom:0;
+  }
+}
+
+@media(max-width:600px){
+  .story-bottom-flowers{
+    width:210px;
+    max-width:55%;
+    left:0;
+    bottom:0;
+  }
 }

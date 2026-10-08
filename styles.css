@@ -28,7 +28,7 @@ nav a:hover{color:#938064}
 .location{text-transform:uppercase;font-size:13px;letter-spacing:2px}
 .countdown{text-align:center;padding:30px 20px;position:relative;z-index:1}
 .leaves{position:relative}
-.leaves:before,.leaves:after{content:'';position:absolute;top:0;width:250px;height:280px;background-repeat:no-repeat;background-size:contain;pointer-events:none;z-index:0}
+.leaves:before,.leaves:after{content:'';position:absolute;top:0;width:285px;height:245px;background-repeat:no-repeat;background-size:100% auto;background-position:top center;pointer-events:none;z-index:0}
 .leaves:before{left:0;background-image:url('assets/story/flowers/flower-border-L.png');background-position:left top}
 .leaves:after{right:0;background-image:url('assets/story/flowers/flower-border-R.png');background-position:right top}
 .countdown > *{position:relative;z-index:2}
@@ -128,12 +128,12 @@ nav a{font-size:11px;letter-spacing:1px}
 .dress .script{font-size:48px}
 }
  @media(max-width:900px){
-  .leaves:before,.leaves:after{width:205px;height:230px}
+  .leaves:before,.leaves:after{width:205px;height:205px;background-size:100% auto;background-position:top center}
 }
 
 @media(max-width:600px){
   .countdown{padding:28px 12px 30px;min-height:170px}
-  .leaves:before,.leaves:after{width:115px;height:145px;top:0;opacity:1}
+  .leaves:before,.leaves:after{width:115px;height:145px;top:0;opacity:1;background-size:100% auto;background-position:top center}
   .leaves:before{left:-2px}
   .leaves:after{right:-2px}
   .countdown > .eyebrow{padding:0 82px}
@@ -843,7 +843,7 @@ footer .wedding-logo{width:80px;height:80px}
 /* Mobile */
 @media (max-width:600px){
   .story-tree .story-heading .story-title{
-    font-size:46px;
+    font-size:42px;
     line-height:.92;
   }
 
@@ -865,7 +865,7 @@ footer .wedding-logo{width:80px;height:80px}
 }
 
 .story-tree .story-heading .story-title{
-  font-size:80px;
+  font-size:70px;
   line-height:.9;
   margin-bottom:0;
 }
@@ -944,7 +944,7 @@ footer .wedding-logo{width:80px;height:80px}
   }
 
   .story-tree .story-heading .story-title{
-    font-size:72px;
+    font-size:62px;
   }
 
   .story-tree .story-heading .story-subtitle{
@@ -977,7 +977,7 @@ footer .wedding-logo{width:80px;height:80px}
   }
 
   .story-tree .story-heading .story-title{
-    font-size:46px;
+    font-size:42px;
     line-height:.92;
   }
 
@@ -1190,18 +1190,18 @@ footer .wedding-logo{width:80px;height:80px}
 
 /* Lower the subtitle so it clears the descender of the Our Story script Y. */
 .story-tree .story-heading .story-subtitle{
-  margin-top:82px !important;
+  margin-top:70px !important;
 }
 
 @media (max-width:900px){
   .story-tree .story-heading .story-subtitle{
-    margin-top:58px !important;
+    margin-top:50px !important;
   }
 }
 
 @media (max-width:600px){
   .story-tree .story-heading .story-subtitle{
-    margin-top:34px !important;
+    margin-top:30px !important;
   }
 }
 

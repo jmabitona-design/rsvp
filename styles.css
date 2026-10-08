@@ -716,64 +716,65 @@ footer .wedding-logo{width:80px;height:80px}
 
 
 /* =========================================================
-   OUR STORY — BOTTOM CORNER FLOWERS
+   OUR STORY — BOTTOM FLORAL BORDER
+   Bot-border.png replaces the separate bottom-left and
+   bottom-right flower images.
    ========================================================= */
-
 .story-tree{
   position:relative;
   overflow:hidden;
 }
 
-/* Left and right floral artwork at the bottom of Our Story */
-.story-bottom-flower{
+/* Full floral border anchored to the very bottom of Our Story.
+   It sits behind the timeline/cards and does not cover content. */
+.story-bottom-border{
   position:absolute;
   z-index:1;
+  left:50%;
   bottom:0;
-  width:340px;
-  max-width:30%;
+  width:min(1100px,92vw);
+  max-width:none;
   height:auto;
   margin:0;
   padding:0;
+  display:block;
+  transform:translateX(-50%);
   pointer-events:none;
   user-select:none;
 }
 
-.story-bottom-left{
-  left:0;
-}
-
-.story-bottom-right{
-  right:0;
-}
-
-/* Keep the Story heading, timeline and photos above the flowers */
+/* Keep the heading and all story content above the border. */
 .story-tree .story-heading,
 .story-tree .story-tree-stage{
   position:relative;
   z-index:5;
 }
 
+/* Give the border enough breathing room below the final chapter. */
+.story-tree{
+  min-height:1600px;
+}
+
 @media(max-width:900px){
-  .story-bottom-flower{
-    width:270px;
-    max-width:30%;
+  .story-tree{
+    min-height:1450px;
+  }
+
+  .story-bottom-border{
+    width:90vw;
   }
 }
 
 @media(max-width:600px){
-  .story-bottom-flower{
-    width:165px;
-    max-width:34vw;
+  .story-tree{
+    min-height:1300px;
   }
 
-  .story-bottom-left{
-    left:-4px;
-  }
-
-  .story-bottom-right{
-    right:-4px;
+  .story-bottom-border{
+    width:94vw;
   }
 }
+
 
 /* FINAL POSITION FIX — move LEFT-side photos toward the center spine so the
    existing HTML vine reaches/touches the center line. Text stays in place. */

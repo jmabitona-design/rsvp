@@ -1318,3 +1318,81 @@ footer .wedding-logo{width:80px;height:80px}
     width:min(285px,72vw);
   }
 }
+
+/* =========================================================
+   FINAL BOT-BORDER SIZE + FULL-WIDTH POSITION
+   - Runs edge-to-edge across the viewport.
+   - Smaller visual height so it reads as a bottom border.
+   - Remains behind all Our Story content.
+   - Extra bottom space keeps the final chapter clear.
+   ========================================================= */
+
+.story-tree{
+  padding-bottom:300px !important;
+  min-height:1680px !important;
+}
+
+.story-tree .story-bottom-border{
+  left:50% !important;
+  right:auto !important;
+  bottom:0 !important;
+  width:100vw !important;
+  max-width:none !important;
+  height:250px !important;
+  margin:0 !important;
+  padding:0 !important;
+  transform:translateX(-50%) !important;
+  object-fit:cover !important;
+  object-position:center bottom !important;
+  z-index:1 !important;
+  pointer-events:none !important;
+}
+
+.story-tree .story-heading,
+.story-tree .story-tree-stage{
+  position:relative;
+  z-index:5 !important;
+}
+
+/* Desktop: keep the border full width but visually compact. */
+@media(min-width:901px){
+  .story-tree{
+    min-height:1680px !important;
+    padding-bottom:300px !important;
+  }
+
+  .story-tree .story-bottom-border{
+    width:100vw !important;
+    height:250px !important;
+  }
+}
+
+/* Tablet */
+@media(max-width:900px){
+  .story-tree{
+    min-height:1500px !important;
+    padding-bottom:245px !important;
+  }
+
+  .story-tree .story-bottom-border{
+    width:100vw !important;
+    height:210px !important;
+    object-fit:cover !important;
+    object-position:center bottom !important;
+  }
+}
+
+/* Mobile: smaller still, full screen width, and safely below the story content. */
+@media(max-width:600px){
+  .story-tree{
+    min-height:1360px !important;
+    padding-bottom:180px !important;
+  }
+
+  .story-tree .story-bottom-border{
+    width:100vw !important;
+    height:155px !important;
+    object-fit:cover !important;
+    object-position:center bottom !important;
+  }
+}

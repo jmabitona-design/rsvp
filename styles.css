@@ -28,9 +28,9 @@ nav a:hover{color:#938064}
 .location{text-transform:uppercase;font-size:13px;letter-spacing:2px}
 .countdown{text-align:center;padding:30px 20px;position:relative;z-index:1}
 .leaves{position:relative}
-.leaves:before,.leaves:after{content:'';position:absolute;top:0;width:285px;height:245px;background-repeat:no-repeat;background-size:100% auto;background-position:top center;pointer-events:none;z-index:0}
-.leaves:before{left:0;background-image:url('assets/story/flowers/flower-border-L.png');background-position:left top}
-.leaves:after{right:0;background-image:url('assets/story/flowers/flower-border-R.png');background-position:right top}
+.leaves:before,.leaves:after{content:'';position:absolute;top:0;width:285px;height:285px;background-repeat:no-repeat;background-size:contain;background-position:top center;pointer-events:none;z-index:0}
+.leaves:before{left:10px;background-image:url('assets/story/flowers/flower-border-L.png');background-position:left top}
+.leaves:after{right:10px;background-image:url('assets/story/flowers/flower-border-R.png');background-position:right top}
 .countdown > *{position:relative;z-index:2}
 .timer{display:flex;justify-content:center;margin:auto;max-width:650px}
 .timer div{width:25%;border-right:1px solid #c7b69e}
@@ -133,7 +133,7 @@ nav a{font-size:11px;letter-spacing:1px}
 
 @media(max-width:600px){
   .countdown{padding:28px 12px 30px;min-height:170px}
-  .leaves:before,.leaves:after{width:115px;height:145px;top:0;opacity:1;background-size:100% auto;background-position:top center}
+  .leaves:before,.leaves:after{width:115px;height:145px;top:0;opacity:1;background-size:contain;background-position:top center}
   .leaves:before{left:-2px}
   .leaves:after{right:-2px}
   .countdown > .eyebrow{padding:0 82px}

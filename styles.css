@@ -1281,3 +1281,39 @@ footer .wedding-logo{width:80px;height:80px}
     margin-left:0;
   }
 }
+
+
+/* =========================================================
+   COUNTDOWN / OUR STORY SEPARATOR
+   ========================================================= */
+.story-divider{
+  position:relative;
+  z-index:6;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:2px 20px 0;
+  margin:0;
+  background:#f7e7e9;
+  line-height:0;
+  overflow:hidden;
+}
+
+.story-divider img{
+  display:block;
+  width:min(390px,62vw);
+  max-width:100%;
+  height:auto;
+  object-fit:contain;
+}
+
+@media(max-width:600px){
+  .story-divider{
+    padding:2px 14px 0;
+  }
+
+  .story-divider img{
+    width:min(285px,72vw);
+  }
+}

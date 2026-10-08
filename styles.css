@@ -1048,3 +1048,139 @@ footer .wedding-logo{width:80px;height:80px}
 .story-tree .story-tape{z-index:8}
 .story-tree .story-vine{z-index:-1}
 .story-tree .story-heart-small{z-index:7}
+
+
+/* =========================================================
+   FINAL POLAROID LAYERING FIX
+   Only the existing leaves + flowers sit BEHIND the white
+   Polaroid. Tape, vines, outline hearts and all other artwork
+   remain on the Polaroid as before.
+   ========================================================= */
+.story-tree .story-photo-wrap{
+  position:relative;
+  width:170px;
+  height:170px;
+  overflow:visible;
+  order:2;
+  margin-left:32px;
+  transform:rotate(-1.7deg);
+  z-index:3;
+}
+
+.story-tree-card:nth-child(even) .story-photo-wrap{
+  order:1;
+  margin-left:0;
+  transform:rotate(1.8deg);
+}
+
+.story-tree-card.card-3 .story-photo-wrap{transform:rotate(1.2deg)}
+.story-tree-card.card-4 .story-photo-wrap{transform:rotate(-1.8deg)}
+.story-tree-card.card-5 .story-photo-wrap{transform:rotate(1.5deg)}
+
+/* The actual white Polaroid is now the top layer inside the wrapper. */
+.story-tree .story-photo-wrap .story-photo-frame{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  margin:0;
+  transform:none;
+  z-index:3;
+  box-sizing:border-box;
+}
+
+/* Only these two decoration types go behind the white Polaroid. */
+.story-tree .story-photo-wrap > .story-leaf,
+.story-tree .story-photo-wrap > .story-botanical{
+  z-index:1 !important;
+  position:absolute;
+  pointer-events:none;
+}
+
+/* Keep the existing visual offsets, now relative to the photo wrapper. */
+.story-tree .story-photo-wrap .story-leaf-left{
+  left:-34px;
+  bottom:-24px;
+  transform:rotate(-8deg);
+}
+.story-tree .story-photo-wrap .story-leaf-right{
+  right:-34px;
+  bottom:-24px;
+  transform:scaleX(-1) rotate(-8deg);
+}
+.story-tree .story-photo-wrap .story-botanical-flower1{
+  left:-62px;
+  bottom:-38px;
+  transform:rotate(-7deg);
+}
+.story-tree .story-photo-wrap .story-botanical-flower2{
+  right:-62px;
+  bottom:-38px;
+  transform:scaleX(-1) rotate(-7deg);
+}
+
+@media(max-width:900px){
+  .story-tree .story-photo-wrap{
+    width:145px;
+    height:145px;
+    margin-left:24px;
+  }
+  .story-tree-card:nth-child(even) .story-photo-wrap{margin-left:0}
+  .story-tree-card.card-3 .story-photo-wrap{transform:rotate(1.2deg)}
+  .story-tree-card.card-4 .story-photo-wrap{transform:rotate(-1.8deg)}
+  .story-tree-card.card-5 .story-photo-wrap{transform:rotate(1.5deg)}
+
+  .story-tree .story-photo-wrap .story-photo-frame{
+    width:100%;
+    height:100%;
+  }
+
+  .story-tree .story-photo-wrap .story-leaf-left{
+    left:-21px;
+    bottom:-8px;
+  }
+  .story-tree .story-photo-wrap .story-leaf-right{
+    right:-21px;
+    bottom:-8px;
+  }
+  .story-tree .story-photo-wrap .story-botanical-flower1{
+    left:-48px;
+    bottom:-28px;
+  }
+  .story-tree .story-photo-wrap .story-botanical-flower2{
+    right:-48px;
+    bottom:-28px;
+  }
+}
+
+@media(max-width:600px){
+  .story-tree .story-photo-wrap{
+    width:108px;
+    height:108px;
+    margin-left:12px;
+  }
+  .story-tree-card:nth-child(even) .story-photo-wrap{margin-left:0}
+
+  .story-tree .story-photo-wrap .story-photo-frame{
+    width:100%;
+    height:100%;
+    padding:5px;
+  }
+
+  .story-tree .story-photo-wrap .story-leaf-left{
+    left:-21px;
+    bottom:-8px;
+  }
+  .story-tree .story-photo-wrap .story-leaf-right{
+    right:-21px;
+    bottom:-8px;
+  }
+  .story-tree .story-photo-wrap .story-botanical-flower1{
+    left:-34px;
+    bottom:-18px;
+  }
+  .story-tree .story-photo-wrap .story-botanical-flower2{
+    right:-34px;
+    bottom:-18px;
+  }
+}

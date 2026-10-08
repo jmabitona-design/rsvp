@@ -28,6 +28,9 @@ nav a:hover{color:#938064}
 .location{text-transform:uppercase;font-size:13px;letter-spacing:2px}
 .countdown{text-align:center;padding:30px 20px;position:relative;z-index:1}
 .leaves{position:relative}
+.leaves:before,.leaves:after{content:'';position:absolute;top:0;width:250px;height:280px;background-repeat:no-repeat;background-size:contain;pointer-events:none;z-index:0}
+.leaves:before{left:0;background-image:url('assets/story/flowers/flower-border-L.png');background-position:left top}
+.leaves:after{right:0;background-image:url('assets/story/flowers/flower-border-R.png');background-position:right top}
 .countdown > *{position:relative;z-index:2}
 .timer{display:flex;justify-content:center;margin:auto;max-width:650px}
 .timer div{width:25%;border-right:1px solid #c7b69e}
@@ -1279,72 +1282,5 @@ footer .wedding-logo{width:80px;height:80px}
 
   .story-tree-card:nth-child(even) .story-photo-wrap{
     margin-left:0;
-  }
-}
-
-
-/* =========================================================
-   FINAL — OUR STORY BOTTOM BOTANICALS
-   Uses the new flower-bot-left.png and flower-bot-right.png
-   assets. They sit at the bottom corners, behind the story
-   content, large enough to stand out without overwhelming it.
-   ========================================================= */
-.story-tree{
-  position:relative;
-  overflow:hidden;
-}
-
-.story-bottom-botanical{
-  position:absolute;
-  z-index:1;
-  bottom:-2px;
-  width:300px;
-  max-width:23vw;
-  pointer-events:none;
-  user-select:none;
-  line-height:0;
-}
-
-.story-bottom-botanical img{
-  display:block;
-  width:100%;
-  height:auto;
-}
-
-.story-bottom-botanical-left{
-  left:0;
-}
-
-.story-bottom-botanical-right{
-  right:0;
-}
-
-/* Keep the timeline/cards and heading clearly above the flowers. */
-.story-tree .story-heading,
-.story-tree .story-tree-stage{
-  position:relative;
-  z-index:5;
-}
-
-@media (max-width:900px){
-  .story-bottom-botanical{
-    width:240px;
-    max-width:30vw;
-  }
-}
-
-@media (max-width:600px){
-  .story-bottom-botanical{
-    width:165px;
-    max-width:43vw;
-    bottom:-1px;
-  }
-
-  .story-bottom-botanical-left{
-    left:-4px;
-  }
-
-  .story-bottom-botanical-right{
-    right:-4px;
   }
 }

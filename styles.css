@@ -716,11 +716,7 @@ footer .wedding-logo{width:80px;height:80px}
 
 
 /* =========================================================
-   FINAL FIX — OUR STORY BOTTOM-LEFT FLOWERS
-   Constrains flowers-story-bot.png to its wrapper so the
-   transparent/large image cannot spill across the page.
-   Keeps it anchored to the lower-left corner and behind
-   the timeline/photos.
+   OUR STORY — BOTTOM CORNER FLOWERS
    ========================================================= */
 
 .story-tree{
@@ -728,14 +724,13 @@ footer .wedding-logo{width:80px;height:80px}
   overflow:hidden;
 }
 
-/* Bottom-left floral image */
-.story-bottom-flowers{
+/* Left and right floral artwork at the bottom of Our Story */
+.story-bottom-flower{
   position:absolute;
   z-index:1;
-  left:0;
   bottom:0;
-  width:360px;
-  max-width:42%;
+  width:340px;
+  max-width:30%;
   height:auto;
   margin:0;
   padding:0;
@@ -743,17 +738,15 @@ footer .wedding-logo{width:80px;height:80px}
   user-select:none;
 }
 
-/* IMPORTANT: constrain the actual PNG to the wrapper */
-.story-bottom-flowers img{
-  display:block;
-  width:100%;
-  height:auto;
-  max-width:100%;
-  margin:0;
-  padding:0;
+.story-bottom-left{
+  left:0;
 }
 
-/* Keep all story content above the flowers */
+.story-bottom-right{
+  right:0;
+}
+
+/* Keep the Story heading, timeline and photos above the flowers */
 .story-tree .story-heading,
 .story-tree .story-tree-stage{
   position:relative;
@@ -761,20 +754,24 @@ footer .wedding-logo{width:80px;height:80px}
 }
 
 @media(max-width:900px){
-  .story-bottom-flowers{
-    width:280px;
-    max-width:48%;
-    left:0;
-    bottom:0;
+  .story-bottom-flower{
+    width:270px;
+    max-width:30%;
   }
 }
 
 @media(max-width:600px){
-  .story-bottom-flowers{
-    width:210px;
-    max-width:55%;
-    left:0;
-    bottom:0;
+  .story-bottom-flower{
+    width:165px;
+    max-width:34vw;
+  }
+
+  .story-bottom-left{
+    left:-4px;
+  }
+
+  .story-bottom-right{
+    right:-4px;
   }
 }
 

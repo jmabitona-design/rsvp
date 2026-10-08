@@ -1207,3 +1207,147 @@ footer .wedding-logo{width:80px;height:80px}
     margin-top:34px !important;
   }
 }
+
+
+/* =========================================================
+   FINAL STORY COPY + MOBILE PHOTO FIT
+   Keep chapter text clear of the botanical decorations and
+   keep every Polaroid safely inside the mobile viewport.
+   ========================================================= */
+.story-tree .story-tree-card figcaption{
+  position:relative;
+  z-index:6;
+  min-width:0;
+  box-sizing:border-box;
+}
+
+/* Right-side chapters: give the copy a little breathing room
+   from the flowers/leaves peeking from the Polaroid. */
+.story-tree-card:nth-child(even) figcaption{
+  padding-left:12px;
+}
+
+@media(max-width:900px){
+  .story-tree-card:nth-child(even) figcaption{
+    padding-left:9px;
+  }
+}
+
+@media(max-width:600px){
+  /* Keep the whole card inside the viewport. */
+  .story-tree-card,
+  .story-tree-card:nth-child(even){
+    max-width:calc(100vw - 46px);
+    box-sizing:border-box;
+  }
+
+  /* Smaller text block with a clear gap from the flowers. */
+  .story-tree-card:nth-child(even) figcaption{
+    padding-left:7px;
+    overflow-wrap:break-word;
+  }
+
+  .story-tree .story-tree-card figcaption strong{
+    font-size:8.5px;
+    letter-spacing:1px;
+    line-height:1.25;
+  }
+
+  .story-tree .story-tree-card figcaption strong:before{
+    font-size:21px;
+    margin-bottom:4px;
+  }
+
+  .story-tree .story-tree-card figcaption span{
+    font-size:8px;
+    line-height:1.32;
+  }
+
+  .story-tree .story-tree-card figcaption span:nth-of-type(2){
+    margin-top:5px;
+  }
+
+  /* Keep the actual Polaroids inside the mobile card width. */
+  .story-tree .story-photo-wrap,
+  .story-tree-card:nth-child(even) .story-photo-wrap{
+    width:108px;
+    height:108px;
+    max-width:108px;
+    flex-shrink:0;
+  }
+
+  .story-tree-card:nth-child(odd) .story-photo-wrap{
+    margin-left:8px;
+  }
+
+  .story-tree-card:nth-child(even) .story-photo-wrap{
+    margin-left:0;
+  }
+}
+
+
+/* =========================================================
+   FINAL — OUR STORY BOTTOM BOTANICALS
+   Uses the new flower-bot-left.png and flower-bot-right.png
+   assets. They sit at the bottom corners, behind the story
+   content, large enough to stand out without overwhelming it.
+   ========================================================= */
+.story-tree{
+  position:relative;
+  overflow:hidden;
+}
+
+.story-bottom-botanical{
+  position:absolute;
+  z-index:1;
+  bottom:-2px;
+  width:300px;
+  max-width:23vw;
+  pointer-events:none;
+  user-select:none;
+  line-height:0;
+}
+
+.story-bottom-botanical img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+.story-bottom-botanical-left{
+  left:0;
+}
+
+.story-bottom-botanical-right{
+  right:0;
+}
+
+/* Keep the timeline/cards and heading clearly above the flowers. */
+.story-tree .story-heading,
+.story-tree .story-tree-stage{
+  position:relative;
+  z-index:5;
+}
+
+@media (max-width:900px){
+  .story-bottom-botanical{
+    width:240px;
+    max-width:30vw;
+  }
+}
+
+@media (max-width:600px){
+  .story-bottom-botanical{
+    width:165px;
+    max-width:43vw;
+    bottom:-1px;
+  }
+
+  .story-bottom-botanical-left{
+    left:-4px;
+  }
+
+  .story-bottom-botanical-right{
+    right:-4px;
+  }
+}

@@ -28,9 +28,9 @@ nav a:hover{color:#938064}
 .location{text-transform:uppercase;font-size:13px;letter-spacing:2px}
 .countdown{text-align:center;padding:30px 20px;position:relative;z-index:1}
 .leaves{position:relative}
-.leaves:before,.leaves:after{content:'';position:absolute;top:0;width:250px;height:280px;background-repeat:no-repeat;background-size:contain;pointer-events:none;z-index:0}
-.leaves:before{left:0;background-image:url('assets/story/flowers/flower-border-L.png');background-position:left top}
-.leaves:after{right:0;background-image:url('assets/story/flowers/flower-border-R.png');background-position:right top}
+.leaves:before,.leaves:after{content:'';position:absolute;top:0;width:285px;height:285px;background-repeat:no-repeat;background-size:contain;background-position:top center;pointer-events:none;z-index:0}
+.leaves:before{left:10px;background-image:url('assets/story/flowers/flower-border-L.png');background-position:left top}
+.leaves:after{right:10px;background-image:url('assets/story/flowers/flower-border-R.png');background-position:right top}
 .countdown > *{position:relative;z-index:2}
 .timer{display:flex;justify-content:center;margin:auto;max-width:650px}
 .timer div{width:25%;border-right:1px solid #c7b69e}
@@ -128,12 +128,12 @@ nav a{font-size:11px;letter-spacing:1px}
 .dress .script{font-size:48px}
 }
  @media(max-width:900px){
-  .leaves:before,.leaves:after{width:205px;height:230px}
+  .leaves:before,.leaves:after{width:205px;height:205px;background-size:100% auto;background-position:top center}
 }
 
 @media(max-width:600px){
   .countdown{padding:28px 12px 30px;min-height:170px}
-  .leaves:before,.leaves:after{width:115px;height:145px;top:0;opacity:1}
+  .leaves:before,.leaves:after{width:115px;height:145px;top:0;opacity:1;background-size:contain;background-position:top center}
   .leaves:before{left:-2px}
   .leaves:after{right:-2px}
   .countdown > .eyebrow{padding:0 82px}
@@ -716,67 +716,65 @@ footer .wedding-logo{width:80px;height:80px}
 
 
 /* =========================================================
-   FINAL FIX — OUR STORY BOTTOM-LEFT FLOWERS
-   Constrains flowers-story-bot.png to its wrapper so the
-   transparent/large image cannot spill across the page.
-   Keeps it anchored to the lower-left corner and behind
-   the timeline/photos.
+   OUR STORY — BOTTOM FLORAL BORDER
+   Bot-border.png replaces the separate bottom-left and
+   bottom-right flower images.
    ========================================================= */
-
 .story-tree{
   position:relative;
   overflow:hidden;
 }
 
-/* Bottom-left floral image */
-.story-bottom-flowers{
+/* Full floral border anchored to the very bottom of Our Story.
+   It sits behind the timeline/cards and does not cover content. */
+.story-bottom-border{
   position:absolute;
   z-index:1;
-  left:0;
+  left:50%;
   bottom:0;
-  width:360px;
-  max-width:42%;
+  width:min(1100px,92vw);
+  max-width:none;
   height:auto;
   margin:0;
   padding:0;
+  display:block;
+  transform:translateX(-50%);
   pointer-events:none;
   user-select:none;
 }
 
-/* IMPORTANT: constrain the actual PNG to the wrapper */
-.story-bottom-flowers img{
-  display:block;
-  width:100%;
-  height:auto;
-  max-width:100%;
-  margin:0;
-  padding:0;
-}
-
-/* Keep all story content above the flowers */
+/* Keep the heading and all story content above the border. */
 .story-tree .story-heading,
 .story-tree .story-tree-stage{
   position:relative;
   z-index:5;
 }
 
+/* Give the border enough breathing room below the final chapter. */
+.story-tree{
+  min-height:1600px;
+}
+
 @media(max-width:900px){
-  .story-bottom-flowers{
-    width:280px;
-    max-width:48%;
-    left:0;
-    bottom:0;
+  .story-tree{
+    min-height:1450px;
+  }
+
+  .story-bottom-border{
+    width:90vw;
   }
 }
 
 @media(max-width:600px){
-  .story-bottom-flowers{
-    width:210px;
-    max-width:55%;
-    left:0;
-    bottom:0;
+  .story-tree{
+    min-height:1300px;
+  }
+
+  .story-bottom-border{
+    width:94vw;
   }
 }
+
 
 /* FINAL POSITION FIX — move LEFT-side photos toward the center spine so the
    existing HTML vine reaches/touches the center line. Text stays in place. */
@@ -846,7 +844,7 @@ footer .wedding-logo{width:80px;height:80px}
 /* Mobile */
 @media (max-width:600px){
   .story-tree .story-heading .story-title{
-    font-size:46px;
+    font-size:42px;
     line-height:.92;
   }
 
@@ -868,7 +866,7 @@ footer .wedding-logo{width:80px;height:80px}
 }
 
 .story-tree .story-heading .story-title{
-  font-size:80px;
+  font-size:70px;
   line-height:.9;
   margin-bottom:0;
 }
@@ -947,7 +945,7 @@ footer .wedding-logo{width:80px;height:80px}
   }
 
   .story-tree .story-heading .story-title{
-    font-size:72px;
+    font-size:62px;
   }
 
   .story-tree .story-heading .story-subtitle{
@@ -980,7 +978,7 @@ footer .wedding-logo{width:80px;height:80px}
   }
 
   .story-tree .story-heading .story-title{
-    font-size:46px;
+    font-size:42px;
     line-height:.92;
   }
 
@@ -1193,18 +1191,18 @@ footer .wedding-logo{width:80px;height:80px}
 
 /* Lower the subtitle so it clears the descender of the Our Story script Y. */
 .story-tree .story-heading .story-subtitle{
-  margin-top:82px !important;
+  margin-top:70px !important;
 }
 
 @media (max-width:900px){
   .story-tree .story-heading .story-subtitle{
-    margin-top:58px !important;
+    margin-top:50px !important;
   }
 }
 
 @media (max-width:600px){
   .story-tree .story-heading .story-subtitle{
-    margin-top:34px !important;
+    margin-top:30px !important;
   }
 }
 
@@ -1287,178 +1285,260 @@ footer .wedding-logo{width:80px;height:80px}
 
 
 /* =========================================================
-   FINAL BOT-BORDER FIX — NO DISTORTION
-   The previous version stretched the PNG by assigning both
-   width and height. This version NEVER changes its aspect ratio.
-   The wrapper crops only the transparent/empty upper area.
+   COUNTDOWN / OUR STORY SEPARATOR
+   ========================================================= */
+.story-divider{
+  position:relative;
+  z-index:6;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:2px 20px 0;
+  margin:0;
+  background:#f7e7e9;
+  line-height:0;
+  overflow:hidden;
+}
+
+.story-divider img{
+  display:block;
+  width:min(390px,62vw);
+  max-width:100%;
+  height:auto;
+  object-fit:contain;
+}
+
+@media(max-width:600px){
+  .story-divider{
+    padding:2px 14px 0;
+  }
+
+  .story-divider img{
+    width:min(285px,72vw);
+  }
+}
+
+/* =========================================================
+   FINAL BOT-BORDER SIZE + FULL-WIDTH POSITION
+   - Runs edge-to-edge across the viewport.
+   - Smaller visual height so it reads as a bottom border.
+   - Remains behind all Our Story content.
+   - Extra bottom space keeps the final chapter clear.
    ========================================================= */
 
 .story-tree{
-  position:relative;
-  width:100% !important;
-  max-width:none !important;
-  overflow:hidden;
-  padding-bottom:0 !important;
+  padding-bottom:300px !important;
+  min-height:1680px !important;
 }
 
-/* Full-width wrapper, but with a controlled visible height. */
-.story-bottom-border-wrap{
-  position:relative;
-  width:100vw;
-  height:230px;
-  margin-left:calc(50% - 50vw);
-  margin-top:35px;
-  overflow:hidden;
-  z-index:1;
-  pointer-events:none;
-}
-
-/* IMPORTANT:
-   width is scaled proportionally and height is AUTO.
-   This is what prevents stretching/distortion. */
-.story-bottom-border{
-  position:absolute !important;
-  left:0 !important;
+.story-tree .story-bottom-border{
+  left:50% !important;
   right:auto !important;
   bottom:0 !important;
-  display:block !important;
-  width:100% !important;
-  height:auto !important;
+  width:100vw !important;
   max-width:none !important;
-  max-height:none !important;
+  height:250px !important;
   margin:0 !important;
   padding:0 !important;
-  transform:none !important;
-  object-fit:initial !important;
+  transform:translateX(-50%) !important;
+  object-fit:cover !important;
   object-position:center bottom !important;
+  z-index:1 !important;
+  pointer-events:none !important;
 }
 
-/* All story content stays above the floral border. */
 .story-tree .story-heading,
 .story-tree .story-tree-stage{
   position:relative;
-  z-index:5;
+  z-index:5 !important;
 }
 
-/* ---------------------------------------------------------
-   COUNTDOWN FLOWERS — FULL, UNDISTORTED, EDGE-TO-EDGE
-   --------------------------------------------------------- */
-
-.countdown.leaves{
-  position:relative;
-  min-height:335px !important;
-  padding:32px 20px 35px !important;
-  overflow:hidden;
-}
-
-.countdown.leaves:before,
-.countdown.leaves:after{
-  content:"" !important;
-  position:absolute !important;
-  top:0 !important;
-  bottom:auto !important;
-  width:310px !important;
-  height:310px !important;
-  background-repeat:no-repeat !important;
-  background-size:contain !important;
-  background-position:top left !important;
-  pointer-events:none !important;
-  z-index:0 !important;
-}
-
-.countdown.leaves:before{
-  left:0 !important;
-  right:auto !important;
-  background-image:url("assets/story/flowers/flower-border-L.png") !important;
-  background-position:left top !important;
-}
-
-.countdown.leaves:after{
-  right:0 !important;
-  left:auto !important;
-  background-image:url("assets/story/flowers/flower-border-R.png") !important;
-  background-position:right top !important;
-}
-
-/* Text remains between the two floral corners. */
-.countdown.leaves > *{
-  position:relative !important;
-  z-index:3 !important;
-}
-
-/* Desktop */
+/* Desktop: keep the border full width but visually compact. */
 @media(min-width:901px){
-  .countdown.leaves{
-    min-height:335px !important;
+  .story-tree{
+    min-height:1680px !important;
+    padding-bottom:300px !important;
   }
 
-  .countdown.leaves:before,
-  .countdown.leaves:after{
-    width:310px !important;
-    height:310px !important;
-  }
-
-  .story-bottom-border-wrap{
-    height:230px;
-    margin-top:35px;
+  .story-tree .story-bottom-border{
+    width:100vw !important;
+    height:250px !important;
   }
 }
 
 /* Tablet */
 @media(max-width:900px){
-  .countdown.leaves{
-    min-height:285px !important;
-    padding:28px 16px 30px !important;
+  .story-tree{
+    min-height:1500px !important;
+    padding-bottom:245px !important;
   }
 
-  .countdown.leaves:before,
-  .countdown.leaves:after{
-    width:235px !important;
-    height:235px !important;
-  }
-
-  .story-bottom-border-wrap{
-    height:190px;
-    margin-top:25px;
+  .story-tree .story-bottom-border{
+    width:100vw !important;
+    height:210px !important;
+    object-fit:cover !important;
+    object-position:center bottom !important;
   }
 }
 
-/* Mobile */
+/* Mobile: smaller still, full screen width, and safely below the story content. */
 @media(max-width:600px){
-  .countdown.leaves{
-    min-height:210px !important;
-    padding:26px 12px 28px !important;
+  .story-tree{
+    min-height:1360px !important;
+    padding-bottom:180px !important;
   }
 
-  .countdown.leaves:before,
-  .countdown.leaves:after{
-    width:125px !important;
+  .story-tree .story-bottom-border{
+    width:100vw !important;
     height:155px !important;
-    background-size:contain !important;
+    object-fit:cover !important;
+    object-position:center bottom !important;
+  }
+}
+
+/* =========================================================
+   FINAL VISIBILITY FIX — NO CROPPING
+   ========================================================= */
+
+/* Show the complete Bot-border artwork.
+   object-fit:fill prevents the previous cover-crop. */
+.story-tree .story-bottom-border{
+  width:100vw !important;
+  height:230px !important;
+  object-fit:fill !important;
+  object-position:center center !important;
+  left:50% !important;
+  bottom:0 !important;
+  transform:translateX(-50%) !important;
+}
+
+/* Keep the border below the final story content. */
+.story-tree{
+  padding-bottom:270px !important;
+  min-height:1650px !important;
+}
+
+/* Countdown floral corners:
+   flush to both screen edges and show the complete artwork. */
+.countdown.leaves{
+  position:relative;
+  overflow:visible !important;
+}
+
+.leaves:before,
+.leaves:after{
+  background-size:100% 100% !important;
+  background-repeat:no-repeat !important;
+  background-position:center center !important;
+}
+
+.leaves:before{
+  left:0 !important;
+  width:300px !important;
+  height:300px !important;
+}
+
+.leaves:after{
+  right:0 !important;
+  width:300px !important;
+  height:300px !important;
+}
+
+/* Give the countdown enough vertical room so the flowers are not clipped. */
+.countdown{
+  min-height:330px;
+  padding-top:30px;
+  padding-bottom:25px;
+}
+
+/* Countdown text stays above the flowers. */
+.countdown > *{
+  position:relative;
+  z-index:3 !important;
+}
+
+@media(min-width:901px){
+  .leaves:before,
+  .leaves:after{
+    width:310px !important;
+    height:310px !important;
   }
 
-  .countdown.leaves:before{
+  .countdown{
+    min-height:330px;
+  }
+
+  .story-tree .story-bottom-border{
+    height:230px !important;
+  }
+}
+
+@media(max-width:900px){
+  .countdown{
+    min-height:270px;
+  }
+
+  .leaves:before,
+  .leaves:after{
+    width:230px !important;
+    height:230px !important;
+  }
+
+  .story-tree{
+    min-height:1500px !important;
+    padding-bottom:230px !important;
+  }
+
+  .story-tree .story-bottom-border{
+    width:100vw !important;
+    height:190px !important;
+  }
+}
+
+@media(max-width:600px){
+  .countdown{
+    min-height:205px;
+    padding:25px 12px;
+  }
+
+  .leaves:before,
+  .leaves:after{
+    width:120px !important;
+    height:150px !important;
+    top:0 !important;
+    background-size:100% 100% !important;
+  }
+
+  .leaves:before{
     left:0 !important;
   }
 
-  .countdown.leaves:after{
+  .leaves:after{
     right:0 !important;
   }
 
-  .countdown.leaves > .eyebrow{
-    padding-left:78px !important;
-    padding-right:78px !important;
+  .countdown > .eyebrow{
+    padding:0 80px;
+    position:relative;
+    z-index:4 !important;
   }
 
-  .countdown.leaves > .timer{
+  .countdown > .timer{
     position:relative;
     z-index:4 !important;
     width:calc(100% - 100px);
     max-width:430px;
   }
 
-  .story-bottom-border-wrap{
-    height:145px;
-    margin-top:20px;
+  .story-tree{
+    min-height:1360px !important;
+    padding-bottom:175px !important;
+  }
+
+  .story-tree .story-bottom-border{
+    width:100vw !important;
+    height:155px !important;
+    object-fit:fill !important;
   }
 }

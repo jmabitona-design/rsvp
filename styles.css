@@ -1320,225 +1320,67 @@ footer .wedding-logo{width:80px;height:80px}
 }
 
 /* =========================================================
-   FINAL BOT-BORDER SIZE + FULL-WIDTH POSITION
-   - Runs edge-to-edge across the viewport.
-   - Smaller visual height so it reads as a bottom border.
-   - Remains behind all Our Story content.
-   - Extra bottom space keeps the final chapter clear.
+   BOT-BORDER — REPEAT NATURALLY ACROSS THE BOTTOM
+   The artwork keeps its original aspect ratio and repeats horizontally.
    ========================================================= */
-
 .story-tree{
-  padding-bottom:300px !important;
-  min-height:1680px !important;
-}
-
-.story-tree .story-bottom-border{
-  left:50% !important;
-  right:auto !important;
-  bottom:0 !important;
-  width:100vw !important;
-  max-width:none !important;
-  height:250px !important;
-  margin:0 !important;
-  padding:0 !important;
-  transform:translateX(-50%) !important;
-  object-fit:cover !important;
-  object-position:center bottom !important;
-  z-index:1 !important;
-  pointer-events:none !important;
-}
-
-.story-tree .story-heading,
-.story-tree .story-tree-stage{
   position:relative;
-  z-index:5 !important;
-}
-
-/* Desktop: keep the border full width but visually compact. */
-@media(min-width:901px){
-  .story-tree{
-    min-height:1680px !important;
-    padding-bottom:300px !important;
-  }
-
-  .story-tree .story-bottom-border{
-    width:100vw !important;
-    height:250px !important;
-  }
-}
-
-/* Tablet */
-@media(max-width:900px){
-  .story-tree{
-    min-height:1500px !important;
-    padding-bottom:245px !important;
-  }
-
-  .story-tree .story-bottom-border{
-    width:100vw !important;
-    height:210px !important;
-    object-fit:cover !important;
-    object-position:center bottom !important;
-  }
-}
-
-/* Mobile: smaller still, full screen width, and safely below the story content. */
-@media(max-width:600px){
-  .story-tree{
-    min-height:1360px !important;
-    padding-bottom:180px !important;
-  }
-
-  .story-tree .story-bottom-border{
-    width:100vw !important;
-    height:155px !important;
-    object-fit:cover !important;
-    object-position:center bottom !important;
-  }
-}
-
-/* =========================================================
-   FINAL VISIBILITY FIX — NO CROPPING
-   ========================================================= */
-
-/* Show the complete Bot-border artwork.
-   object-fit:fill prevents the previous cover-crop. */
-.story-tree .story-bottom-border{
-  width:100vw !important;
-  height:230px !important;
-  object-fit:fill !important;
-  object-position:center center !important;
-  left:50% !important;
-  bottom:0 !important;
-  transform:translateX(-50%) !important;
-}
-
-/* Keep the border below the final story content. */
-.story-tree{
+  isolation:isolate;
+  overflow:hidden;
   padding-bottom:270px !important;
   min-height:1650px !important;
 }
-
-/* Countdown floral corners:
-   flush to both screen edges and show the complete artwork. */
-.countdown.leaves{
-  position:relative;
-  overflow:visible !important;
+.story-tree .story-bottom-border{display:none !important;}
+.story-tree::after{
+  content:"";
+  position:absolute;
+  z-index:1;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:230px;
+  background-image:url("assets/story/flowers/Bot-border.png");
+  background-repeat:repeat-x;
+  background-position:left bottom;
+  background-size:auto 230px;
+  pointer-events:none;
+}
+.story-tree .story-heading,
+.story-tree .story-tree-stage{position:relative;z-index:5;}
+@media(max-width:900px){
+  .story-tree{min-height:1500px !important;padding-bottom:220px !important;}
+  .story-tree::after{height:190px;background-size:auto 190px;}
+}
+@media(max-width:600px){
+  .story-tree{min-height:1360px !important;padding-bottom:175px !important;}
+  .story-tree::after{height:155px;background-size:auto 155px;}
 }
 
-.leaves:before,
-.leaves:after{
+/* Preserve the current countdown flower placement and sizing. */
+.countdown.leaves{position:relative;overflow:visible !important;}
+.leaves:before,.leaves:after{
   background-size:100% 100% !important;
   background-repeat:no-repeat !important;
   background-position:center center !important;
 }
-
-.leaves:before{
-  left:0 !important;
-  width:300px !important;
-  height:300px !important;
-}
-
-.leaves:after{
-  right:0 !important;
-  width:300px !important;
-  height:300px !important;
-}
-
-/* Give the countdown enough vertical room so the flowers are not clipped. */
-.countdown{
-  min-height:330px;
-  padding-top:30px;
-  padding-bottom:25px;
-}
-
-/* Countdown text stays above the flowers. */
-.countdown > *{
-  position:relative;
-  z-index:3 !important;
-}
-
+.leaves:before{left:0 !important;width:300px !important;height:300px !important;}
+.leaves:after{right:0 !important;width:300px !important;height:300px !important;}
+.countdown{min-height:330px;padding-top:30px;padding-bottom:25px;}
+.countdown > *{position:relative;z-index:3 !important;}
 @media(min-width:901px){
-  .leaves:before,
-  .leaves:after{
-    width:310px !important;
-    height:310px !important;
-  }
-
-  .countdown{
-    min-height:330px;
-  }
-
-  .story-tree .story-bottom-border{
-    height:230px !important;
-  }
+  .leaves:before,.leaves:after{width:310px !important;height:310px !important;}
+  .countdown{min-height:330px;}
 }
-
 @media(max-width:900px){
-  .countdown{
-    min-height:270px;
-  }
-
-  .leaves:before,
-  .leaves:after{
-    width:230px !important;
-    height:230px !important;
-  }
-
-  .story-tree{
-    min-height:1500px !important;
-    padding-bottom:230px !important;
-  }
-
-  .story-tree .story-bottom-border{
-    width:100vw !important;
-    height:190px !important;
-  }
+  .countdown{min-height:270px;}
+  .leaves:before,.leaves:after{width:230px !important;height:230px !important;}
 }
-
 @media(max-width:600px){
-  .countdown{
-    min-height:205px;
-    padding:25px 12px;
-  }
-
-  .leaves:before,
-  .leaves:after{
-    width:120px !important;
-    height:150px !important;
-    top:0 !important;
-    background-size:100% 100% !important;
-  }
-
-  .leaves:before{
-    left:0 !important;
-  }
-
-  .leaves:after{
-    right:0 !important;
-  }
-
-  .countdown > .eyebrow{
-    padding:0 80px;
-    position:relative;
-    z-index:4 !important;
-  }
-
-  .countdown > .timer{
-    position:relative;
-    z-index:4 !important;
-    width:calc(100% - 100px);
-    max-width:430px;
-  }
-
-  .story-tree{
-    min-height:1360px !important;
-    padding-bottom:175px !important;
-  }
-
-  .story-tree .story-bottom-border{
-    width:100vw !important;
-    height:155px !important;
-    object-fit:fill !important;
-  }
+  .countdown{min-height:205px;padding:25px 12px;}
+  .leaves:before,.leaves:after{width:120px !important;height:150px !important;top:0 !important;background-size:100% 100% !important;}
+  .leaves:before{left:0 !important;}
+  .leaves:after{right:0 !important;}
+  .countdown > .eyebrow{padding:0 80px;position:relative;z-index:4 !important;}
+  .countdown > .timer{position:relative;z-index:4 !important;width:calc(100% - 100px);max-width:430px;}
 }

@@ -1448,3 +1448,72 @@ footer .wedding-logo{width:80px;height:80px}
   .story-tree .story-tape{width:49px;}
   .story-tree::after{height:135px;background-size:auto 135px;}
 }
+
+
+/* =========================================================
+   STORY PHOTOS — CLEAN PHOTO ONLY
+   Remove the Polaroid frame, tape, flowers, leaves and photo vines.
+   Keep the original photo positions and chapter/timeline layout.
+   ========================================================= */
+.story-tree .story-photo-wrap,
+.story-tree-card:nth-child(even) .story-photo-wrap,
+.story-tree-card.card-3 .story-photo-wrap,
+.story-tree-card.card-4 .story-photo-wrap,
+.story-tree-card.card-5 .story-photo-wrap {
+  position: relative !important;
+  overflow: visible !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  transform: none !important;
+}
+.story-tree .story-photo-frame,
+.story-tree-card:nth-child(even) .story-photo-frame {
+  position: relative !important;
+  inset: auto !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+  transform: none !important;
+}
+.story-tree .story-photo-image {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  object-fit: cover !important;
+  aspect-ratio: 1 / 1;
+}
+.story-tree .story-photo-wrap .story-tape,
+.story-tree .story-photo-wrap .story-leaf,
+.story-tree .story-photo-wrap .story-botanical,
+.story-tree .story-photo-wrap .story-vine,
+.story-tree .story-photo-wrap .story-heart-small,
+.story-tree .story-photo-frame::before,
+.story-tree .story-photo-frame::after {
+  display: none !important;
+  content: none !important;
+}
+@media (max-width: 600px) {
+  .story-tree .story-photo-wrap,
+  .story-tree-card:nth-child(even) .story-photo-wrap {
+    width: 120px !important;
+    height: 120px !important;
+    max-width: 120px !important;
+    flex-shrink: 0 !important;
+    margin-top: 0 !important;
+  }
+}

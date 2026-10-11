@@ -17,6 +17,17 @@ setInterval(()=>{
   if(document.hidden||reducedMotion.matches||galleryHovered||gallery.contains(document.activeElement)||dialog.open)return;
   showSlide(slide+1);
 },5000);
+
+// Invitation reader: display the first page on the site and open all five pages in a scrollable dialog.
+const invitationDialog=document.getElementById('invitation-dialog');
+const invitationOpen=document.getElementById('open-invitation');
+const invitationClose=document.getElementById('close-invitation');
+if(invitationDialog&&invitationOpen&&invitationClose){
+  invitationOpen.addEventListener('click',()=>invitationDialog.showModal());
+  invitationClose.addEventListener('click',()=>invitationDialog.close());
+  invitationDialog.addEventListener('click',event=>{if(event.target===invitationDialog)invitationDialog.close();});
+}
+
 document.getElementById('calendar-download').addEventListener('click',()=>{
   const event=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Joshua and Lea//Wedding Invitation//EN','CALSCALE:GREGORIAN','BEGIN:VEVENT','UID:joshua-lea-20270220@invitation.local','DTSTAMP:20261005T000000Z','DTSTART;VALUE=DATE:20270220','DTEND;VALUE=DATE:20270221','SUMMARY:Joshua and Lea Wedding','LOCATION:Montvida Garden and Events Place\\, Tagaytay City','DESCRIPTION:Wedding celebration of Joshua Abitona and Lea Hernandez. Schedule details to follow.','END:VEVENT','END:VCALENDAR'].join('\r\n');
   const blob=new Blob([event],{type:'text/calendar;charset=utf-8'});const link=document.createElement('a');link.href=URL.createObjectURL(blob);link.download='joshua-and-lea-wedding.ics';link.click();setTimeout(()=>URL.revokeObjectURL(link.href),1000);

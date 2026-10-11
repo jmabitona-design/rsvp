@@ -1540,3 +1540,13 @@ footer .wedding-logo{width:80px;height:80px}
 .invitation-pages img{display:block;width:100%;height:auto}
 .invitation-pages .invitation-missing{min-height:560px;font-size:44px}
 @media(max-width:600px){.invitation{padding:48px 18px 56px}.invitation-intro{margin-bottom:22px}.invitation-preview{width:min(100%,300px);padding:8px}.invitation-preview img{max-height:405px}.invitation-preview-label{right:13px;bottom:13px;font-size:10px}.invitation-dialog{width:calc(100vw - 16px);height:94vh}.invitation-pages{padding:12px}.invitation-pages figure{padding:6px;margin-bottom:12px}.invitation-pages .invitation-missing{min-height:440px;font-size:38px}}
+
+
+/* Invitation reader: horizontal pages with tap-to-zoom */
+.invitation-pages{display:flex;align-items:flex-start;gap:18px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-x:contain}
+.invitation-pages figure{flex:0 0 min(86%,560px);margin:0;scroll-snap-align:center}
+.invitation-pages figure button{display:block;width:100%;margin:0;padding:0;border:0;background:transparent;cursor:zoom-in}
+.invitation-pages figure button:focus-visible{outline:2px solid #555c40;outline-offset:5px}
+.invitation-pages figure img{transition:transform .2s ease}
+.invitation-pages figure button:hover img{transform:scale(1.015)}
+@media(max-width:600px){.invitation-pages{gap:12px}.invitation-pages figure{flex-basis:88%}}

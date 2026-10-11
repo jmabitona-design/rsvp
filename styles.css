@@ -1550,3 +1550,13 @@ footer .wedding-logo{width:80px;height:80px}
 .invitation-pages figure img{transition:transform .2s ease}
 .invitation-pages figure button:hover img{transform:scale(1.015)}
 @media(max-width:600px){.invitation-pages{gap:12px}.invitation-pages figure{flex-basis:88%}}
+
+
+/* Invitation pages shown directly on the page */
+.invitation{padding:68px 24px 74px}
+.invitation-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:1180px;margin:0 auto;align-items:start}
+.invitation-gallery button{display:block;width:100%;padding:8px;border:1px solid #e1d7c8;background:#fffdf8;box-shadow:0 5px 15px #3c2e1e1c;cursor:zoom-in;transition:transform .2s ease,box-shadow .2s ease}
+.invitation-gallery button:hover,.invitation-gallery button:focus-visible{transform:translateY(-5px);box-shadow:0 12px 22px #3c2e1e2e}
+.invitation-gallery button:focus-visible{outline:2px solid #555c40;outline-offset:4px}
+.invitation-gallery img{display:block;width:100%;height:auto}
+@media(max-width:760px){.invitation-gallery{display:flex;gap:13px;overflow-x:auto;padding:4px 4px 14px;scroll-snap-type:x mandatory;overscroll-behavior-x:contain}.invitation-gallery button{flex:0 0 min(72vw,285px);scroll-snap-align:center}.invitation-gallery::-webkit-scrollbar{height:7px}.invitation-gallery::-webkit-scrollbar-thumb{background:#cbbda6;border-radius:6px}}

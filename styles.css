@@ -1569,7 +1569,7 @@ footer .wedding-logo{width:80px;height:80px}
    ========================================================= */
 .countdown-story{
   --countdown-story-background:#f7e7e9;
-  --countdown-panel-padding:30px 20px;
+  --countdown-panel-padding:24px 20px 8px;
   --countdown-story-divider-width:390px;
   --countdown-story-divider-padding-top:2px;
   --countdown-story-divider-padding-bottom:0px;
@@ -1578,6 +1578,8 @@ footer .wedding-logo{width:80px;height:80px}
 }
 
 .countdown-story > .countdown{
+  min-height:0 !important;
+  height:auto;
   padding:var(--countdown-panel-padding);
   background:var(--countdown-story-background);
 }
@@ -1599,7 +1601,7 @@ footer .wedding-logo{width:80px;height:80px}
 
 @media(max-width:600px){
   .countdown-story{
-    --countdown-panel-padding:25px 12px;
+    --countdown-panel-padding:25px 12px 8px;
     --countdown-story-divider-width:285px;
     --countdown-story-divider-padding-top:2px;
     --countdown-story-divider-padding-bottom:0px;
@@ -1609,5 +1611,221 @@ footer .wedding-logo{width:80px;height:80px}
   .countdown-story > .story-divider{
     padding-left:14px;
     padding-right:14px;
+  }
+}
+
+/* =========================================================
+   FULL-BLEED WEDDING BANNER — JOSHUA & LEA
+   Fonts are loaded from assets/story/Font/
+   ========================================================= */
+@font-face{
+  font-family:HeroCormorant;
+  src:url("assets/story/Font/CormorantGaramond-VariableFont_wght.ttf") format("truetype");
+  font-style:normal;
+  font-weight:300 700;
+  font-display:swap;
+}
+@font-face{
+  font-family:HeroCormorant;
+  src:url("assets/story/Font/CormorantGaramond-Italic-VariableFont_wght.ttf") format("truetype");
+  font-style:italic;
+  font-weight:300 700;
+  font-display:swap;
+}
+@font-face{
+  font-family:HeroMontserrat;
+  src:url("assets/story/Font/Montserrat-VariableFont_wght.ttf") format("truetype");
+  font-style:normal;
+  font-weight:100 900;
+  font-display:swap;
+}
+@font-face{
+  font-family:HeroMontserrat;
+  src:url("assets/story/Font/Montserrat-Italic-VariableFont_wght.ttf") format("truetype");
+  font-style:italic;
+  font-weight:100 900;
+  font-display:swap;
+}
+
+/* Desktop: photograph fills the entire banner, edge to edge. */
+.hero{
+  position:relative;
+  isolation:isolate;
+  width:100%;
+  height:clamp(680px,56.25vw,940px);
+  min-height:680px;
+  margin:0;
+  overflow:hidden;
+  background:#172015;
+}
+.hero-photo{
+  position:absolute;
+  z-index:-2;
+  inset:0;
+  width:100%;
+  height:100%;
+  background-image:url("assets/banner.jpg");
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+}
+.hero-photo:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,
+      rgba(8,13,8,.76) 0%,
+      rgba(8,13,8,.58) 27%,
+      rgba(8,13,8,.24) 47%,
+      rgba(8,13,8,0) 68%),
+    linear-gradient(0deg,rgba(8,13,8,.16),transparent 32%);
+}
+.hero-copy{
+  position:absolute;
+  top:50%;
+  left:5.5%;
+  width:43%;
+  max-width:760px;
+  padding:24px 0;
+  transform:translateY(-50%);
+  text-align:center;
+  color:#F7F0DF;
+}
+.hero .eyebrow{
+  margin:0 0 25px;
+  color:#F7F0DF;
+  font-family:HeroMontserrat,Montserrat,sans-serif;
+  font-size:clamp(16px,1.2vw,20px);
+  font-weight:300;
+  line-height:1.4;
+  letter-spacing:.38em;
+  text-transform:uppercase;
+}
+.hero h1{
+  margin:0 0 26px;
+  color:#F7F0DF;
+  font-family:HeroCormorant,Georgia,serif;
+  font-size:clamp(100px,7.2vw,120px);
+  font-weight:300;
+  line-height:.78;
+  letter-spacing:.025em;
+  text-transform:uppercase;
+}
+.hero h1 .and{
+  display:block;
+  width:100%;
+  margin:13px auto 14px;
+  color:#D7C9A7;
+  font-family:HeroCormorant,Georgia,serif;
+  font-size:clamp(38px,2.8vw,46px);
+  font-style:italic;
+  font-weight:400;
+  line-height:1;
+  letter-spacing:0;
+  text-transform:none;
+}
+.hero .date{
+  margin:0 0 14px;
+  color:#F7F0DF;
+  font-family:HeroCormorant,Georgia,serif;
+  font-size:clamp(23px,1.7vw,28px);
+  font-weight:500;
+  line-height:1.3;
+  letter-spacing:.19em;
+  text-transform:uppercase;
+}
+.hero .location{
+  margin:0;
+  padding:0 8px;
+  color:#E8DDC8;
+  font-family:HeroMontserrat,Montserrat,sans-serif;
+  font-size:clamp(11px,.85vw,14px);
+  font-weight:400;
+  line-height:1.8;
+  letter-spacing:.19em;
+  text-transform:uppercase;
+}
+
+/* Laptop and tablet: keep the copy legible without losing the full photo. */
+@media(max-width:900px){
+  .hero{
+    height:clamp(650px,78vw,820px);
+    min-height:650px;
+  }
+  .hero-copy{
+    left:3.5%;
+    width:48%;
+  }
+  .hero h1{
+    font-size:clamp(82px,10vw,105px);
+  }
+  .hero .eyebrow{
+    font-size:15px;
+    letter-spacing:.3em;
+  }
+  .hero .date{
+    font-size:23px;
+    letter-spacing:.13em;
+  }
+  .hero .location{
+    font-size:11px;
+    letter-spacing:.1em;
+  }
+}
+
+/* Mobile: retain the full-bleed photograph with the text over a shaded left/lower area. */
+@media(max-width:600px){
+  .hero{
+    height: min(790px, 100svh);
+    min-height:650px;
+  }
+  .hero-photo{
+    background-position:58% center;
+  }
+  .hero-photo:after{
+    background:
+      linear-gradient(90deg,
+        rgba(8,13,8,.68) 0%,
+        rgba(8,13,8,.48) 42%,
+        rgba(8,13,8,.12) 78%,
+        rgba(8,13,8,.05) 100%),
+      linear-gradient(0deg,rgba(8,13,8,.28),transparent 48%);
+  }
+  .hero-copy{
+    top:50%;
+    bottom:auto;
+    left:3%;
+    width:58%;
+    max-width:none;
+    padding:18px 0;
+    transform:translateY(-50%);
+  }
+  .hero .eyebrow{
+    margin-bottom:20px;
+    font-size:11px;
+    letter-spacing:.23em;
+  }
+  .hero h1{
+    margin-bottom:21px;
+    font-size:clamp(58px,13vw,82px);
+    line-height:.82;
+    letter-spacing:.015em;
+  }
+  .hero h1 .and{
+    margin:10px auto;
+    font-size:clamp(30px,7vw,40px);
+  }
+  .hero .date{
+    margin-bottom:10px;
+    font-size:clamp(17px,4.3vw,22px);
+    line-height:1.25;
+    letter-spacing:.09em;
+  }
+  .hero .location{
+    padding:0 3px;
+    font-size:9px;
+    line-height:1.8;
+    letter-spacing:.07em;
   }
 }

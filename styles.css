@@ -1768,3 +1768,101 @@ footer .wedding-logo{width:80px;height:80px}
   }
   .countdown-story > .story-divider { padding-left: 12px !important; padding-right: 12px !important; }
 }
+
+/* FIX: Center countdown and floral divider on desktop */
+.countdown-story {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden;
+  background: #f7e7e9 !important;
+}
+
+.countdown-story > .countdown {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 28px 20px 12px !important;
+  text-align: center !important;
+}
+
+.countdown-story > .countdown > .eyebrow {
+  width: 100% !important;
+  margin: 0 auto 18px !important;
+  padding: 0 10px !important;
+  text-align: center !important;
+}
+
+.countdown-story > .countdown > .timer {
+  display: flex !important;
+  width: min(650px, 100%) !important;
+  max-width: 650px !important;
+  margin: 0 auto !important;
+  justify-content: center !important;
+}
+
+.countdown-story > .countdown > .timer > div {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  width: auto !important;
+  text-align: center !important;
+}
+
+.countdown-story > .story-divider {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding: 8px 16px 0 !important;
+  text-align: center !important;
+  line-height: 0 !important;
+  background: #f7e7e9 !important;
+}
+
+.countdown-story > .story-divider img {
+  display: block !important;
+  width: min(390px, 85%) !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin: 0 auto !important;
+  object-fit: contain !important;
+}
+
+/* Keep the corner flowers behind the countdown content */
+.countdown-story .countdown.leaves::before,
+.countdown-story .countdown.leaves::after {
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+
+.countdown-story .countdown.leaves > .eyebrow,
+.countdown-story .countdown.leaves > .timer {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+@media (max-width: 600px) {
+  .countdown-story > .countdown {
+    padding: 24px 10px 10px !important;
+  }
+
+  .countdown-story > .countdown > .timer {
+    width: 100% !important;
+  }
+
+  .countdown-story > .countdown > .timer strong {
+    font-size: clamp(25px, 8vw, 36px) !important;
+  }
+
+  .countdown-story > .countdown > .timer span {
+    font-size: 9px !important;
+    letter-spacing: 1px !important;
+  }
+
+  .countdown-story > .story-divider img {
+    width: min(285px, 82%) !important;
+  }
+}
+

@@ -1561,3 +1561,53 @@ footer .wedding-logo{width:80px;height:80px}
 .invitation-gallery img{display:block;width:100%;height:auto}
 @media(max-width:760px){.invitation-gallery{display:flex;gap:13px;overflow-x:auto;padding:4px 4px 14px;scroll-snap-type:x mandatory;overscroll-behavior-x:contain}.invitation-gallery button{flex:0 0 min(72vw,285px);scroll-snap-align:center}.invitation-gallery::-webkit-scrollbar{height:7px}.invitation-gallery::-webkit-scrollbar-thumb{background:#cbbda6;border-radius:6px}}
 @media(max-width:760px){.invitation-gallery{display:flex;gap:13px;overflow-x:auto;padding:4px 4px 14px;scroll-snap-type:x mandatory;overscroll-behavior-x:contain}.invitation-gallery button{flex:0 0 min(72vw,285px);scroll-snap-align:center}.invitation-gallery::-webkit-scrollbar{height:7px}.invitation-gallery::-webkit-scrollbar-thumb{background:#cbbda6;border-radius:6px}}
+
+
+/* =========================================================
+   COMBINED COUNTDOWN + OUR STORY SECTION
+   Adjust these variables to control the shared section layout.
+   ========================================================= */
+.countdown-story{
+  --countdown-story-background:#f7e7e9;
+  --countdown-panel-padding:30px 20px;
+  --countdown-story-divider-width:390px;
+  --countdown-story-divider-padding-top:2px;
+  --countdown-story-divider-padding-bottom:0px;
+  --countdown-story-title-top:48px;
+  background:var(--countdown-story-background);
+}
+
+.countdown-story > .countdown{
+  padding:var(--countdown-panel-padding);
+  background:var(--countdown-story-background);
+}
+
+.countdown-story > .story-divider{
+  padding:var(--countdown-story-divider-padding-top) 20px var(--countdown-story-divider-padding-bottom);
+  margin:0;
+  background:var(--countdown-story-background);
+}
+
+.countdown-story > .story-divider img{
+  width:min(var(--countdown-story-divider-width),62vw);
+}
+
+.countdown-story > .story-tree{
+  margin-top:0;
+  padding-top:var(--countdown-story-title-top) !important;
+}
+
+@media(max-width:600px){
+  .countdown-story{
+    --countdown-panel-padding:25px 12px;
+    --countdown-story-divider-width:285px;
+    --countdown-story-divider-padding-top:2px;
+    --countdown-story-divider-padding-bottom:0px;
+    --countdown-story-title-top:34px;
+  }
+
+  .countdown-story > .story-divider{
+    padding-left:14px;
+    padding-right:14px;
+  }
+}
